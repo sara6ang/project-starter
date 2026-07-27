@@ -28,6 +28,9 @@ Tongss/
 │   ├── 04_INITIAL_IDEAS.md
 │   └── GLOSSARY.md
 │
+├── examples/                      # 🟢 기준 매장(Reference Store) — PM 오너 — App/Org/Demo 공통 예시
+│   └── MASHITA_BURGER.md          # 업종이 다른 매장이 필요해지면 여기에 파일 추가 (예: HAPPY_CAFE.md)
+│
 ├── TongssApp/                     # 🟠 Store PO(아론) 오너 — 사장/직원용
 │   ├── CLAUDE.md
 │   ├── docs/
@@ -71,6 +74,7 @@ Tongss/
 |---|---|---|
 | `docs/` | Sara (PM) | 왜·누구를 위해·무엇을·언제 — 전 트랙 공통 |
 | `archive/` | Sara (PM) | 개발과 무관한 조사 자료 |
+| `examples/` | Sara (PM) | 기준 매장(Reference Store) — App/Org/Demo가 공통으로 참조하는 예시 데이터 |
 | `TongssApp/` | 아론 (Store PO) | 사장·직원용 제품 코드 + 문서 |
 | `TongssOrg/` | 은영 (Org PO) | 토스플레이스용 Salesforce 코드 + 문서 |
 | `integration-lead/` | 승우 | TongssApp·TongssOrg 연동 자체에 대한 문서 (별도 코드베이스 없음) |

@@ -21,6 +21,7 @@ Tongss/
 ├── CLAUDE.md              # 이 파일
 ├── docs/                  # 공유 — PM 오너 — "무엇을, 왜" (스택 무관)
 ├── archive/               # 참고 조사 자료 — 개발에 필요 없음
+├── examples/              # 기준 매장(Reference Store) — App/Org/Demo 공통 예시 데이터
 ├── TongssApp/             # Store PO 오너 — 사장/직원용 (React 또는 HTML/CSS/JS)
 │   ├── CLAUDE.md
 │   └── docs/
