@@ -1,0 +1,88 @@
+/* design-system/assets/css/showcase.css
+   카탈로그 자체의 레이아웃 전용 (사이드바 + 2단 레이아웃)
+   → 재사용 가능한 앱 컴포넌트 스타일(components.css)과는 절대 섞지 않습니다.
+   색상/글자/간격/모서리/그림자/트랜지션은 전부 assets/css/tokens.css 변수만 사용합니다. */
+
+/* ==================== Layout (Sidebar + Content) ==================== */
+.ds-layout {
+  display: flex;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.ds-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ==================== Sidebar ==================== */
+aside{
+  position: sticky;
+  top: 0;
+}
+
+.ds-nav {
+  flex-shrink: 0;
+  width: 240px;
+  height: 100vh;  
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border-right: var(--border-normal);
+  padding: var(--space-24) var(--space-16);
+}
+
+.ds-nav__home {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
+  color: var(--color-black);
+  text-decoration: none;
+  padding-bottom: var(--space-16);
+  margin-bottom: var(--space-16);
+  border-bottom: var(--border-thin);
+}
+
+.ds-nav__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-24);
+}
+.ds-nav__group:last-child { margin-bottom: 0; }
+
+.ds-nav__label {
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--gray-500);
+  margin: 0 0 var(--space-8);
+  padding: 0 var(--space-12);
+}
+
+.ds-nav a {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  color: var(--gray-700);
+  text-decoration: none;
+  padding: var(--space-8) var(--space-12);
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+.ds-nav a:hover { background: var(--gray-100); }
+.ds-nav a.is-active {
+  background: var(--surface-soft);
+  color: var(--color-primary);
+  font-weight: var(--fw-600);
+}
+
+@media (max-width: 768px) {
+  .ds-layout { flex-direction: column; }
+  .ds-nav { width: 100%; height: auto; position: relative; border-right: none; border-bottom: var(--border-normal); }
+}

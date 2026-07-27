@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Select</h1>
+    <p class="cs-header__desc">여러 옵션 중 하나를 고를 때 사용합니다. 네이티브 select에 Lucide chevron-down 아이콘을 올려 스타일만 통일했습니다.</p>
+  </div>
+
+  <!-- ============ 기본 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">기본</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <div class="select-wrapper">
+          <select class="select">
+            <option>옵션 1</option>
+            <option>옵션 2</option>
+            <option>옵션 3</option>
+          </select>
+          <span class="select-wrapper__icon"><i data-lucide="chevron-down"></i></span>
+        </div>
+      </div>
+      <code class="cs-code">.select-wrapper > .select + .select-wrapper__icon</code>
+    </div>
+  </section>
+
+  <!-- ============ State ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">State</h2>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Error</div>
+      <div class="cs-row cs-row--column">
+        <div class="select-wrapper">
+          <select class="select is-error">
+            <option>선택해주세요</option>
+          </select>
+          <span class="select-wrapper__icon"><i data-lucide="chevron-down"></i></span>
+        </div>
+        <span class="input-help is-error">항목을 선택해주세요.</span>
+      </div>
+      <code class="cs-code">.select.is-error</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Disabled</div>
+      <div class="cs-row">
+        <div class="select-wrapper">
+          <select class="select" disabled>
+            <option>변경할 수 없음</option>
+          </select>
+          <span class="select-wrapper__icon"><i data-lucide="chevron-down"></i></span>
+        </div>
+      </div>
+      <code class="cs-code">.select[disabled]</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Table</h1>
+    <p class="cs-header__desc">여러 항목을 행/열로 비교해야 할 때 사용합니다. (사용자 목록, 주문 내역 등) 행에 마우스를 올리면 배경이 바뀌고, 정렬 가능한 열에는 화살표 아이콘이 붙습니다.</p>
+  </div>
+
+  <!-- ============ 기본 (hover 효과 확인) ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">기본 — 행에 마우스를 올려보세요</h2>
+    <div class="cs-block">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><span class="table__sort">이름<i data-lucide="chevron-down"></i></span></th>
+            <th><span class="table__sort">이메일<i data-lucide="chevron-down"></i></span></th>
+            <th>상태</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>김철수</td>
+            <td>kim@example.com</td>
+            <td><span class="badge badge--success">활성</span></td>
+            <td><button class="icon-btn icon-btn--ghost icon-btn--sm" aria-label="더보기"><i data-lucide="more-horizontal"></i></button></td>
+          </tr>
+          <tr>
+            <td>이영희</td>
+            <td>lee@example.com</td>
+            <td><span class="badge badge--error">비활성</span></td>
+            <td><button class="icon-btn icon-btn--ghost icon-btn--sm" aria-label="더보기"><i data-lucide="more-horizontal"></i></button></td>
+          </tr>
+          <tr>
+            <td>박민수</td>
+            <td>park@example.com</td>
+            <td><span class="badge badge--warning">대기중</span></td>
+            <td><button class="icon-btn icon-btn--ghost icon-btn--sm" aria-label="더보기"><i data-lucide="more-horizontal"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+      <code class="cs-code">.table thead .table__sort</code>
+      <code class="cs-code">.table tbody tr:hover</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

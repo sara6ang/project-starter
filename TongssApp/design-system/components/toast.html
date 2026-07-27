@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toast · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Toast</h1>
+    <p class="cs-header__desc">사용자의 행동에 대한 결과(저장됨, 실패함 등)를 잠깐 알려줄 때 사용합니다. 화면 우측 하단에 나타났다가 3초 후 자동으로 사라집니다.</p>
+  </div>
+
+  <!-- ============ 데모 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">데모 (버튼을 눌러보세요)</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <button class="btn btn--primary btn--md" onclick="showToast('success', 'check-circle', '변경사항이 저장되었습니다.')">Success 토스트</button>
+        <button class="btn btn--danger btn--md" onclick="showToast('error', 'x-circle', '저장에 실패했습니다. 다시 시도해주세요.')">Error 토스트</button>
+        <button class="btn btn--ghost btn--md" onclick="showToast('info', 'info', '새 업데이트가 있습니다.')">Info 토스트</button>
+      </div>
+      <code class="cs-code">.toast.toast--success</code>
+      <code class="cs-code">.toast.toast--error</code>
+      <code class="cs-code">.toast.toast--info</code>
+    </div>
+  </section>
+
+  <!-- ============ 정적 미리보기 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">정적 미리보기</h2>
+    <div class="cs-block">
+      <div class="cs-row cs-row--column" style="max-width: 360px">
+        <div class="toast toast--success">
+          <span class="toast__icon"><i data-lucide="check-circle"></i></span>
+          <span class="toast__message">변경사항이 저장되었습니다.</span>
+          <button class="toast__close" aria-label="닫기"><i data-lucide="x"></i></button>
+        </div>
+        <div class="toast toast--error">
+          <span class="toast__icon"><i data-lucide="x-circle"></i></span>
+          <span class="toast__message">저장에 실패했습니다. 다시 시도해주세요.</span>
+          <button class="toast__close" aria-label="닫기"><i data-lucide="x"></i></button>
+        </div>
+        <div class="toast toast--info">
+          <span class="toast__icon"><i data-lucide="info"></i></span>
+          <span class="toast__message">새 업데이트가 있습니다.</span>
+          <button class="toast__close" aria-label="닫기"><i data-lucide="x"></i></button>
+        </div>
+      </div>
+      <code class="cs-code">.toast > .toast__icon + .toast__message + .toast__close</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+<div class="toast-container" id="toast-container"></div>
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  function showToast(variant, icon, message) {
+    var container = document.getElementById('toast-container');
+    var toast = document.createElement('div');
+    toast.className = 'toast toast--' + variant;
+    toast.innerHTML =
+      '<span class="toast__icon"><i data-lucide="' + icon + '"></i></span>' +
+      '<span class="toast__message"></span>' +
+      '<button class="toast__close" aria-label="닫기"><i data-lucide="x"></i></button>';
+    toast.querySelector('.toast__message').textContent = message;
+    container.appendChild(toast);
+    lucide.createIcons();
+
+    var timer = setTimeout(function () { removeToast(toast); }, 3000);
+    toast.querySelector('.toast__close').addEventListener('click', function () {
+      clearTimeout(timer);
+      removeToast(toast);
+    });
+  }
+
+  function removeToast(toast) {
+    toast.style.transition = 'opacity var(--transition-normal)';
+    toast.style.opacity = '0';
+    setTimeout(function () { toast.remove(); }, 250);
+  }
+
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

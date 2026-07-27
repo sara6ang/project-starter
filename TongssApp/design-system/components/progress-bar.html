@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progress Bar · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Progress Bar</h1>
+    <p class="cs-header__desc">진행률이 명확한 작업(업로드, 온보딩 단계, 목표 달성률 등)에 사용합니다. Loader와 달리 얼마나 남았는지를 함께 보여줍니다.</p>
+  </div>
+
+  <!-- ============ 기본 + 퍼센트 표시 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">기본</h2>
+    <div class="cs-block">
+      <div class="cs-row cs-row--column" style="max-width: 360px">
+        <div class="progress">
+          <div class="progress__label"><span>업로드 중</span><span>42%</span></div>
+          <div class="progress__track"><div class="progress__fill" style="width: 42%"></div></div>
+        </div>
+      </div>
+      <code class="cs-code">.progress > .progress__label + .progress__track > .progress__fill</code>
+    </div>
+  </section>
+
+  <!-- ============ Color Variant ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Color Variant</h2>
+    <div class="cs-block">
+      <div class="cs-row cs-row--column" style="max-width: 360px">
+        <div class="progress">
+          <div class="progress__label"><span>기본</span><span>60%</span></div>
+          <div class="progress__track"><div class="progress__fill" style="width: 60%"></div></div>
+        </div>
+        <div class="progress">
+          <div class="progress__label"><span>완료</span><span>100%</span></div>
+          <div class="progress__track"><div class="progress__fill progress__fill--success" style="width: 100%"></div></div>
+        </div>
+        <div class="progress">
+          <div class="progress__label"><span>용량 부족 임박</span><span>85%</span></div>
+          <div class="progress__track"><div class="progress__fill progress__fill--warning" style="width: 85%"></div></div>
+        </div>
+        <div class="progress">
+          <div class="progress__label"><span>업로드 실패</span><span>30%</span></div>
+          <div class="progress__track"><div class="progress__fill progress__fill--error" style="width: 30%"></div></div>
+        </div>
+        <div class="progress">
+          <div class="progress__label"><span>처리 중</span><span>50%</span></div>
+          <div class="progress__track"><div class="progress__fill progress__fill--info" style="width: 50%"></div></div>
+        </div>
+      </div>
+      <code class="cs-code">.progress__fill--success</code>
+      <code class="cs-code">.progress__fill--warning</code>
+      <code class="cs-code">.progress__fill--error</code>
+      <code class="cs-code">.progress__fill--info</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

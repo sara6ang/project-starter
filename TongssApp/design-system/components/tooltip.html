@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tooltip · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Tooltip</h1>
+    <p class="cs-header__desc">아이콘 버튼처럼 텍스트 라벨이 없는 요소나, 짧은 보충 설명이 필요한 곳에 사용합니다. 마우스를 올리거나(키보드는 포커스) 때 나타납니다.</p>
+  </div>
+
+  <!-- ============ Position ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Position — 마우스를 올려보세요</h2>
+    <div class="cs-block">
+      <div class="cs-row" style="justify-content: center; padding: var(--space-32) 0">
+        <span class="tooltip">
+          <button class="icon-btn icon-btn--ghost icon-btn--md" aria-label="위쪽 툴팁"><i data-lucide="arrow-up"></i></button>
+          <span class="tooltip__content tooltip__content--top">위쪽 설명</span>
+        </span>
+        <span class="tooltip">
+          <button class="icon-btn icon-btn--ghost icon-btn--md" aria-label="아래쪽 툴팁"><i data-lucide="arrow-down"></i></button>
+          <span class="tooltip__content tooltip__content--bottom">아래쪽 설명</span>
+        </span>
+        <span class="tooltip">
+          <button class="icon-btn icon-btn--ghost icon-btn--md" aria-label="왼쪽 툴팁"><i data-lucide="arrow-left"></i></button>
+          <span class="tooltip__content tooltip__content--left">왼쪽 설명</span>
+        </span>
+        <span class="tooltip">
+          <button class="icon-btn icon-btn--ghost icon-btn--md" aria-label="오른쪽 툴팁"><i data-lucide="arrow-right"></i></button>
+          <span class="tooltip__content tooltip__content--right">오른쪽 설명</span>
+        </span>
+      </div>
+      <code class="cs-code">.tooltip > .tooltip__content--top</code>
+      <code class="cs-code">.tooltip__content--bottom</code>
+      <code class="cs-code">.tooltip__content--left</code>
+      <code class="cs-code">.tooltip__content--right</code>
+    </div>
+  </section>
+
+  <!-- ============ 사용 예 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">사용 예 — 텍스트에 붙이기</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <span class="tooltip">
+          <span style="border-bottom: 1px dashed var(--gray-500); cursor: help; font-size: var(--fs-14); color: var(--gray-700)">활성 사용자란?</span>
+          <span class="tooltip__content tooltip__content--top">최근 30일 이내 로그인한 사용자입니다.</span>
+        </span>
+      </div>
+      <code class="cs-code">.tooltip</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

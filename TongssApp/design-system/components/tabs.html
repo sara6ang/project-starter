@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabs · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Tabs</h1>
+    <p class="cs-header__desc">같은 화면 안에서 서로 다른 카테고리의 콘텐츠를 전환할 때 사용합니다. (예: 프로필 / 보안 / 알림 설정)</p>
+  </div>
+
+  <!-- ============ 데모 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">데모 — 탭을 클릭해보세요</h2>
+    <div class="cs-block">
+      <div class="tabs" data-tabs>
+        <div class="tabs__list" role="tablist">
+          <button class="tabs__tab is-active" data-tab-target="profile" role="tab"><i data-lucide="user"></i>프로필</button>
+          <button class="tabs__tab" data-tab-target="security" role="tab"><i data-lucide="shield"></i>보안</button>
+          <button class="tabs__tab" data-tab-target="notification" role="tab"><i data-lucide="bell"></i>알림</button>
+        </div>
+        <div class="tabs__panels">
+          <div class="tabs__panel is-active" data-tab-panel="profile">이름, 프로필 사진 등 기본 정보를 관리합니다.</div>
+          <div class="tabs__panel" data-tab-panel="security">비밀번호와 2단계 인증을 설정합니다.</div>
+          <div class="tabs__panel" data-tab-panel="notification">이메일과 푸시 알림 수신 여부를 설정합니다.</div>
+        </div>
+      </div>
+      <code class="cs-code">.tabs__tab.is-active</code>
+      <code class="cs-code">.tabs__panel.is-active</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.querySelectorAll('[data-tabs]').forEach(function (tabs) {
+    tabs.querySelectorAll('[data-tab-target]').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var target = tab.getAttribute('data-tab-target');
+
+        tabs.querySelectorAll('[data-tab-target]').forEach(function (t) {
+          t.classList.toggle('is-active', t === tab);
+        });
+        tabs.querySelectorAll('[data-tab-panel]').forEach(function (panel) {
+          panel.classList.toggle('is-active', panel.getAttribute('data-tab-panel') === target);
+        });
+      });
+    });
+  });
+
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

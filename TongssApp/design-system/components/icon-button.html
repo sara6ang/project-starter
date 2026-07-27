@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Icon Button · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Icon Button</h1>
+    <p class="cs-header__desc">텍스트 없이 아이콘 하나만으로 의미가 분명한 액션(닫기, 더보기, 즐겨찾기 등)에 사용합니다. Button과 톤은 동일하지만 정사각형입니다.</p>
+  </div>
+
+  <!-- ============ Variant ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Variant</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <button class="icon-btn icon-btn--primary icon-btn--md" aria-label="확인"><i data-lucide="check"></i></button>
+        <button class="icon-btn icon-btn--accent icon-btn--md" aria-label="즐겨찾기"><i data-lucide="star"></i></button>
+        <button class="icon-btn icon-btn--danger icon-btn--md" aria-label="삭제"><i data-lucide="trash-2"></i></button>
+        <button class="icon-btn icon-btn--ghost icon-btn--md" aria-label="더보기"><i data-lucide="more-horizontal"></i></button>
+      </div>
+      <code class="cs-code">.icon-btn.icon-btn--primary</code>
+      <code class="cs-code">.icon-btn.icon-btn--accent</code>
+      <code class="cs-code">.icon-btn.icon-btn--danger</code>
+      <code class="cs-code">.icon-btn.icon-btn--ghost</code>
+    </div>
+  </section>
+
+  <!-- ============ Size ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Size</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <button class="icon-btn icon-btn--primary icon-btn--sm" aria-label="설정"><i data-lucide="settings"></i></button>
+        <button class="icon-btn icon-btn--primary icon-btn--md" aria-label="설정"><i data-lucide="settings"></i></button>
+        <button class="icon-btn icon-btn--primary icon-btn--lg" aria-label="설정"><i data-lucide="settings"></i></button>
+      </div>
+      <code class="cs-code">.icon-btn--sm</code> <code class="cs-code">.icon-btn--md</code> <code class="cs-code">.icon-btn--lg</code>
+    </div>
+  </section>
+
+  <!-- ============ State ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">State</h2>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Normal / Hover (마우스를 올려보세요)</div>
+      <div class="cs-row">
+        <button class="icon-btn icon-btn--ghost icon-btn--md" aria-label="닫기"><i data-lucide="x"></i></button>
+      </div>
+      <code class="cs-code">.icon-btn.icon-btn--ghost:hover</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Disabled</div>
+      <div class="cs-row">
+        <button class="icon-btn icon-btn--primary icon-btn--md" aria-label="확인" disabled><i data-lucide="check"></i></button>
+      </div>
+      <code class="cs-code">.icon-btn.icon-btn--primary[disabled]</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Loading</div>
+      <div class="cs-row">
+        <button class="icon-btn icon-btn--primary icon-btn--md is-loading" aria-label="처리 중"><i data-lucide="check"></i></button>
+      </div>
+      <code class="cs-code">.icon-btn.icon-btn--primary.is-loading</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

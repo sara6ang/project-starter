@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loader · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Loader</h1>
+    <p class="cs-header__desc">데이터를 불러오는 등 결과를 기다려야 할 때 사용합니다. 버튼 안, 카드 안, 전체 화면 등 다양한 자리에 크기를 맞춰 씁니다.</p>
+  </div>
+
+  <!-- ============ Size ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Size</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <span class="loader loader--sm"></span>
+        <span class="loader loader--md"></span>
+        <span class="loader loader--lg"></span>
+      </div>
+      <code class="cs-code">.loader.loader--sm</code>
+      <code class="cs-code">.loader.loader--md</code>
+      <code class="cs-code">.loader.loader--lg</code>
+    </div>
+  </section>
+
+  <!-- ============ Color ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Color</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <span class="loader loader--md"></span>
+        <span class="loader loader--md loader--accent"></span>
+      </div>
+      <code class="cs-code">.loader</code> <code class="cs-code">.loader.loader--accent</code>
+    </div>
+  </section>
+
+  <!-- ============ 사용 예 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">사용 예 — 카드 안에서 데이터 로딩</h2>
+    <div class="cs-block">
+      <div class="cs-row" style="max-width: 320px">
+        <div class="card" style="width: 100%">
+          <div class="card__body" style="display:flex; flex-direction:column; align-items:center; gap: var(--space-12); padding: var(--space-48) var(--space-24)">
+            <span class="loader loader--md"></span>
+            <span style="font-size: var(--fs-14); color: var(--gray-500)">불러오는 중...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

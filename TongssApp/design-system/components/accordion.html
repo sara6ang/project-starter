@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accordion · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Accordion</h1>
+    <p class="cs-header__desc">FAQ처럼 여러 항목 중 필요한 것만 펼쳐서 볼 때 사용합니다. 제목을 클릭하면 내용이 펼쳐지거나 접힙니다.</p>
+  </div>
+
+  <!-- ============ 데모 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">데모 — 제목을 클릭해보세요</h2>
+    <div class="cs-block">
+      <div class="accordion" data-accordion>
+        <div class="accordion__item is-open" data-accordion-item>
+          <button class="accordion__trigger" data-accordion-trigger>
+            <span>결제는 어떤 방식으로 이루어지나요?</span>
+            <span class="accordion__icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="accordion__panel" data-accordion-panel>
+            <div class="accordion__panel-inner">신용카드와 계좌이체를 지원하며, 매월 1일에 자동으로 결제됩니다.</div>
+          </div>
+        </div>
+        <div class="accordion__item" data-accordion-item>
+          <button class="accordion__trigger" data-accordion-trigger>
+            <span>플랜은 언제든 변경할 수 있나요?</span>
+            <span class="accordion__icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="accordion__panel" data-accordion-panel>
+            <div class="accordion__panel-inner">네, 설정 페이지에서 언제든 업그레이드하거나 다운그레이드할 수 있습니다. 변경 사항은 다음 결제 주기부터 반영됩니다.</div>
+          </div>
+        </div>
+        <div class="accordion__item" data-accordion-item>
+          <button class="accordion__trigger" data-accordion-trigger>
+            <span>환불 정책이 궁금해요</span>
+            <span class="accordion__icon"><i data-lucide="chevron-down"></i></span>
+          </button>
+          <div class="accordion__panel" data-accordion-panel>
+            <div class="accordion__panel-inner">결제 후 7일 이내에는 사용 여부와 관계없이 전액 환불이 가능합니다.</div>
+          </div>
+        </div>
+      </div>
+      <code class="cs-code">.accordion__item.is-open .accordion__icon</code>
+      <code class="cs-code">.accordion__panel</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  function openPanel(item) {
+    var panel = item.querySelector('[data-accordion-panel]');
+    item.classList.add('is-open');
+    panel.style.maxHeight = panel.scrollHeight + 'px';
+  }
+  function closePanel(item) {
+    var panel = item.querySelector('[data-accordion-panel]');
+    item.classList.remove('is-open');
+    panel.style.maxHeight = null;
+  }
+
+  document.querySelectorAll('[data-accordion-trigger]').forEach(function (trigger) {
+    trigger.addEventListener('click', function () {
+      var item = trigger.closest('[data-accordion-item]');
+      if (item.classList.contains('is-open')) {
+        closePanel(item);
+      } else {
+        openPanel(item);
+      }
+    });
+  });
+
+  window.addEventListener('load', function () {
+    document.querySelectorAll('[data-accordion-item].is-open').forEach(openPanel);
+  });
+
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Button · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Button</h1>
+    <p class="cs-header__desc">사용자가 즉시 실행할 수 있는 주요 액션(저장, 삭제, 확인 등)에 사용합니다. 중요도에 따라 variant를, 화면 밀도에 따라 size를 고릅니다.</p>
+  </div>
+
+  <!-- ============ Variant ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Variant</h2>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Primary — 가장 중요한 액션 (화면당 보통 1개)</div>
+      <div class="cs-row">
+        <button class="btn btn--primary btn--md">저장하기</button>
+      </div>
+      <code class="cs-code">.btn.btn--primary.btn--md</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Accent — 특별히 눈에 띄어야 하는 액션</div>
+      <div class="cs-row">
+        <button class="btn btn--accent btn--md">업그레이드</button>
+      </div>
+      <code class="cs-code">.btn.btn--accent.btn--md</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Danger — 삭제 등 되돌릴 수 없는 액션</div>
+      <div class="cs-row">
+        <button class="btn btn--danger btn--md">삭제하기</button>
+      </div>
+      <code class="cs-code">.btn.btn--danger.btn--md</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Ghost — 보조 액션 (취소 등)</div>
+      <div class="cs-row">
+        <button class="btn btn--ghost btn--md">취소</button>
+      </div>
+      <code class="cs-code">.btn.btn--ghost.btn--md</code>
+    </div>
+  </section>
+
+  <!-- ============ Size ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Size</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <button class="btn btn--primary btn--sm">Small</button>
+        <button class="btn btn--primary btn--md">Medium</button>
+        <button class="btn btn--primary btn--lg">Large</button>
+      </div>
+      <code class="cs-code">.btn--sm</code> <code class="cs-code">.btn--md</code> <code class="cs-code">.btn--lg</code>
+    </div>
+  </section>
+
+  <!-- ============ State ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">State</h2>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Normal / Hover (마우스를 올려보세요)</div>
+      <div class="cs-row">
+        <button class="btn btn--primary btn--md">Hover 해보세요</button>
+      </div>
+      <code class="cs-code">.btn.btn--primary.btn--md:hover</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Disabled</div>
+      <div class="cs-row">
+        <button class="btn btn--primary btn--md" disabled>저장하기</button>
+      </div>
+      <code class="cs-code">.btn.btn--primary.btn--md[disabled]</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Loading</div>
+      <div class="cs-row">
+        <button class="btn btn--primary btn--md is-loading">저장 중</button>
+        <button class="btn btn--ghost btn--md is-loading">저장 중</button>
+      </div>
+      <code class="cs-code">.btn.btn--primary.btn--md.is-loading</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

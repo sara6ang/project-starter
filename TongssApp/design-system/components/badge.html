@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Badge · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Badge</h1>
+    <p class="cs-header__desc">항목의 상태나 분류를 짧게 표시할 때 사용합니다. (예: 활성/비활성, 결제 완료, 신규) 클릭할 수 없는 정보 표시용입니다.</p>
+  </div>
+
+  <!-- ============ Status ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Status</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <span class="badge badge--success"><i data-lucide="check"></i>성공</span>
+        <span class="badge badge--warning"><i data-lucide="alert-triangle"></i>경고</span>
+        <span class="badge badge--error"><i data-lucide="x"></i>오류</span>
+        <span class="badge badge--info"><i data-lucide="info"></i>정보</span>
+        <span class="badge badge--neutral">중립</span>
+      </div>
+      <code class="cs-code">.badge.badge--success</code>
+      <code class="cs-code">.badge.badge--warning</code>
+      <code class="cs-code">.badge.badge--error</code>
+      <code class="cs-code">.badge.badge--info</code>
+      <code class="cs-code">.badge.badge--neutral</code>
+    </div>
+  </section>
+
+  <!-- ============ 아이콘 없이 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">텍스트만</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <span class="badge badge--success">활성</span>
+        <span class="badge badge--warning">대기중</span>
+        <span class="badge badge--error">비활성</span>
+        <span class="badge badge--info">베타</span>
+      </div>
+      <code class="cs-code">.badge.badge--success</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dropdown · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Dropdown</h1>
+    <p class="cs-header__desc">버튼을 클릭했을 때 여러 액션 목록을 보여줄 때 사용합니다. (예: 더보기 메뉴, 정렬 옵션) 바깥을 클릭하거나 ESC를 누르면 닫힙니다.</p>
+  </div>
+
+  <!-- ============ 데모 (버튼 트리거) ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">데모 — 버튼을 클릭해보세요</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <div class="dropdown" data-dropdown>
+          <button class="btn btn--ghost btn--md" data-dropdown-trigger>메뉴<i data-lucide="chevron-down"></i></button>
+          <div class="dropdown__menu" data-dropdown-menu>
+            <button class="dropdown__item"><i data-lucide="pencil"></i>수정</button>
+            <button class="dropdown__item"><i data-lucide="copy"></i>복제</button>
+            <hr class="dropdown__divider">
+            <button class="dropdown__item dropdown__item--danger"><i data-lucide="trash-2"></i>삭제</button>
+          </div>
+        </div>
+      </div>
+      <code class="cs-code">.dropdown > .dropdown__menu.is-open</code>
+    </div>
+  </section>
+
+  <!-- ============ 아이콘 버튼 트리거 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">아이콘 버튼 트리거 — 테이블 행의 "더보기"에 자주 사용</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <div class="dropdown" data-dropdown>
+          <button class="icon-btn icon-btn--ghost icon-btn--md" aria-label="더보기" data-dropdown-trigger><i data-lucide="more-horizontal"></i></button>
+          <div class="dropdown__menu" data-dropdown-menu>
+            <button class="dropdown__item"><i data-lucide="eye"></i>상세보기</button>
+            <button class="dropdown__item"><i data-lucide="download"></i>다운로드</button>
+            <hr class="dropdown__divider">
+            <button class="dropdown__item dropdown__item--danger"><i data-lucide="trash-2"></i>삭제</button>
+          </div>
+        </div>
+      </div>
+      <code class="cs-code">.dropdown__item--danger</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.querySelectorAll('[data-dropdown]').forEach(function (dropdown) {
+    var trigger = dropdown.querySelector('[data-dropdown-trigger]');
+    var menu = dropdown.querySelector('[data-dropdown-menu]');
+    trigger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var willOpen = !menu.classList.contains('is-open');
+      document.querySelectorAll('.dropdown__menu.is-open').forEach(function (m) { m.classList.remove('is-open'); });
+      if (willOpen) menu.classList.add('is-open');
+    });
+  });
+
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.dropdown__menu.is-open').forEach(function (m) { m.classList.remove('is-open'); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.dropdown__menu.is-open').forEach(function (m) { m.classList.remove('is-open'); });
+    }
+  });
+
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

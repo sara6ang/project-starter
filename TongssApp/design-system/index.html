@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+<style>
+  /* Pretendard 폰트 (이 페이지에서 미리보기용으로만 불러옴) */
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+  }
+
+  /* ============================================
+     이 아래는 "디자인 시스템 문서 페이지"를 위한
+     레이아웃용 스타일입니다. 색/글자/간격 값은
+     전부 tokens.css의 변수만 사용합니다.
+     ============================================ */
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    font-weight: var(--fw-400);
+    font-size: var(--fs-16);
+    line-height: var(--line-height-normal);
+    color: var(--gray-700);
+    background: var(--gray-50);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page { max-width: 1080px; margin: 0 auto; padding: var(--space-48) var(--space-24) var(--space-64); }
+
+  /* 인트로 */
+  .intro { margin-bottom: var(--space-64); }
+  .intro h1 {
+    font-size: var(--fs-28);
+    font-weight: var(--fw-700);
+    line-height: var(--line-height-tight);
+    color: var(--color-black);
+    margin: 0 0 var(--space-12);
+  }
+  .intro p {
+    font-size: var(--fs-16);
+    line-height: var(--line-height-loose);
+    color: var(--gray-500);
+    max-width: 640px;
+    margin: 0 0 var(--space-8);
+  }
+  .intro .callout {
+    margin-top: var(--space-24);
+    padding: var(--space-16) var(--space-20);
+    background: var(--surface-soft);
+    border: var(--border-thin);
+    border-radius: var(--radius-md);
+    font-size: var(--fs-14);
+    color: var(--gray-700);
+  }
+  .intro .callout strong { color: var(--color-primary); }
+
+  /* 섹션 공통 */
+  section.token-section { margin-bottom: var(--space-64); }
+  .section-label {
+    font-size: var(--fs-12);
+    font-weight: var(--fw-600);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-8);
+  }
+  .section-title {
+    font-size: var(--fs-20);
+    font-weight: var(--fw-600);
+    line-height: var(--line-height-tight);
+    color: var(--color-black);
+    margin: 0 0 var(--space-8);
+  }
+  .section-desc {
+    font-size: var(--fs-14);
+    color: var(--gray-500);
+    margin: 0 0 var(--space-24);
+    max-width: 640px;
+  }
+  .group-label {
+    font-size: var(--fs-12);
+    font-weight: var(--fw-600);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--gray-500);
+    margin: var(--space-32) 0 var(--space-12);
+  }
+  .group-label:first-of-type { margin-top: 0; }
+
+  /* 복사 코드 칩 */
+  .code-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-family: 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: var(--fs-12);
+    color: var(--color-primary);
+    background: var(--gray-100);
+    border: var(--border-thin);
+    border-radius: var(--radius-sm);
+    padding: var(--space-4) var(--space-8);
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+  }
+  .code-chip:hover { background: var(--gray-300); }
+  .code-chip.copied { color: var(--color-success); }
+  .code-chip .hint { opacity: 0.55; font-size: var(--fs-12); }
+
+  /* 색상 팔레트 */
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: var(--space-16); }
+  .swatch {
+    border: var(--border-normal);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-white);
+  }
+  .swatch-color { height: 88px; }
+  .swatch-body { padding: var(--space-12); display: flex; flex-direction: column; gap: var(--space-8); }
+  .swatch-name { font-size: var(--fs-14); font-weight: var(--fw-600); color: var(--gray-700); }
+  .swatch-hex { font-size: var(--fs-12); color: var(--gray-500); font-family: 'SFMono-Regular', Menlo, Consolas, monospace; }
+
+  /* 글자 크기 */
+  .type-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: var(--space-24);
+    align-items: baseline;
+    padding: var(--space-20) 0;
+    border-bottom: var(--border-thin);
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-sample { color: var(--gray-700); }
+
+  /* 글자 굵기 / 줄 높이 */
+  .fw-row, .lh-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: var(--space-24);
+    align-items: center;
+    padding: var(--space-16) 0;
+    border-bottom: var(--border-thin);
+  }
+  .fw-row:last-child, .lh-row:last-child { border-bottom: none; }
+
+  /* 간격 */
+  .space-row { display: flex; align-items: center; gap: var(--space-16); padding: var(--space-8) 0; }
+  .space-bar { background: var(--color-accent); height: var(--space-16); border-radius: var(--radius-sm); }
+  .space-row .code-chip { min-width: 92px; justify-content: center; }
+  .space-row .px-label { font-size: var(--fs-12); color: var(--gray-500); width: 44px; }
+
+  /* 라운드 / 보더 / 그림자 */
+  .box-grid { display: flex; gap: var(--space-24); flex-wrap: wrap; }
+  .box-cell { display: flex; flex-direction: column; align-items: center; gap: var(--space-8); }
+  .box { width: 88px; height: 88px; background: var(--surface-soft); }
+
+  /* 컴포넌트 데모 */
+  .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: var(--space-24); }
+  .demo-cell {
+    border: var(--border-normal);
+    border-radius: var(--radius-md);
+    padding: var(--space-24);
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+  .demo-cell .demo-title { font-size: var(--fs-14); font-weight: var(--fw-600); color: var(--gray-700); }
+  .demo-preview { display: flex; flex-wrap: wrap; gap: var(--space-12); align-items: center; }
+  .demo-code {
+    background: var(--gray-700);
+    color: var(--color-white);
+    font-family: 'SFMono-Regular', Menlo, Consolas, monospace;
+    font-size: var(--fs-12);
+    line-height: var(--line-height-loose);
+    padding: var(--space-12) var(--space-16);
+    border-radius: var(--radius-sm);
+    white-space: pre;
+    overflow-x: auto;
+    cursor: pointer;
+  }
+
+  /* 실제 버튼 */
+  .btn {
+    font-family: var(--font-sans);
+    font-size: var(--fs-14);
+    font-weight: var(--fw-500);
+    padding: var(--space-8) var(--space-16);
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+  }
+  .btn-primary { background: var(--color-primary); color: var(--color-white); }
+  .btn-primary:hover { background: var(--gray-700); }
+  .btn-accent { background: var(--color-accent); color: var(--color-white); }
+  .btn-secondary { background: var(--color-white); color: var(--gray-700); border: var(--border-normal); }
+  .btn-disabled { background: var(--gray-100); color: var(--gray-500); cursor: not-allowed; }
+
+  /* 실제 입력창 */
+  .input {
+    font-family: var(--font-sans);
+    font-size: var(--fs-16);
+    padding: var(--space-8) var(--space-12);
+    border: var(--border-normal);
+    border-radius: var(--radius-sm);
+    transition: border-color var(--transition-fast);
+    width: 100%;
+  }
+  .input:focus { outline: none; border: var(--border-focus); box-shadow: var(--shadow-focus); }
+  .input.is-focus { border: var(--border-focus); box-shadow: var(--shadow-focus); }
+  .input.is-disabled { background: var(--gray-100); color: var(--gray-500); }
+
+  /* 실제 카드 */
+  .card {
+    background: var(--color-white);
+    border: var(--border-normal);
+    border-radius: var(--radius-md);
+    padding: var(--space-24);
+    box-shadow: var(--shadow-md);
+    width: 100%;
+  }
+  .card h3 { font-size: var(--fs-16); font-weight: var(--fw-600); margin: 0 0 var(--space-8); color: var(--gray-700); }
+  .card p { font-size: var(--fs-14); color: var(--gray-500); margin: 0; line-height: var(--line-height-normal); }
+
+  /* 실제 뱃지 */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--fs-12);
+    font-weight: var(--fw-500);
+    padding: var(--space-4) var(--space-12);
+    border-radius: var(--radius-full);
+  }
+  .badge-success { background: var(--block-mint); color: var(--color-success); }
+  .badge-warning { background: var(--block-cream); color: var(--color-warning); }
+  .badge-error { background: var(--block-pink); color: var(--color-error); }
+  .badge-info { background: var(--block-lilac); color: var(--color-info); }
+
+  /* 실제 테이블 */
+  .table { width: 100%; border-collapse: collapse; font-size: var(--fs-14); }
+  .table th, .table td { text-align: left; padding: var(--space-12) var(--space-16); border-bottom: var(--border-thin); }
+  .table th { font-size: var(--fs-12); font-weight: var(--fw-600); text-transform: uppercase; letter-spacing: 0.04em; color: var(--gray-500); }
+  .table td { color: var(--gray-700); }
+
+  footer { text-align: center; font-size: var(--fs-12); color: var(--gray-500); padding-top: var(--space-32); border-top: var(--border-thin); }
+
+  @media (max-width: 640px) {
+    .type-row, .fw-row, .lh-row { grid-template-columns: 1fr; gap: var(--space-8); }
+  }
+</style>
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="page">
+
+  <div class="intro">
+    <h1>디자인 시스템</h1>
+    <p>이 페이지는 우리 프로젝트에서 사용하는 색깔, 글자, 간격 규칙을 한눈에 보여줍니다.</p>
+    <p>화면을 만들 때 여기 있는 값만 사용하세요. 코드 조각(회색 상자)을 클릭하면 값이 복사됩니다.</p>
+    <div class="callout">
+      <strong>사용법</strong> — 예: 버튼 배경색이 필요하면 아래 "Primary" 박스를 눌러 <code>--color-primary</code>를 복사한 뒤, CSS에서 <code>background-color: var(--color-primary);</code> 처럼 사용하세요.
+      전체 규칙 원본은 <code>assets/css/tokens.css</code>이고, 설명은 <code>docs/07_DESIGN_SYSTEM.md</code>에 있습니다.
+    </div>
+  </div>
+
+  <!-- ============ 색상 ============ -->
+  <section class="token-section" id="colors">
+    <div class="section-label">Colors</div>
+    <h2 class="section-title">색상 팔레트</h2>
+    <p class="section-desc">모든 색은 아래 팔레트 안에서만 골라 씁니다. 여기 없는 색(#으로 시작하는 직접 색코드)은 사용하지 마세요.</p>
+
+    <div class="group-label">핵심 색상 (Primary)</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background: var(--color-primary)"></div><div class="swatch-body"><div class="swatch-name">Primary</div><div class="swatch-hex">#111111 · 버튼, 제목, 강조 텍스트</div><span class="code-chip" data-copy="var(--color-primary)">--color-primary</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--color-accent)"></div><div class="swatch-body"><div class="swatch-name">Accent</div><div class="swatch-hex">#ff4f97 · 특별히 눈에 띄어야 할 요소</div><span class="code-chip" data-copy="var(--color-accent)">--color-accent</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--color-neutral)"></div><div class="swatch-body"><div class="swatch-name">Neutral</div><div class="swatch-hex">#6b6b6b · 보조 텍스트</div><span class="code-chip" data-copy="var(--color-neutral)">--color-neutral</span></div></div>
+    </div>
+
+    <div class="group-label">상태 색상 (Status)</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background: var(--color-success)"></div><div class="swatch-body"><div class="swatch-name">Success</div><div class="swatch-hex">#22a34a · 성공 메시지</div><span class="code-chip" data-copy="var(--color-success)">--color-success</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--color-warning)"></div><div class="swatch-body"><div class="swatch-name">Warning</div><div class="swatch-hex">#e9a23b · 경고 메시지</div><span class="code-chip" data-copy="var(--color-warning)">--color-warning</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--color-error)"></div><div class="swatch-body"><div class="swatch-name">Error</div><div class="swatch-hex">#df5a5a · 오류 메시지</div><span class="code-chip" data-copy="var(--color-error)">--color-error</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--color-info)"></div><div class="swatch-body"><div class="swatch-name">Info</div><div class="swatch-hex">#6f8de8 · 안내 메시지</div><span class="code-chip" data-copy="var(--color-info)">--color-info</span></div></div>
+    </div>
+
+    <div class="group-label">회색 (Grays) — 흰색부터 검은색까지</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background: var(--color-white); border-bottom: var(--border-thin)"></div><div class="swatch-body"><div class="swatch-name">White</div><div class="swatch-hex">#fafaf8</div><span class="code-chip" data-copy="var(--color-white)">--color-white</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--gray-50); border-bottom: var(--border-thin)"></div><div class="swatch-body"><div class="swatch-name">Gray 50 · Canvas</div><div class="swatch-hex">#fcfcfa</div><span class="code-chip" data-copy="var(--gray-50)">--gray-50</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--gray-100); border-bottom: var(--border-thin)"></div><div class="swatch-body"><div class="swatch-name">Gray 100 · Hairline Soft</div><div class="swatch-hex">#f4f3f1</div><span class="code-chip" data-copy="var(--gray-100)">--gray-100</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--gray-300)"></div><div class="swatch-body"><div class="swatch-name">Gray 300 · Hairline</div><div class="swatch-hex">#e7e5e1</div><span class="code-chip" data-copy="var(--gray-300)">--gray-300</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--gray-500)"></div><div class="swatch-body"><div class="swatch-name">Gray 500 · Neutral Text</div><div class="swatch-hex">#6b6b6b</div><span class="code-chip" data-copy="var(--gray-500)">--gray-500</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--gray-700)"></div><div class="swatch-body"><div class="swatch-name">Gray 700 · Dark Ink</div><div class="swatch-hex">#2f2f2f</div><span class="code-chip" data-copy="var(--gray-700)">--gray-700</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--color-black)"></div><div class="swatch-body"><div class="swatch-name">Black</div><div class="swatch-hex">#111111</div><span class="code-chip" data-copy="var(--color-black)">--color-black</span></div></div>
+    </div>
+
+    <div class="group-label">화면 배경 (Surface)</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background: var(--surface-soft); border-bottom: var(--border-thin)"></div><div class="swatch-body"><div class="swatch-name">Surface Soft</div><div class="swatch-hex">#f8f7f4 · 은은한 배경</div><span class="code-chip" data-copy="var(--surface-soft)">--surface-soft</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--surface-inverse)"></div><div class="swatch-body"><div class="swatch-name">Surface Inverse</div><div class="swatch-hex">#24223f · 어두운 배경</div><span class="code-chip" data-copy="var(--surface-inverse)">--surface-inverse</span></div></div>
+    </div>
+
+    <div class="group-label">파스텔 블록 (Storytelling)</div>
+    <div class="swatch-grid">
+      <div class="swatch"><div class="swatch-color" style="background: var(--block-lime)"></div><div class="swatch-body"><div class="swatch-name">Lime</div><div class="swatch-hex">#dfe7c8</div><span class="code-chip" data-copy="var(--block-lime)">--block-lime</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--block-lilac)"></div><div class="swatch-body"><div class="swatch-name">Lilac</div><div class="swatch-hex">#d7cdee</div><span class="code-chip" data-copy="var(--block-lilac)">--block-lilac</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--block-cream)"></div><div class="swatch-body"><div class="swatch-name">Cream</div><div class="swatch-hex">#f2eadb</div><span class="code-chip" data-copy="var(--block-cream)">--block-cream</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--block-pink)"></div><div class="swatch-body"><div class="swatch-name">Pink</div><div class="swatch-hex">#efdedd</div><span class="code-chip" data-copy="var(--block-pink)">--block-pink</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--block-mint)"></div><div class="swatch-body"><div class="swatch-name">Mint</div><div class="swatch-hex">#d7e8dd</div><span class="code-chip" data-copy="var(--block-mint)">--block-mint</span></div></div>
+      <div class="swatch"><div class="swatch-color" style="background: var(--block-coral)"></div><div class="swatch-body"><div class="swatch-name">Coral</div><div class="swatch-hex">#eccfbe</div><span class="code-chip" data-copy="var(--block-coral)">--block-coral</span></div></div>
+    </div>
+  </section>
+
+  <!-- ============ 글자 ============ -->
+  <section class="token-section" id="typography">
+    <div class="section-label">Typography</div>
+    <h2 class="section-title">글자 크기 · 굵기 · 줄 높이</h2>
+    <p class="section-desc">글꼴은 Pretendard 하나만 사용합니다. 크기와 굵기는 아래 목록 안에서만 고릅니다.</p>
+
+    <div class="group-label">글자 크기 (Font Size)</div>
+    <div class="type-row"><span class="code-chip" data-copy="var(--fs-12)">--fs-12</span><span class="type-sample" style="font-size: var(--fs-12)">12px · 아주 작은 텍스트 (도움말, 보조 설명)</span></div>
+    <div class="type-row"><span class="code-chip" data-copy="var(--fs-14)">--fs-14</span><span class="type-sample" style="font-size: var(--fs-14)">14px · 작은 텍스트 (일반 텍스트)</span></div>
+    <div class="type-row"><span class="code-chip" data-copy="var(--fs-16)">--fs-16</span><span class="type-sample" style="font-size: var(--fs-16)">16px · 기본 텍스트 (본문)</span></div>
+    <div class="type-row"><span class="code-chip" data-copy="var(--fs-20)">--fs-20</span><span class="type-sample" style="font-size: var(--fs-20)">20px · 큰 텍스트 (소제목)</span></div>
+    <div class="type-row"><span class="code-chip" data-copy="var(--fs-28)">--fs-28</span><span class="type-sample" style="font-size: var(--fs-28); font-weight: var(--fw-600)">28px · 아주 큰 텍스트 (제목)</span></div>
+
+    <div class="group-label">글자 굵기 (Font Weight)</div>
+    <div class="fw-row"><span class="code-chip" data-copy="var(--fw-400)">--fw-400</span><span style="font-weight: var(--fw-400)">400 · 보통 (본문)</span></div>
+    <div class="fw-row"><span class="code-chip" data-copy="var(--fw-500)">--fw-500</span><span style="font-weight: var(--fw-500)">500 · 조금 굵은 (버튼, 작은 제목)</span></div>
+    <div class="fw-row"><span class="code-chip" data-copy="var(--fw-600)">--fw-600</span><span style="font-weight: var(--fw-600)">600 · 굵은 (제목)</span></div>
+    <div class="fw-row"><span class="code-chip" data-copy="var(--fw-700)">--fw-700</span><span style="font-weight: var(--fw-700)">700 · 아주 굵은 (큰 제목)</span></div>
+
+    <div class="group-label">줄 높이 (Line Height)</div>
+    <div class="lh-row"><span class="code-chip" data-copy="var(--line-height-tight)">--line-height-tight</span><span style="line-height: var(--line-height-tight)">1.2 · 좁은 (제목용)</span></div>
+    <div class="lh-row"><span class="code-chip" data-copy="var(--line-height-normal)">--line-height-normal</span><span style="line-height: var(--line-height-normal)">1.5 · 보통 (일반 텍스트용)</span></div>
+    <div class="lh-row"><span class="code-chip" data-copy="var(--line-height-loose)">--line-height-loose</span><span style="line-height: var(--line-height-loose)">1.8 · 넓은 (설명문용, 줄 사이 여유가 필요할 때)</span></div>
+
+    <div class="group-label">글꼴 (Font Family)</div>
+    <div class="fw-row"><span class="code-chip" data-copy="var(--font-sans)">--font-sans</span><span style="font-family: var(--font-sans)">Pretendard — 프로젝트 전체에서 쓰는 유일한 글꼴</span></div>
+  </section>
+
+  <!-- ============ 간격 ============ -->
+  <section class="token-section" id="spacing">
+    <div class="section-label">Spacing</div>
+    <h2 class="section-title">간격 시스템 (4px 배수)</h2>
+    <p class="section-desc">여백(padding, margin, gap)은 항상 4px의 배수만 사용합니다. 15px, 10px처럼 배수가 아닌 값은 금지입니다.</p>
+
+    <div class="space-row"><span class="code-chip" data-copy="var(--space-4)">--space-4</span><span class="px-label">4px</span><div class="space-bar" style="width: 4px"></div></div>
+    <div class="space-row"><span class="code-chip" data-copy="var(--space-8)">--space-8</span><span class="px-label">8px</span><div class="space-bar" style="width: 8px"></div></div>
+    <div class="space-row"><span class="code-chip" data-copy="var(--space-12)">--space-12</span><span class="px-label">12px</span><div class="space-bar" style="width: 12px"></div></div>
+    <div class="space-row"><span class="code-chip" data-copy="var(--space-16)">--space-16</span><span class="px-label">16px</span><div class="space-bar" style="width: 16px"></div></div>
+    <div class="space-row"><span class="code-chip" data-copy="var(--space-20)">--space-20</span><span class="px-label">20px</span><div class="space-bar" style="width: 20px"></div></div>
+    <div class="space-row"><span class="code-chip" data-copy="var(--space-24)">--space-24</span><span class="px-label">24px</span><div class="space-bar" style="width: 24px"></div></div>
+    <div class="space-row"><span class="code-chip" data-copy="var(--space-32)">--space-32</span><span class="px-label">32px</span><div class="space-bar" style="width: 32px"></div></div>
+    <div class="space-row"><span class="code-chip" data-copy="var(--space-40)">--space-40</span><span class="px-label">40px</span><div class="space-bar" style="width: 40px"></div></div>
+    <div class="space-row"><span class="code-chip" data-copy="var(--space-48)">--space-48</span><span class="px-label">48px</span><div class="space-bar" style="width: 48px"></div></div>
+    <div class="space-row"><span class="code-chip" data-copy="var(--space-64)">--space-64</span><span class="px-label">64px</span><div class="space-bar" style="width: 64px"></div></div>
+  </section>
+
+  <!-- ============ 모서리 / 보더 / 그림자 ============ -->
+  <section class="token-section" id="misc">
+    <div class="section-label">Radius · Border · Shadow</div>
+    <h2 class="section-title">모서리 둥글기 · 보더 · 그림자</h2>
+
+    <div class="group-label">모서리 둥글기 (Border Radius)</div>
+    <div class="box-grid">
+      <div class="box-cell"><div class="box" style="border-radius: var(--radius-sm)"></div><span class="code-chip" data-copy="var(--radius-sm)">--radius-sm</span></div>
+      <div class="box-cell"><div class="box" style="border-radius: var(--radius-md)"></div><span class="code-chip" data-copy="var(--radius-md)">--radius-md</span></div>
+      <div class="box-cell"><div class="box" style="border-radius: var(--radius-lg)"></div><span class="code-chip" data-copy="var(--radius-lg)">--radius-lg</span></div>
+      <div class="box-cell"><div class="box" style="border-radius: var(--radius-full)"></div><span class="code-chip" data-copy="var(--radius-full)">--radius-full</span></div>
+    </div>
+
+    <div class="group-label">보더 (Border)</div>
+    <div class="box-grid">
+      <div class="box-cell"><div class="box" style="border: var(--border-thin)"></div><span class="code-chip" data-copy="var(--border-thin)">--border-thin</span></div>
+      <div class="box-cell"><div class="box" style="border: var(--border-normal)"></div><span class="code-chip" data-copy="var(--border-normal)">--border-normal</span></div>
+      <div class="box-cell"><div class="box" style="border: var(--border-focus)"></div><span class="code-chip" data-copy="var(--border-focus)">--border-focus</span></div>
+    </div>
+
+    <div class="group-label">그림자 (Shadow)</div>
+    <div class="box-grid">
+      <div class="box-cell"><div class="box" style="box-shadow: var(--shadow-sm)"></div><span class="code-chip" data-copy="var(--shadow-sm)">--shadow-sm</span></div>
+      <div class="box-cell"><div class="box" style="box-shadow: var(--shadow-md)"></div><span class="code-chip" data-copy="var(--shadow-md)">--shadow-md</span></div>
+      <div class="box-cell"><div class="box" style="box-shadow: var(--shadow-lg)"></div><span class="code-chip" data-copy="var(--shadow-lg)">--shadow-lg</span></div>
+      <div class="box-cell"><div class="box" style="box-shadow: var(--shadow-focus)"></div><span class="code-chip" data-copy="var(--shadow-focus)">--shadow-focus</span></div>
+    </div>
+
+    <div class="group-label">애니메이션 속도 (Transition) — 아래 버튼에 마우스를 올려서 속도 차이를 확인하세요</div>
+    <div class="box-grid">
+      <div class="box-cell"><button class="btn btn-secondary" style="transition: background-color var(--transition-fast)" onmouseover="this.style.background='var(--gray-100)'" onmouseout="this.style.background='var(--color-white)'">Fast</button><span class="code-chip" data-copy="var(--transition-fast)">--transition-fast</span></div>
+      <div class="box-cell"><button class="btn btn-secondary" style="transition: background-color var(--transition-normal)" onmouseover="this.style.background='var(--gray-100)'" onmouseout="this.style.background='var(--color-white)'">Normal</button><span class="code-chip" data-copy="var(--transition-normal)">--transition-normal</span></div>
+      <div class="box-cell"><button class="btn btn-secondary" style="transition: background-color var(--transition-slow)" onmouseover="this.style.background='var(--gray-100)'" onmouseout="this.style.background='var(--color-white)'">Slow</button><span class="code-chip" data-copy="var(--transition-slow)">--transition-slow</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 컴포넌트 ============ -->
+  <section class="token-section" id="components">
+    <div class="section-label">Components</div>
+    <h2 class="section-title">실제 컴포넌트</h2>
+    <p class="section-desc">위 토큰들을 조합해서 만든 실제 UI 조각입니다. 코드 상자를 클릭하면 CSS가 복사됩니다.</p>
+
+    <div class="demo-grid">
+      <div class="demo-cell">
+        <div class="demo-title">Button</div>
+        <div class="demo-preview">
+          <button class="btn btn-primary">저장</button>
+          <button class="btn btn-accent">강조</button>
+          <button class="btn btn-secondary">취소</button>
+          <button class="btn btn-disabled" disabled>비활성</button>
+        </div>
+        <div class="demo-code" data-copy=".button {
+  font-family: var(--font-sans);
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-sm);
+  border: none;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}">.button {
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}</div>
+      </div>
+
+      <div class="demo-cell">
+        <div class="demo-title">Input</div>
+        <div class="demo-preview" style="flex-direction: column; align-items: stretch; gap: var(--space-8)">
+          <input class="input" placeholder="기본 상태">
+          <input class="input is-focus" value="포커스 상태">
+          <input class="input is-disabled" value="비활성 상태" disabled>
+        </div>
+        <div class="demo-code" data-copy=".input {
+  font-family: var(--font-sans);
+  font-size: var(--fs-16);
+  padding: var(--space-8) var(--space-12);
+  border: var(--border-normal);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.input:focus {
+  outline: none;
+  border: var(--border-focus);
+  box-shadow: var(--shadow-focus);
+}">.input {
+  font-size: var(--fs-16);
+  padding: var(--space-8) var(--space-12);
+  border: var(--border-normal);
+  border-radius: var(--radius-sm);
+}
+.input:focus {
+  border: var(--border-focus);
+  box-shadow: var(--shadow-focus);
+}</div>
+      </div>
+
+      <div class="demo-cell">
+        <div class="demo-title">Card</div>
+        <div class="demo-preview">
+          <div class="card">
+            <h3>카드 제목</h3>
+            <p>카드 안 여백은 --space-24, 모서리는 --radius-md 입니다.</p>
+          </div>
+        </div>
+        <div class="demo-code" data-copy=".card {
+  background-color: var(--color-white);
+  border: var(--border-normal);
+  border-radius: var(--radius-md);
+  padding: var(--space-24);
+  box-shadow: var(--shadow-md);
+}">.card {
+  background-color: var(--color-white);
+  border: var(--border-normal);
+  border-radius: var(--radius-md);
+  padding: var(--space-24);
+  box-shadow: var(--shadow-md);
+}</div>
+      </div>
+
+      <div class="demo-cell">
+        <div class="demo-title">Badge</div>
+        <div class="demo-preview">
+          <span class="badge badge-success">성공</span>
+          <span class="badge badge-warning">경고</span>
+          <span class="badge badge-error">오류</span>
+          <span class="badge badge-info">정보</span>
+        </div>
+        <div class="demo-code" data-copy=".badge {
+  font-size: var(--fs-12);
+  font-weight: var(--fw-500);
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-full);
+  background: var(--block-mint);
+  color: var(--color-success);
+}">.badge {
+  font-size: var(--fs-12);
+  font-weight: var(--fw-500);
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-full);
+  background: var(--block-mint);
+  color: var(--color-success);
+}</div>
+      </div>
+
+      <div class="demo-cell" style="grid-column: 1 / -1">
+        <div class="demo-title">Table</div>
+        <div class="demo-preview" style="width: 100%">
+          <table class="table">
+            <thead><tr><th>이름</th><th>이메일</th><th>상태</th></tr></thead>
+            <tbody>
+              <tr><td>김철수</td><td>kim@example.com</td><td><span class="badge badge-success">활성</span></td></tr>
+              <tr><td>이영희</td><td>lee@example.com</td><td><span class="badge badge-error">비활성</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="demo-code" data-copy=".table th, .table td {
+  padding: var(--space-12) var(--space-16);
+  border-bottom: var(--border-thin);
+  font-size: var(--fs-14);
+}
+.table th {
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
+  color: var(--gray-500);
+}">.table th, .table td {
+  padding: var(--space-12) var(--space-16);
+  border-bottom: var(--border-thin);
+  font-size: var(--fs-14);
+}
+.table th {
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
+  color: var(--gray-500);
+}</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>tokens 원본: assets/css/tokens.css · 설명: docs/07_DESIGN_SYSTEM.md</footer>
+</div>
+</main>
+
+<script>
+  // 코드 상자를 클릭하면 값(또는 CSS)을 클립보드에 복사
+  document.querySelectorAll('.code-chip, .demo-code').forEach(function (el) {
+    el.addEventListener('click', function () {
+      var text = el.dataset.copy || el.textContent;
+      navigator.clipboard.writeText(text).then(function () {
+        var original = el.textContent;
+        el.classList.add('copied');
+        if (el.classList.contains('code-chip')) {
+          el.textContent = '복사됨!';
+          setTimeout(function () {
+            el.textContent = original;
+            el.classList.remove('copied');
+          }, 1000);
+        }
+      });
+    });
+  });
+</script>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

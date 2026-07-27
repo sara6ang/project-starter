@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avatar · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Avatar</h1>
+    <p class="cs-header__desc">사용자를 시각적으로 나타낼 때 사용합니다. 프로필 이미지가 있으면 이미지를, 없으면 이니셜을 보여주고, 접속 상태를 점으로 표시할 수 있습니다.</p>
+  </div>
+
+  <!-- ============ Size (이니셜) ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Size — 이니셜</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <span class="avatar avatar--sm">김</span>
+        <span class="avatar avatar--md">김</span>
+        <span class="avatar avatar--lg">김</span>
+      </div>
+      <code class="cs-code">.avatar.avatar--sm</code>
+      <code class="cs-code">.avatar.avatar--md</code>
+      <code class="cs-code">.avatar.avatar--lg</code>
+    </div>
+  </section>
+
+  <!-- ============ 이미지 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">이미지</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <span class="avatar avatar--md"><img class="avatar__image" src="https://i.pravatar.cc/80?img=5" alt="사용자 프로필"></span>
+        <span class="avatar avatar--lg"><img class="avatar__image" src="https://i.pravatar.cc/80?img=12" alt="사용자 프로필"></span>
+      </div>
+      <code class="cs-code">.avatar > .avatar__image</code>
+    </div>
+  </section>
+
+  <!-- ============ 상태 점 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">상태 (Status Dot)</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <span class="avatar avatar--md">김<span class="avatar__status avatar__status--online"></span></span>
+        <span class="avatar avatar--md">이<span class="avatar__status avatar__status--offline"></span></span>
+        <span class="avatar avatar--md">박<span class="avatar__status avatar__status--busy"></span></span>
+      </div>
+      <code class="cs-code">.avatar__status--online</code>
+      <code class="cs-code">.avatar__status--offline</code>
+      <code class="cs-code">.avatar__status--busy</code>
+    </div>
+  </section>
+
+  <!-- ============ 그룹 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">사용 예 — 겹쳐서 그룹으로</h2>
+    <div class="cs-block">
+      <div class="cs-row" style="gap: 0">
+        <span class="avatar avatar--md" style="border: 2px solid var(--color-white); margin-right: calc(var(--space-8) * -1)"><img class="avatar__image" src="https://i.pravatar.cc/80?img=1" alt=""></span>
+        <span class="avatar avatar--md" style="border: 2px solid var(--color-white); margin-right: calc(var(--space-8) * -1)"><img class="avatar__image" src="https://i.pravatar.cc/80?img=2" alt=""></span>
+        <span class="avatar avatar--md" style="border: 2px solid var(--color-white)">+3</span>
+      </div>
+      <code class="cs-code">.avatar</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

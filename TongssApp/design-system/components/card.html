@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Card</h1>
+    <p class="cs-header__desc">관련 정보를 하나의 덩어리로 묶어 보여줄 때 사용합니다. 목록의 각 항목, 대시보드의 요약 정보 등에 씁니다.</p>
+  </div>
+
+  <!-- ============ 기본 카드 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">기본</h2>
+    <div class="cs-block">
+      <div class="cs-row" style="max-width: 360px">
+        <div class="card">
+          <div class="card__body">
+            <h3>기본 카드</h3>
+            <p>헤더/푸터 없이 body만 있는 가장 단순한 형태입니다.</p>
+          </div>
+        </div>
+      </div>
+      <code class="cs-code">.card > .card__body</code>
+    </div>
+  </section>
+
+  <!-- ============ 헤더/바디/푸터 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">헤더 · 바디 · 푸터</h2>
+    <div class="cs-block">
+      <div class="cs-row" style="max-width: 360px">
+        <div class="card">
+          <div class="card__header">플랜 변경</div>
+          <div class="card__body">
+            <p>프로 플랜으로 변경하면 팀원을 무제한으로 초대할 수 있습니다.</p>
+          </div>
+          <div class="card__footer">
+            <button class="btn btn--ghost btn--sm">취소</button>
+            <button class="btn btn--primary btn--sm">변경하기</button>
+          </div>
+        </div>
+      </div>
+      <code class="cs-code">.card > .card__header + .card__body + .card__footer</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

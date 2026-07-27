@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Textarea · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Textarea</h1>
+    <p class="cs-header__desc">여러 줄의 긴 텍스트(설명, 후기, 메모 등)를 입력받을 때 사용합니다. Input과 톤을 맞췄고, 세로로만 크기 조절이 가능합니다.</p>
+  </div>
+
+  <!-- ============ 기본 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">기본</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <textarea class="textarea" placeholder="내용을 입력하세요"></textarea>
+      </div>
+      <code class="cs-code">.textarea</code>
+    </div>
+  </section>
+
+  <!-- ============ State ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">State</h2>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Focus</div>
+      <div class="cs-row">
+        <textarea class="textarea is-focus">포커스 상태입니다. 테두리가 굵어지고 그림자가 생깁니다.</textarea>
+      </div>
+      <code class="cs-code">.textarea:focus</code> <code class="cs-code">.textarea.is-focus</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Error</div>
+      <div class="cs-row cs-row--column">
+        <textarea class="textarea is-error">최소 20자 이상 입력해주세요.</textarea>
+        <span class="input-help is-error">글자 수가 부족합니다.</span>
+      </div>
+      <code class="cs-code">.textarea.is-error</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Disabled</div>
+      <div class="cs-row">
+        <textarea class="textarea" disabled>수정할 수 없는 내용입니다.</textarea>
+      </div>
+      <code class="cs-code">.textarea[disabled]</code> <code class="cs-code">.textarea.is-disabled</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

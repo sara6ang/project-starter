@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modal · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Modal</h1>
+    <p class="cs-header__desc">현재 화면 위에 떠서 확인/입력이 필요한 작업에 집중시킬 때 사용합니다. 오버레이를 클릭하거나 X, 취소 버튼으로 닫을 수 있습니다.</p>
+  </div>
+
+  <!-- ============ 데모 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">데모</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <button class="btn btn--primary btn--md" onclick="openModal('demo-modal')">모달 열기</button>
+      </div>
+      <code class="cs-code">.modal-overlay.is-open > .modal</code>
+    </div>
+  </section>
+
+  <!-- ============ 삭제 확인형 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">삭제 확인형</h2>
+    <div class="cs-block">
+      <div class="cs-row">
+        <button class="btn btn--danger btn--md" onclick="openModal('confirm-modal')">계정 삭제</button>
+      </div>
+      <code class="cs-code">.modal__footer > .btn--ghost + .btn--danger</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+<!-- 기본 모달 -->
+<div class="modal-overlay" id="demo-modal" onclick="if (event.target === this) closeModal('demo-modal')">
+  <div class="modal">
+    <div class="modal__header">
+      <h3 class="modal__title">팀원 초대</h3>
+      <button class="icon-btn icon-btn--ghost icon-btn--sm" aria-label="닫기" onclick="closeModal('demo-modal')"><i data-lucide="x"></i></button>
+    </div>
+    <div class="modal__body">
+      <p>이메일로 팀원을 초대하면 지금 보고 있는 프로젝트에 바로 접근할 수 있습니다.</p>
+      <div class="input-group" style="margin-top: var(--space-16)">
+        <input class="input" type="email" placeholder="you@example.com">
+      </div>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--ghost btn--sm" onclick="closeModal('demo-modal')">취소</button>
+      <button class="btn btn--primary btn--sm" onclick="closeModal('demo-modal')">초대 보내기</button>
+    </div>
+  </div>
+</div>
+
+<!-- 삭제 확인 모달 -->
+<div class="modal-overlay" id="confirm-modal" onclick="if (event.target === this) closeModal('confirm-modal')">
+  <div class="modal">
+    <div class="modal__header">
+      <h3 class="modal__title">정말 삭제하시겠어요?</h3>
+      <button class="icon-btn icon-btn--ghost icon-btn--sm" aria-label="닫기" onclick="closeModal('confirm-modal')"><i data-lucide="x"></i></button>
+    </div>
+    <div class="modal__body">
+      <p>계정을 삭제하면 모든 데이터가 영구적으로 사라지며 되돌릴 수 없습니다.</p>
+    </div>
+    <div class="modal__footer">
+      <button class="btn btn--ghost btn--sm" onclick="closeModal('confirm-modal')">취소</button>
+      <button class="btn btn--danger btn--sm" onclick="closeModal('confirm-modal')">영구 삭제</button>
+    </div>
+  </div>
+</div>
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('is-open');
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('is-open');
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.is-open').forEach(function (el) {
+        el.classList.remove('is-open');
+      });
+    }
+  });
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>

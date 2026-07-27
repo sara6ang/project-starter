@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input · 디자인 시스템</title>
+<link rel="stylesheet" href="/TongssApp/assets/css/tokens.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/components.css">
+<link rel="stylesheet" href="/TongssApp/design-system/assets/css/showcase.css">
+</head>
+<body class="ds-layout">
+<aside data-include="/TongssApp/design-system/partials/nav.html"></aside>
+<main class="ds-content">
+<div class="cs-page">
+
+  <a class="cs-back" href="/TongssApp/design-system/index.html"><i data-lucide="arrow-left"></i>디자인 시스템으로</a>
+
+  <div class="cs-header">
+    <div class="cs-header__eyebrow">Components</div>
+    <h1 class="cs-header__title">Input</h1>
+    <p class="cs-header__desc">한 줄짜리 텍스트를 입력받을 때 사용합니다. type 속성으로 text/email/password 등을 구분하고, 좌우에 아이콘을 넣을 수 있습니다.</p>
+  </div>
+
+  <!-- ============ Type ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">Type</h2>
+    <div class="cs-block">
+      <div class="cs-row cs-row--column">
+        <input class="input" type="text" placeholder="이름을 입력하세요">
+        <input class="input" type="email" placeholder="you@example.com">
+        <input class="input" type="password" placeholder="비밀번호">
+      </div>
+      <code class="cs-code">.input[type="text"]</code>
+      <code class="cs-code">.input[type="email"]</code>
+      <code class="cs-code">.input[type="password"]</code>
+    </div>
+  </section>
+
+  <!-- ============ 아이콘 슬롯 ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">아이콘 슬롯</h2>
+    <div class="cs-block">
+      <div class="cs-row cs-row--column">
+        <div class="input-group">
+          <span class="input-group__icon input-group__icon--left"><i data-lucide="search"></i></span>
+          <input class="input input--icon-left" type="text" placeholder="검색">
+        </div>
+        <div class="input-group">
+          <input class="input input--icon-right" type="text" placeholder="이메일 확인됨" value="sara@example.com" readonly>
+          <span class="input-group__icon input-group__icon--right" style="color: var(--color-success)"><i data-lucide="check-circle"></i></span>
+        </div>
+      </div>
+      <code class="cs-code">.input-group > .input-group__icon--left + .input.input--icon-left</code>
+    </div>
+  </section>
+
+  <!-- ============ State ============ -->
+  <section class="cs-section">
+    <h2 class="cs-section__title">State</h2>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Normal</div>
+      <div class="cs-row">
+        <input class="input" type="text" placeholder="기본 상태">
+      </div>
+      <code class="cs-code">.input</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Focus (직접 클릭해서 확인하거나 아래는 강제 표시)</div>
+      <div class="cs-row">
+        <input class="input is-focus" type="text" value="포커스 상태">
+      </div>
+      <code class="cs-code">.input:focus</code> <code class="cs-code">.input.is-focus</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Error</div>
+      <div class="cs-row cs-row--column">
+        <input class="input is-error" type="text" value="wrong@format">
+        <span class="input-help is-error">올바른 이메일 형식이 아닙니다.</span>
+      </div>
+      <code class="cs-code">.input.is-error</code>
+    </div>
+
+    <div class="cs-block">
+      <div class="cs-block__label">Disabled</div>
+      <div class="cs-row">
+        <input class="input" type="text" value="수정할 수 없음" disabled>
+      </div>
+      <code class="cs-code">.input[disabled]</code> <code class="cs-code">.input.is-disabled</code>
+    </div>
+  </section>
+
+  <div class="cs-footer">CSS 원본: assets/css/components.css · 토큰: assets/css/tokens.css</div>
+</div>
+
+</main>
+
+<script src="/TongssApp/assets/js/vendor/lucide.js"></script>
+<script src="/TongssApp/design-system/assets/js/include.js"></script>
+<script src="/TongssApp/assets/js/shared/icons.js"></script>
+<script src="/TongssApp/design-system/assets/js/nav.js"></script>
+<script>
+  document.addEventListener('components:ready', () => {
+    lucide.createIcons(); // 본문 아이콘 (nav.js가 사이드바 아이콘은 이미 처리함)
+  });
+</script>
+</body>
+</html>
