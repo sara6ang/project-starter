@@ -85,7 +85,7 @@ TongssApp이 "사람 vs AI" 2분류였다면, TongssOrg는 역할이 하나 더 
 - `../docs/04_DATA_CONTRACT.md`에 없는 필드를 임의로 추가/변경하지 않는다.
 - 표준 List View / Lightning Record Page로 되는 화면을 커스텀 LWC로 새로 만들지 않는다 (`docs/06_AUTOMATION.md` 체크리스트 참조).
 - Custom Object를 이유 없이 추가하지 않는다 — 이번 스코프는 Account 필드 확장만으로 충분하다는 게 현재 결정이다 (`docs/01_OBJECT_MODEL.md`).
-- Guest User 권한을 "일단 넓게 열고 나중에 좁히기" 방식으로 열지 않는다 (`docs/05_PERMISSION.md`).
+- TongssApp 연동 권한을 "일단 넓게 열고 나중에 좁히기" 방식으로 열지 않는다 (`docs/05_PERMISSION.md`).
 
 ## 헷갈리면
 

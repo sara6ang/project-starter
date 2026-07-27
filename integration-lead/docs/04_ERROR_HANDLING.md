@@ -9,10 +9,12 @@
 | 실패 상황 | 무슨 일이 생기나 | 누가 고치나 |
 |---|---|---|
 | CORS 미등록 | 브라우저가 요청 자체를 막음 | Integration Lead — CORS Allowed Origins에 도메인 등록 |
-| Guest User 401/403 | 요청은 갔지만 거부됨 | Platform Lead — Guest User 권한 세트 확인 |
+| 연동 엔드포인트 401/403 | 요청은 갔지만 거부됨 | Platform Lead — 연동용 권한 세트 확인 (`TongssOrg/docs/05_PERMISSION.md`) |
 | `store_id` 매핑 실패 | 해당 Account를 못 찾음 | Integration Lead + Org PO |
 | 계약에 없는 필드 전송 | Apex가 무시하거나 에러 | 보낸 쪽(Store PO) — `../../docs/04_DATA_CONTRACT.md` 기준으로 되돌림 |
 | 네트워크 실패 (일시적) | 데이터 유실 가능 `[확인필요]` | Integration Lead |
+
+> 참고: Entry Code 조회 실패(사장·직원이 코드를 잘못 입력하는 경우)는 이 문서의 대상이 아닙니다 — TongssApp 자체 화면 처리이며 `TongssApp/docs/03_USER_FLOW.md` §0에서 다룹니다.
 
 ---
 

@@ -90,6 +90,8 @@ createStaffStatusRow()   createStatCard()   createEmptyState()
 ## 🤖 실제 페이지 파일 목록 (Claude 참고)
 
 ```
+index.html                              assets/js/features/entry/entry.js         ← Entry Code 입력 (사장·직원 공통 진입점)
+
 pages/owner/dashboard.html              assets/js/features/owner/dashboard.js
 pages/owner/manual-list.html            assets/js/features/owner/manual-list.js
 pages/owner/manual-edit.html            assets/js/features/owner/manual-edit.js

@@ -26,7 +26,7 @@ TongssApp/
 ├── README.md
 ├── CLAUDE.md
 │
-├── index.html                 # 진입점 (역할 선택 또는 사장/직원 분기)
+├── index.html                 # 진입점 — Entry Code 입력 화면 (조회 결과로 사장/직원 자동 분기, 역할을 직접 선택하지 않음)
 ├── pages/
 │   ├── owner/
 │   │   ├── dashboard.html

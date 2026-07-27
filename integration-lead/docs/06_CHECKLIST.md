@@ -8,11 +8,11 @@
 - [ ] `../../docs/04_DATA_CONTRACT.md` 필드 레벨 합의 완료
 - [ ] TongssApp 배포처 확정
 - [ ] TongssOrg Account 커스텀 필드 생성 완료
-- [ ] Digital Experience Site 활성화 확인
+- [ ] TongssOrg 쪽 연동 엔드포인트(공개 접근) 활성화 확인
 
 ## Hello World 스파이크 (Week 1 후반)
 - [ ] 더미 값 1개 POST → Account 필드 갱신 확인
-- [ ] Guest User 권한으로 실제 호출 성공 (로그인 없이)
+- [ ] 연동 엔드포인트로 실제 호출 성공 (로그인 없이)
 - [ ] CORS 통과 확인
 - [ ] 결과를 `04_ERROR_HANDLING.md`에 기록 (성공/실패 모두)
 

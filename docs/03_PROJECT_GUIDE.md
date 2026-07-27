@@ -116,7 +116,7 @@
 
 ### 승우 (Integration)
 - [ ] TongssApp ↔ TongssOrg 데이터 파이프라인 본격 착수
-- [ ] Guest User 인증 방식을 `04_DATA_CONTRACT.md` 기준으로 구현
+- [ ] App↔Org 연동 엔드포인트를 `04_DATA_CONTRACT.md` 기준으로 구현 (로그인 없는 공개 엔드포인트 — Entry Code와는 무관, `integration-lead/docs/02_API_CONTRACT.md` 참조)
 
 ### 혜준 (Platform / QA)
 - [ ] org 권한·설정으로 은영 지원

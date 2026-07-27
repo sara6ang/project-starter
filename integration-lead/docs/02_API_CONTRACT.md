@@ -9,9 +9,11 @@
 
 | API | 방향 | 인증 | 상태 | 상세 |
 |---|---|---|---|---|
-| `POST /services/apexrest/tongss/store-status/*` | TongssApp → TongssOrg | Guest User (인증 없음) | `[확인필요]` | `TongssOrg/docs/06_AUTOMATION.md` (StoreRestService) |
+| `POST /services/apexrest/tongss/store-status/*` | TongssApp → TongssOrg | 없음 (공개 엔드포인트) | `[확인필요]` | `TongssOrg/docs/06_AUTOMATION.md` (StoreRestService) |
 
 역방향(Org → App) API는 없습니다 (`../../docs/04_DATA_CONTRACT.md` §1).
+
+> ⚠️ 이 "인증 없음"은 **시스템 간 통신**에 대한 이야기입니다. 사람(사장·직원)이 TongssApp에 들어가는 방법(Entry Code)과는 다른 이야기입니다 — `TongssApp/docs/03_USER_FLOW.md` §0 참조.
 
 ---
 
@@ -19,8 +21,8 @@
 
 ```mermaid
 sequenceDiagram
-    TongssApp->>Guest Site: POST store-status
-    Guest Site->>Apex REST: Guest User 권한으로 실행
+    TongssApp->>공개 엔드포인트: POST store-status
+    공개 엔드포인트->>Apex REST: 로그인 없이 실행
     Apex REST->>Account: 필드 update
 ```
 

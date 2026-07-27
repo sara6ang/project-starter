@@ -18,7 +18,7 @@ TongssApp에서 생기는 활동(매뉴얼 등록, 체크리스트 완료, 재�
 
 - **방향:** TongssApp → TongssOrg (단방향, org → TongssApp 역방향 없음)
 - **방식:** Apex REST 엔드포인트 (`OrderRestService` 패턴 재활용)
-- **인증:** `[확인필요]` Guest User 권한 범위 확정 (Week 2 스파이크에서 결정)
+- **인증:** 없음 — 로그인 없이 호출되는 공개 엔드포인트. **TongssApp 사용자의 Entry Code(`S01O` 등)와는 무관한 별개의 통로**입니다 — Entry Code는 사람이 앱에 들어가는 방식이고, 이 엔드포인트는 TongssApp 서버가 TongssOrg에 데이터를 보내는 통로입니다. 실제 구현 방식은 `TongssOrg/docs/05_PERMISSION.md`(Org 기술 상세), 연동 관점 요약은 `integration-lead/docs/02_API_CONTRACT.md` 참조
 - **트리거 시점:** `[확인필요]` 이벤트 발생 즉시 vs 배치(일 1회) — 데모 목적상 즉시 전송을 우선 검토
 
 ---

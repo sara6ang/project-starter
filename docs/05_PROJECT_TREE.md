@@ -68,6 +68,7 @@ Tongss/
     ├── CLAUDE.md
     └── docs/
         ├── PERMISSIONS.md
+        ├── ARCHITECTURE_DECISIONS.md
         ├── QA_CHECKLIST.md
         └── TEST_PLAN.md
 ```

@@ -9,26 +9,52 @@
 
 ---
 
-## 👤 데이터 종류 5가지 — 어느 화면에서 쓰이나
+## 👤 데이터 종류 — 어느 화면에서 쓰이나
 
 | 데이터 | 쉽게 말하면 | 어느 화면에서 쓰이나 |
 |---|---|---|
-| Store | 매장 정보 | 최초 설정 |
+| Store | 매장 정보 + 사장 Entry Code | 앱 진입(§0), 사장 화면 전체 |
 | Manual | 매뉴얼 | 매뉴얼 등록·목록(사장), 매뉴얼 뷰어(직원) |
 | ChecklistItem / Completion | 체크리스트 항목 / 완료 기록 | 체크리스트 설정(사장), 체크리스트 실행(직원) |
 | InventoryItem | 재고 확인 항목 | 재고 확인 항목 설정(사장), 재고 확인(직원) — ⚠️ **수량이 아니라 "확인했는지"를 기록** |
-| Staff / ManualProgress | 직원 / 학습 기록 | 직원 현황(사장) |
+| Staff / ManualProgress | 직원 + 직원 Entry Code / 학습 기록 | 앱 진입(§0), 직원 현황(사장) |
+
+> ⚠️ 매장·직원은 **회원가입으로 생기지 않습니다.** 팀이 미리 시드 데이터로 준비해둡니다 (`../../examples/MASHITA_BURGER.md` 참조). 앱에서 하는 일은 Entry Code로 이미 있는 레코드를 **조회**하는 것뿐입니다.
 
 ---
 
 ## 🤖 각 데이터의 실제 형태
 
+### 0. Entry Code 조회 (로그인 대체)
+
+Entry Code는 별도 Object가 아니라, **Store와 Staff 레코드에 이미 들어있는 필드**로 조회합니다.
+
+```javascript
+// 입력값 정규화
+const code = userInput.trim().toUpperCase();  // "s01o" → "S01O"
+
+// Store에서 사장 코드로 먼저 찾고, 없으면 Staff에서 직원 코드로 찾는다
+const store = stores.find(s => s.ownerEntryCode === code);
+if (store) {
+  // 사장 → pages/owner/dashboard.html로 이동
+} else {
+  const staff = allStaff.find(s => s.entryCode === code);
+  if (staff) {
+    // 직원 → pages/staff/today.html로 이동 (staff.store_id로 매장 식별)
+  } else {
+    // 못 찾음 → 에러 메시지
+  }
+}
+```
+
 ### 1. Store (매장)
 
 ```javascript
 {
-  id: "store_001",       // 고유 ID — shared 04_DATA_CONTRACT의 store_id와 동일
+  id: "store_001",              // 고유 ID — shared 04_DATA_CONTRACT의 store_id와 동일
   name: "이대표 카페",
+  storeNumber: "01",            // Entry Code의 매장번호 부분
+  ownerEntryCode: "S01O",       // 사장 진입 코드 — S + storeNumber + O
   createdAt: "2026-08-03T09:00:00+09:00"
 }
 ```
@@ -93,7 +119,8 @@
 {
   id: "staff_001",
   store_id: "store_001",
-  name: "김스태프"   // [확인필요] 실명 저장 여부, 익명 코드로 대체할지
+  name: "김스태프",
+  entryCode: "S01E01"   // 직원 진입 코드 — S + storeNumber + E + 직원번호
 }
 
 // ManualProgress — 직원별 "다 봤어요" 기록
@@ -122,6 +149,7 @@ erDiagram
     STORE {
         string id
         string name
+        string ownerEntryCode
     }
     MANUAL {
         string id
@@ -143,6 +171,7 @@ erDiagram
         string id
         string store_id
         string name
+        string entryCode
     }
 ```
 

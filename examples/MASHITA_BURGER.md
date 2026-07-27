@@ -9,12 +9,14 @@
 
 ## 0. 이 매장의 사람들 한눈에
 
-| 이름 | 역할 | 비고 |
-|---|---|---|
-| 함부기 | 점주 (매니저 겸임) | `01_PERSONAS.md` "이대표"의 구체적 예시 |
-| 박주방 | 주방 담당 아르바이트 | 근속 8개월, 시니어 |
-| 김스태프 | 홀 담당 아르바이트 | 근무 2개월차, `01_PERSONAS.md` "김스태프"의 구체적 예시 |
-| 이주말 | 주말 전담 아르바이트 | 근속 1년 |
+이 매장 번호는 **01**입니다. 아래 Entry Code로 TongssApp에 들어갑니다 (`TongssApp/docs/03_USER_FLOW.md` §0 참조 — 실제 로그인이 아니라 코드 조회).
+
+| 이름 | 역할 | Entry Code | 비고 |
+|---|---|---|---|
+| 함부기 | 점주 (매니저 겸임) | `S01O` | `01_PERSONAS.md` "이대표"의 구체적 예시 |
+| 박주방 | 주방 담당 아르바이트 | `S01E01` | 근속 8개월, 시니어 |
+| 김스태프 | 홀 담당 아르바이트 | `S01E02` | 근무 2개월차, `01_PERSONAS.md` "김스태프"의 구체적 예시 |
+| 이주말 | 주말 전담 아르바이트 | `S01E03` | 근속 1년 |
 
 ---
 
@@ -114,12 +116,12 @@
 
 ## 5. 직원
 
-| 이름 | 역할 | 비고 |
-|---|---|---|
-| 함부기 | 점주 (매니저 역할 겸임) | 1인 매장 특성상 별도 매니저 없음 |
-| 박주방 | 주방 담당 | 아르바이트, 근속 8개월 |
-| 김스태프 | 홀 담당 | 아르바이트, 근무 2개월차 (신입) |
-| 이주말 | 주말 전담 | 아르바이트, 근속 1년 |
+| 이름 | 역할 | Entry Code | 비고 |
+|---|---|---|---|
+| 함부기 | 점주 (매니저 역할 겸임) | `S01O` | 1인 매장 특성상 별도 매니저 없음 |
+| 박주방 | 주방 담당 | `S01E01` | 아르바이트, 근속 8개월 |
+| 김스태프 | 홀 담당 | `S01E02` | 아르바이트, 근무 2개월차 (신입) |
+| 이주말 | 주말 전담 | `S01E03` | 아르바이트, 근속 1년 |
 
 ---
 
@@ -179,18 +181,21 @@
 {
   id: "store_001",
   name: "MashiTa버거 을지로 본점",
+  storeNumber: "01",
+  ownerEntryCode: "S01O",     // 함부기(점주)의 진입 코드
   createdAt: "2026-08-03T09:00:00+09:00"
 }
 ```
 
 ### 9-2. Staff
 
+> ⚠️ 점주(함부기)는 Staff가 아니라 Store의 `ownerEntryCode`로 식별됩니다 (`TongssApp/docs/05_DATA.md` 참조). 여기는 아르바이트 3명만 있습니다.
+
 ```javascript
 [
-  { id: "staff_001", store_id: "store_001", name: "함부기" },
-  { id: "staff_002", store_id: "store_001", name: "박주방" },
-  { id: "staff_003", store_id: "store_001", name: "김스태프" },
-  { id: "staff_004", store_id: "store_001", name: "이주말" }
+  { id: "staff_001", store_id: "store_001", name: "박주방", entryCode: "S01E01" },
+  { id: "staff_002", store_id: "store_001", name: "김스태프", entryCode: "S01E02" },
+  { id: "staff_003", store_id: "store_001", name: "이주말", entryCode: "S01E03" }
 ]
 ```
 
@@ -244,8 +249,8 @@
 | `store_id` | store_001 |
 | `manual_count` | 7 |
 | `last_manual_updated_at` | 2026-08-12T21:00:00+09:00 |
-| `staff_count` | 4 |
-| `manual_completion_rate` | 0.75 (직원 4명 중 3명이 최신 매뉴얼까지 확인) |
+| `staff_count` | 3 (아르바이트 기준 — 점주 제외) |
+| `manual_completion_rate` | 0.67 (직원 3명 중 2명이 최신 매뉴얼까지 확인) |
 | `checklist_date` | 2026-08-12 |
 | `checklist_completion_rate` | 0.83 (오픈+마감 12개 중 10개 완료) |
 | `low_stock_alert_count` | 3 (Beef Patty, Burger Bun, Coke Syrup) |

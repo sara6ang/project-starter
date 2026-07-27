@@ -27,7 +27,7 @@
 | 이름 | `StoreRestService.cls` |
 | 방식 | `@RestResource(urlMapping='/tongss/store-status/*')` |
 | 하는 일 | TongssApp의 활동 데이터를 POST로 받아 Account 커스텀 필드 갱신 (`../../docs/04_DATA_CONTRACT.md` 참조) |
-| 인증 | Guest User 권한으로 실행 (`05_PERMISSION.md` 참조) |
+| 인증 | 없음 — 로그인 없이 호출되는 공개 엔드포인트 (`05_PERMISSION.md` 참조) |
 | 참고 | 이전 프로젝트(Pepper's Oven)의 `OrderRestService` 패턴을 그대로 재활용 |
 
 ```mermaid
@@ -119,9 +119,9 @@ Q. force-app 안 폴더에 직접 파일을 만드나요?
 A. 아니요. Setup 화면에서 클릭으로 만들면 `sf project retrieve`로 받아와 자동 채워집니다.
 
 Q. force-app 바깥의 TongssApp은 뭔가요?
-A. 사장·직원용 사이트로, Digital Experience Guest Site를 통해 StoreRestService의 REST
-   엔드포인트를 인증 없이 호출합니다. force-app 소스와 독립적이며, 자체 규칙은
-   TongssApp/CLAUDE.md·docs에서 따로 관리합니다.
+A. 사장·직원용 사이트로, 로그인 없이 StoreRestService의 REST 엔드포인트를 호출합니다
+   (05_PERMISSION.md 참조). 사람의 앱 진입(Entry Code)과는 무관한, 시스템 간 통신입니다.
+   force-app 소스와 독립적이며, 자체 규칙은 TongssApp/CLAUDE.md·docs에서 따로 관리합니다.
 ```
 
 ## 👀 PM 확인 사항

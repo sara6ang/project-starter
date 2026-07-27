@@ -61,7 +61,7 @@
 **검토했던 대안:**
 -
 
-**영향받는 문서/트랙:** 04_DATA_CONTRACT (Guest User/CORS 설정), TongssOrg 통합
+**영향받는 문서/트랙:** 04_DATA_CONTRACT (CORS 설정), TongssOrg 통합
 
 ---
 
