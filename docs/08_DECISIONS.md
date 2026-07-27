@@ -24,7 +24,7 @@
 **검토했던 대안:**
 - ❌ (기각한 안) — 기각 이유:
 
-**영향받는 문서/트랙:** (예: store-app 배포처, 04_ROADMAP)
+**영향받는 문서/트랙:** (예: TongssApp 배포처, 04_ROADMAP)
 ```
 
 ---
@@ -33,7 +33,7 @@
 
 아래 두 결정은 04_ROADMAP Week 1에서 "반드시 결정할 것"으로 지정되어 있습니다. OT 당일 정해지는 대로 위 양식으로 채워주세요.
 
-### [결정 예정] store-app 기술 스택
+### [결정 예정] TongssApp 기술 스택
 
 **날짜:**
 **담당/제안자:**
@@ -45,11 +45,11 @@
 **검토했던 대안:**
 -
 
-**영향받는 문서/트랙:** store-app/CLAUDE.md, store-app/docs/06_ARCHITECTURE.md
+**영향받는 문서/트랙:** TongssApp/CLAUDE.md, TongssApp/docs/06_ARCHITECTURE.md
 
 ---
 
-### [결정 예정] store-app 배포처
+### [결정 예정] TongssApp 배포처
 
 **날짜:**
 **담당/제안자:**
@@ -61,7 +61,7 @@
 **검토했던 대안:**
 -
 
-**영향받는 문서/트랙:** 05_DATA_CONTRACT (Guest User/CORS 설정), toss-org 통합
+**영향받는 문서/트랙:** 05_DATA_CONTRACT (Guest User/CORS 설정), TongssOrg 통합
 
 ---
 

@@ -40,7 +40,7 @@ shared/docs 전 문서 초안이 완성됐다. 원래 7/27~8/1에 나눠 계획�
 | 08_DECISIONS | ✅ 템플릿 완료 (OT 당일부터 기록 시작) |
 | 09_TEAM_GUIDE | ✅ 완료 (Manifesto, PM/Team Lead 분리 포함) |
 | 루트 + 4개 트랙 CLAUDE.md | ✅ 완료 |
-| store-app / toss-org / integration-lead / platform-lead docs | ✅ 초안 포맷 완료 (내용은 각 오너가 채움) |
+| TongssApp / TongssOrg / integration-lead / platform-lead docs | ✅ 초안 포맷 완료 (내용은 각 오너가 채움) |
 
 ### 남은 준비 (7/28~8/1)
 
@@ -59,8 +59,8 @@ shared/docs 전 문서 초안이 완성됐다. 원래 7/27~8/1에 나눠 계획�
 
 | 오너 | 채울 문서 | 마감 |
 |---|---|---|
-| 아론 (Store PO) | store-app/docs 03·04·05·06·07의 `[확인필요]` 항목 | Week 1 금요일 |
-| 은영 (Org PO) | toss-org/docs 03·04·05·06·07의 `[확인필요]` 항목 | Week 1 금요일 |
+| 아론 (Store PO) | TongssApp/docs 03·04·05·06·07의 `[확인필요]` 항목 | Week 1 금요일 |
+| 은영 (Org PO) | TongssOrg/docs 03·04·05·06·07의 `[확인필요]` 항목 | Week 1 금요일 |
 | 승우 (Integration Lead) | integration-lead/docs 3개 (ENVIRONMENTS는 값 나오는 대로 계속 갱신) | Week 1 금요일 (초안) |
 | 혜준 (Platform Lead) | platform-lead/docs 3개 (PERMISSIONS 우선) | Week 1 금요일 (초안) |
 
@@ -69,13 +69,13 @@ shared/docs 전 문서 초안이 완성됐다. 원래 7/27~8/1에 나눠 계획�
 ## 팀 합류 이후 로드맵 (8/3 ~ 9/3, 실근무 4주 + 4일)
 
 **데모 한 줄 시나리오 (모든 스코프 판단의 기준):**
-이대표가 매뉴얼 등록 → 김스태프가 store-app에서 봄 → 박세일즈가 org에서 확인.
+이대표가 매뉴얼 등록 → 김스태프가 TongssApp에서 봄 → 박세일즈가 org에서 확인.
 이 줄에 없는 기능은 스코프 조정 시 1순위 컷 대상 (02_PRD 참조).
 
 | 주차 | 기간 | 테마 | 핵심 산출물 |
 |------|------|------|-------------|
 | Week 1 | 8/3~8/7 (5일) | OT + 뼈대 세우기 | 문서 확정, 스택·배포처 결정, git 세팅, UI 프레임워크, Object 생성, 데이터 계약 확정, Hello World 스파이크 |
-| Week 2 | 8/10~8/14 (5일) | 각 트랙 기능 완성 | store-app 기능 완료, org 화면 완료, 파이프라인 착수 |
+| Week 2 | 8/10~8/14 (5일) | 각 트랙 기능 완성 | TongssApp 기능 완료, org 화면 완료, 파이프라인 착수 |
 | Week 3 | 8/17~8/21 (5일) | 통합 주간 | 엔드투엔드 연동 성공 |
 | Week 4 | 8/24~8/28 (5일) | 데모 시나리오 + QA | 데모 스토리 확정, PPT, 리허설 1회 |
 | Week 5 | 8/31~9/3 (4일, 월~목) | 프리즈 + 최종 리허설 | 버그픽스만, 최종 리허설 |
@@ -92,7 +92,7 @@ shared/docs 전 문서 초안이 완성됐다. 원래 7/27~8/1에 나눠 계획�
 |------|--------|
 | 전원 | 00_WHY, 01_PERSONAS, 02_PRD 리뷰 및 확정 — `[확인필요]` 항목 함께 채우기 |
 | 전원 | 09_TEAM_GUIDE 확정 (Manifesto, 역할, PM/Team Lead 분리) |
-| 전원 | **Week 1 필수 결정** — store-app 스택(React vs HTML/CSS/JS), 배포처(GitHub Pages/Vercel 등) → **그 자리에서 08_DECISIONS 기록** |
+| 전원 | **Week 1 필수 결정** — TongssApp 스택(React vs HTML/CSS/JS), 배포처(GitHub Pages/Vercel 등) → **그 자리에서 08_DECISIONS 기록** |
 | Sara | 트랙별 "채워야 할 것" 목록 + 참고 레퍼런스 배포 |
 | 은영 (Team Lead) | **git 저장소 세팅** — 브랜치 보호, PR 템플릿, 브랜치 네이밍 (09_TEAM_GUIDE §5) |
 | Sara | 일일 스탠드업 첫 진행 |
@@ -102,14 +102,14 @@ shared/docs 전 문서 초안이 완성됐다. 원래 7/27~8/1에 나눠 계획�
 | 누가 | 무엇을 |
 |------|--------|
 | **Sara + 아론** | ⭐ **UI/UX 프레임워크 설계** — 유저 플로우 확정, 화면 구조 스케치, 디자인 토큰·공용 컴포넌트 규칙 정리. 이 프레임 위에서 실제 화면 구현은 AI에게 맡긴다 (Manifesto 3). **아론이 오너, Sara는 함께 설계** |
-| 아론 | store-app 스코프 확정(02_PRD 기준) → 프레임워크 기반으로 핵심 화면 구현 착수 |
-| **은영 + 혜준** | ⭐ **org 데이터 모델 설계 + 세팅 (함께 진행)** — 설계와 세팅을 분리하지 않는다. 책임 분담은 `toss-org/docs/05_DATA.md` §책임 분담표 기준: **은영(Org PO)이 Object·Field·Relationship·Record Type 여부 책임**, **혜준(Platform Lead)이 Validation Rule·Page Layout·Permission Set·Profile/Sharing·Flow·Org 설정 책임** |
+| 아론 | TongssApp 스코프 확정(02_PRD 기준) → 프레임워크 기반으로 핵심 화면 구현 착수 |
+| **은영 + 혜준** | ⭐ **org 데이터 모델 설계 + 세팅 (함께 진행)** — 설계와 세팅을 분리하지 않는다. 책임 분담은 `TongssOrg/docs/05_DATA.md` §책임 분담표 기준: **은영(Org PO)이 Object·Field·Relationship·Record Type 여부 책임**, **혜준(Platform Lead)이 Validation Rule·Page Layout·Permission Set·Profile/Sharing·Flow·Org 설정 책임** |
 | 혜준 | org 생성, 팀원 User 세팅 (단독 선행 작업) |
-| 은영 | toss-org 스코프 확정 (Org PO 모자) |
+| 은영 | TongssOrg 스코프 확정 (Org PO 모자) |
 | 승우 | org 구축에 참여하며 내부 구조 파악(학습 목적, 오너십 없음) + **여력이 되면 Sara·아론의 app flow 설계에 합류** — 나중에 자기가 연결할 시스템의 화면 구조를 미리 아는 것 자체가 통합 준비 |
-| 은영 + 승우 + 혜준 | Flow vs Apex 분담 결정 (Sara 참관) → toss-org/06_ARCHITECTURE + 08_DECISIONS 기록 |
+| 은영 + 승우 + 혜준 | Flow vs Apex 분담 결정 (Sara 참관) → TongssOrg/06_ARCHITECTURE + 08_DECISIONS 기록 |
 | Sara | **05_DATA_CONTRACT.md 확정** — 아론·은영·승우와 필드 레벨 합의 |
-| 승우 | 주 후반: **Hello World 스파이크** — 더미 값 1개를 store-app에서 Apex REST로 POST, org에 레코드 생성 확인 |
+| 승우 | 주 후반: **Hello World 스파이크** — 더미 값 1개를 TongssApp에서 Apex REST로 POST, org에 레코드 생성 확인 |
 | 각 오너 | 자기 트랙 docs의 `[확인필요]` 채우기 (금요일까지) |
 | 전원 | 일일 스탠드업(매일 9:30~9:45, Sara 진행), 금요일 Show & Tell(Sara 진행) |
 
@@ -121,11 +121,11 @@ shared/docs 전 문서 초안이 완성됐다. 원래 7/27~8/1에 나눠 계획�
 
 | 누가 | 무엇을 |
 |------|--------|
-| 아론 | store-app 기능 마무리 (프레임워크 기반, AI 활용) |
+| 아론 | TongssApp 기능 마무리 (프레임워크 기반, AI 활용) |
 | 은영 + 혜준 | org 화면(LWC/Flow) 구현 |
 | 승우 | 파이프라인 본격 착수 |
 | Sara + 승우 + 혜준 | 직원 매뉴얼 콘텐츠 초안 (07_VOICE_AND_TONE 기준) |
-| 은영 + 승우 | 주 말: store-app UX 리뷰 1차 |
+| 은영 + 승우 | 주 말: TongssApp UX 리뷰 1차 |
 | Sara | 중간 점검, 08_DECISIONS 기록, **스코프 조정** |
 | 은영 (Team Lead) | git 저장소 상태 점검 — 방치된 브랜치, 트랙 간 충돌 여부 |
 

@@ -1,7 +1,7 @@
 # CLAUDE.md — Tongss 루트 (팀 공통 규칙)
 
 > AI 툴(Claude 등)이 이 프로젝트에서 작업할 때 항상 먼저 읽어야 하는 문서입니다.
-> 스택별 세부 규칙은 `store-app/CLAUDE.md`, `toss-org/CLAUDE.md`를 각각 참고하세요 (3층 구조).
+> 스택별 세부 규칙은 `TongssApp/CLAUDE.md`, `TongssOrg/CLAUDE.md`를 각각 참고하세요 (3층 구조).
 
 ---
 
@@ -20,13 +20,13 @@ Tongss — F&B 매장 운영 매뉴얼/재고/직원 관리 앱. 5.5주 부트�
 Tongss/
 ├── CLAUDE.md              # 이 파일
 ├── docs/                  # 공유 — PM 오너 — "무엇을, 왜" (스택 무관)
-├── store-app/             # Store PO 오너 — 사장/직원용 (React 또는 HTML/CSS/JS)
+├── TongssApp/             # Store PO 오너 — 사장/직원용 (React 또는 HTML/CSS/JS)
 │   ├── CLAUDE.md
 │   └── docs/
-├── toss-org/               # Org PO 오너 — 토스플레이스용 (Salesforce)
+├── TongssOrg/               # Org PO 오너 — 토스플레이스용 (Salesforce)
 │   ├── CLAUDE.md
 │   └── docs/
-├── integration-lead/        # Integration Lead 오너 — store-app↔toss-org 연동 전담 문서
+├── integration-lead/        # Integration Lead 오너 — TongssApp↔TongssOrg 연동 전담 문서
 │   ├── CLAUDE.md
 │   └── docs/
 └── platform-lead/           # Platform Lead 오너 — org 권한/설정 + 전체 QA 전담 문서
@@ -34,13 +34,13 @@ Tongss/
     └── docs/
 ```
 
-> `integration-lead/`, `platform-lead/`는 store-app/toss-org 같은 별도 코드베이스가 아니다. 실제 코드는 각자 store-app 또는 toss-org 안에 들어가고, 이 두 폴더는 **두 스택을 가로지르는 역할이라 어느 한쪽 docs에도 속하기 애매한 문서**의 자리다 (자세한 이유는 06_PROJECT_TREE.md).
+> `integration-lead/`, `platform-lead/`는 TongssApp/TongssOrg 같은 별도 코드베이스가 아니다. 실제 코드는 각자 TongssApp 또는 TongssOrg 안에 들어가고, 이 두 폴더는 **두 스택을 가로지르는 역할이라 어느 한쪽 docs에도 속하기 애매한 문서**의 자리다 (자세한 이유는 06_PROJECT_TREE.md).
 
 ## docs 번호 규칙
 
 번호가 같으면 층위(레이어)가 같다는 뜻입니다. `docs/`(공유)와 각 스택의 `docs/`에서 같은 번호는 같은 종류의 정보를 담습니다. (integration-lead/, platform-lead/는 번호 체계를 따르지 않는 자유 형식 문서라 아래 표에서 제외 — 06_PROJECT_TREE.md 참조)
 
-| 번호 | 공유 (`docs/`) | store-app / toss-org (`{스택}/docs/`) |
+| 번호 | 공유 (`docs/`) | TongssApp / TongssOrg (`{스택}/docs/`) |
 |---|---|---|
 | 00 | WHY — 프로젝트 배경, 전략 | — |
 | 01 | PERSONAS — 사용자 4종 | — |
@@ -53,7 +53,7 @@ Tongss/
 | 08 | DECISIONS — 의사결정 기록 (전 스택 공통) | — |
 | 09 | TEAM_GUIDE — 역할, 협업, git, AI 규칙 | — |
 
-store-app/toss-org 칸이 비어 있는 번호(00~02, 08~09)는 공유 docs가 그 역할을 이미 하고 있어 스택별로 중복 생성하지 않는 것입니다. 반대로 공유 칸은 이번에 06(PROJECT_TREE)까지 채워지면서 빈 칸이 없습니다 — 공유 06과 스택 06은 **둘 다 "구조"를 다루지만 스케일이 다릅니다**: 공유는 리포지토리 전체 지도, 스택은 코드 폴더 레벨 규칙.
+TongssApp/TongssOrg 칸이 비어 있는 번호(00~02, 08~09)는 공유 docs가 그 역할을 이미 하고 있어 스택별로 중복 생성하지 않는 것입니다. 반대로 공유 칸은 이번에 06(PROJECT_TREE)까지 채워지면서 빈 칸이 없습니다 — 공유 06과 스택 06은 **둘 다 "구조"를 다루지만 스케일이 다릅니다**: 공유는 리포지토리 전체 지도, 스택은 코드 폴더 레벨 규칙.
 
 > 참고: 각 스택은 자체적으로 00~02번(프로젝트 시작/준비 문서)을 따로 만들지 않습니다 — 공유 docs의 00_WHY·01_PERSONAS·02_PRD가 그 역할을 하므로 중복을 피합니다.
 
@@ -71,4 +71,4 @@ store-app/toss-org 칸이 비어 있는 번호(00~02, 08~09)는 공유 docs가 �
 
 ## 이 문서를 누가 관리하는가
 
-Sara (PM). 루트 규칙 변경 시 `docs/08_DECISIONS.md`에 이유를 기록하세요. 각 트랙 리드는 자기 스택의 CLAUDE.md를 관리합니다 (아론 → store-app, 은영 → toss-org).
+Sara (PM). 루트 규칙 변경 시 `docs/08_DECISIONS.md`에 이유를 기록하세요. 각 트랙 리드는 자기 스택의 CLAUDE.md를 관리합니다 (아론 → TongssApp, 은영 → TongssOrg).

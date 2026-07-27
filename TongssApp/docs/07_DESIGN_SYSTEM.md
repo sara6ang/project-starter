@@ -1,4 +1,4 @@
-# store-app/docs/07_DESIGN_SYSTEM — 디자인 시스템
+# TongssApp/docs/07_DESIGN_SYSTEM — 디자인 시스템
 
 > **문서 소유권:** 최종 수정 권한은 **Store PO**. 아래는 기존에 확보해둔 토큰 시스템을 그대로 채택한 초안 — 값 자체(색상 등)는 Store PO가 Tongss 브랜드에 맞게 조정할 수 있다.
 > ⚠️ 색·타이포 **구조**(토큰 방식, 4px 배수, 5단계 글자크기)는 검증된 패턴이라 그대로 두는 걸 권장하지만, **정확한 색상값(특히 accent 핑크)은 이 프로젝트를 위해 새로 정한 게 아니라 이전 프로젝트에서 가져온 값**이다. ../../docs/07_VOICE_AND_TONE.md의 브랜드 키워드(Instant·Effortless·Reassuring)에 맞는 색인지 Store PO가 한 번 검토할 것.

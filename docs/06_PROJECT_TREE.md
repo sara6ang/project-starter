@@ -1,7 +1,7 @@
 # docs/06_PROJECT_TREE — 전체 리포지토리 큰 그림
 
 > 오너: PM / 상태: 초안
-> ⚠️ 이 문서는 **shared 06번 자리**에 들어간다. store-app/toss-org의 06_ARCHITECTURE.md(코드 레벨 폴더 규칙)와는 다르다 — 여기는 **리포지토리 전체를 한눈에 보여주는 지도**다. "이 파일이 어느 폴더에 있어야 하지?"보다 "이 프로젝트에 폴더가 몇 개고 누구 것인지"에 답하는 문서.
+> ⚠️ 이 문서는 **shared 06번 자리**에 들어간다. TongssApp/TongssOrg의 06_ARCHITECTURE.md(코드 레벨 폴더 규칙)와는 다르다 — 여기는 **리포지토리 전체를 한눈에 보여주는 지도**다. "이 파일이 어느 폴더에 있어야 하지?"보다 "이 프로젝트에 폴더가 몇 개고 누구 것인지"에 답하는 문서.
 
 ---
 
@@ -23,7 +23,7 @@ Tongss/
 │   ├── 08_DECISIONS.md
 │   └── 09_TEAM_GUIDE.md
 │
-├── store-app/                     # 🟠 Store PO 오너 — 사장/직원용 (React 또는 HTML/CSS/JS)
+├── TongssApp/                     # 🟠 Store PO 오너 — 사장/직원용 (React 또는 HTML/CSS/JS)
 │   ├── CLAUDE.md
 │   ├── docs/
 │   │   ├── 03_USER_FLOW.md
@@ -33,7 +33,7 @@ Tongss/
 │   │   └── 07_DESIGN_SYSTEM.md
 │   └── (pages/, assets/, data/, design-system/ 등)
 │
-├── toss-org/                       # 🔷 Org PO 오너 — 박세일즈용 (Salesforce)
+├── TongssOrg/                       # 🔷 Org PO 오너 — 박세일즈용 (Salesforce)
 │   ├── CLAUDE.md
 │   ├── docs/
 │   │   ├── 03_USER_FLOW.md
@@ -43,7 +43,7 @@ Tongss/
 │   │   └── 07_DESIGN_SYSTEM.md
 │   └── force-app/
 │
-├── integration-lead/               # 🟣 Integration Lead 오너 — store-app ↔ toss-org 연동 전담
+├── integration-lead/               # 🟣 Integration Lead 오너 — TongssApp ↔ TongssOrg 연동 전담
 │   ├── CLAUDE.md
 │   └── docs/
 │       ├── ENVIRONMENTS.md         # 배포 도메인, 엔드포인트, CORS 등록 현황
@@ -65,19 +65,19 @@ Tongss/
 | 폴더 | 오너 | 성격 |
 |---|---|---|
 | `docs/` (shared) | PM | 왜, 누구를 위해, 무엇을, 언제 — 전 트랙 공통 |
-| `store-app/` | Store PO | 사장·직원용 제품 코드 + 문서 |
-| `toss-org/` | Org PO | 토스플레이스용 Salesforce 코드 + 문서 |
-| `integration-lead/` | Integration Lead | store-app·toss-org 어디에도 속하지 않는, **연동 자체에 대한** 문서 |
+| `TongssApp/` | Store PO | 사장·직원용 제품 코드 + 문서 |
+| `TongssOrg/` | Org PO | 토스플레이스용 Salesforce 코드 + 문서 |
+| `integration-lead/` | Integration Lead | TongssApp·TongssOrg 어디에도 속하지 않는, **연동 자체에 대한** 문서 |
 | `platform-lead/` | Platform Lead | org 권한/설정 + 전체 제품 QA에 대한 문서 |
 
-`integration-lead/`, `platform-lead/`는 store-app이나 toss-org처럼 별도 코드베이스를 갖지 않는다(실제 코드는 각자 store-app 또는 toss-org 안에 들어간다). 대신 **두 스택을 가로지르는 역할이라 어느 한쪽 docs에도 자연스럽게 속하지 못하는 문서**를 위한 자리다.
+`integration-lead/`, `platform-lead/`는 TongssApp이나 TongssOrg처럼 별도 코드베이스를 갖지 않는다(실제 코드는 각자 TongssApp 또는 TongssOrg 안에 들어간다). 대신 **두 스택을 가로지르는 역할이라 어느 한쪽 docs에도 자연스럽게 속하지 못하는 문서**를 위한 자리다.
 
 ---
 
 ## 왜 이 두 폴더가 필요한가
 
-- Integration Lead는 store-app의 API 호출 코드와 toss-org의 Apex REST 코드를 둘 다 만지지만, "그 연동 자체가 지금 어떤 상태인지, 어떤 벽을 만났었는지"는 store-app/docs에도 toss-org/docs에도 어색하게 들어간다. 이번 프로젝트의 가장 큰 리스크(04_ROADMAP 리스크 레지스터 참조)를 다루는 역할이니 전용 공간이 있는 게 맞다.
-- Platform Lead는 org 설정/권한(이건 toss-org 쪽 일)과 Week 4~5의 전체 제품 QA(이건 store-app+toss-org를 가로지르는 일)를 겸한다. QA는 특정 스택 소유가 아니라 "제품 전체가 한 줄 시나리오대로 도는가"를 보는 일이라 별도 폴더가 자연스럽다.
+- Integration Lead는 TongssApp의 API 호출 코드와 TongssOrg의 Apex REST 코드를 둘 다 만지지만, "그 연동 자체가 지금 어떤 상태인지, 어떤 벽을 만났었는지"는 TongssApp/docs에도 TongssOrg/docs에도 어색하게 들어간다. 이번 프로젝트의 가장 큰 리스크(04_ROADMAP 리스크 레지스터 참조)를 다루는 역할이니 전용 공간이 있는 게 맞다.
+- Platform Lead는 org 설정/권한(이건 TongssOrg 쪽 일)과 Week 4~5의 전체 제품 QA(이건 TongssApp+TongssOrg를 가로지르는 일)를 겸한다. QA는 특정 스택 소유가 아니라 "제품 전체가 한 줄 시나리오대로 도는가"를 보는 일이라 별도 폴더가 자연스럽다.
 
 ---
 

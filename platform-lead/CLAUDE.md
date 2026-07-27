@@ -7,9 +7,9 @@
 
 ## 이 폴더가 무엇인가
 
-toss-org의 권한·설정을 관리하는 기록과, Week 4부터 맡는 전체 제품 QA(store-app+toss-org 통합 시나리오 검증)를 모아두는 곳. Object/필드 자체의 구조는 `toss-org/docs/05_DATA.md`(Org PO 소유)에 있고, 여기는 **누가 뭘 볼 수 있는가(권한)**와 **제대로 도는가(QA)**를 다룬다.
+TongssOrg의 권한·설정을 관리하는 기록과, Week 4부터 맡는 전체 제품 QA(TongssApp+TongssOrg 통합 시나리오 검증)를 모아두는 곳. Object/필드 자체의 구조는 `TongssOrg/docs/05_DATA.md`(Org PO 소유)에 있고, 여기는 **누가 뭘 볼 수 있는가(권한)**와 **제대로 도는가(QA)**를 다룬다.
 
-작업 전에 먼저 읽을 것: `toss-org/docs/06_ARCHITECTURE.md`(Guest User 권한 섹션), `../docs/02_PRD.md`(Demo Day 성공 기준), `../docs/03_USER_FLOW.md`(전체 여정).
+작업 전에 먼저 읽을 것: `TongssOrg/docs/06_ARCHITECTURE.md`(Guest User 권한 섹션), `../docs/02_PRD.md`(Demo Day 성공 기준), `../docs/03_USER_FLOW.md`(전체 여정).
 
 ## 문서 목록
 

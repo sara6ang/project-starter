@@ -1,7 +1,7 @@
 # 03_USER_FLOW — 프로덕트 전체 여정 (공유)
 
 > 오너: Sara / 상태: **초안 샘플 — Week 1 확정 필요**
-> 이 문서는 두 스택을 가로지르는 흐름만 다룬다. store-app 안의 세부 화면 흐름은 `store-app/docs/03_USER_FLOW.md`, toss-org 안은 `toss-org/docs/03_USER_FLOW.md`에서 각각 상세화한다.
+> 이 문서는 두 스택을 가로지르는 흐름만 다룬다. TongssApp 안의 세부 화면 흐름은 `TongssApp/docs/03_USER_FLOW.md`, TongssOrg 안은 `TongssOrg/docs/03_USER_FLOW.md`에서 각각 상세화한다.
 > 근거: 00_WHY §5 (Demo Day 한 줄 시나리오), 01_PERSONAS, 02_PRD §0
 
 ---
@@ -34,7 +34,7 @@ flowchart LR
     B2 --> DC
     DC --> C
 
-    Note["store-app에서 발생한 모든 활동이<br/>여기를 통해 org로 전달됨"]
+    Note["TongssApp에서 발생한 모든 활동이<br/>여기를 통해 org로 전달됨"]
 
     DC -.-> Note
 ```
@@ -66,16 +66,16 @@ flowchart LR
 
 **분기:** 체크리스트 항목을 다 못 채우고 퇴근하면? → `[확인필요]` 미완료 상태로 그냥 남기는지, 알림을 보내는지
 
-### 3단계 — 데이터 계약 (store-app → toss-org)
+### 3단계 — 데이터 계약 (TongssApp → TongssOrg)
 
-2단계에서 발생한 활동(매뉴얼 등록 수, 학습 완료 여부, 체크리스트 완료율, 재고 알림 발생 여부)이 Apex REST 엔드포인트를 통해 toss-org로 전달된다. 필드 정의는 `05_DATA_CONTRACT.md` 참조.
+2단계에서 발생한 활동(매뉴얼 등록 수, 학습 완료 여부, 체크리스트 완료율, 재고 알림 발생 여부)이 Apex REST 엔드포인트를 통해 TongssOrg로 전달된다. 필드 정의는 `05_DATA_CONTRACT.md` 참조.
 
 ### 4단계 — 박세일즈: org에서 매장 상태 확인 (반복 작업, 필요 시)
 
 | 순서 | 화면 | 행동 | 비고 |
 |---|---|---|---|
 | 4-1 | 매장 리스트뷰 | 활성/방치 매장 필터링 | 도입 상태 필드 기준 |
-| 4-2 | 매장 레코드 페이지 | 등록 매뉴얼 수, 직원 학습 완료율 확인 | store-app 활동이 반영된 값 |
+| 4-2 | 매장 레코드 페이지 | 등록 매뉴얼 수, 직원 학습 완료율 확인 | TongssApp 활동이 반영된 값 |
 | 4-3 | (선택) 대응 | 방치 매장에 연락, 부가서비스 제안 등 | 이번 스코프의 데모 대상은 아님 |
 
 ### 5단계 — 박오너: 지표로 집계 확인 (Demo Day 핵심 대상 아님, Nice-to-have)
@@ -98,5 +98,5 @@ flowchart LR
 
 ## 리뷰 세션 안건
 1. `[확인필요]` 항목들 — 로그인 방식, 체크리스트 기본 템플릿 여부, 미완료 처리 방식
-2. 이 문서 확정 후 store-app/toss-org 각 스택의 03_USER_FLOW를 이 흐름 기준으로 상세화
+2. 이 문서 확정 후 TongssApp/TongssOrg 각 스택의 03_USER_FLOW를 이 흐름 기준으로 상세화
 3. 승우(Integration Lead)가 3단계(데이터 계약) 파트를 가장 먼저 검토할 것

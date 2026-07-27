@@ -5,7 +5,7 @@
 
 ---
 
-## store-app 배포 정보
+## TongssApp 배포 정보
 
 | 항목 | 값 |
 |---|---|
@@ -13,7 +13,7 @@
 | 배포 URL (dev) | `[확인필요]` |
 | 배포 URL (demo, 있다면) | `[확인필요]` |
 
-## toss-org 환경 정보
+## TongssOrg 환경 정보
 
 | 항목 | 값 |
 |---|---|
@@ -25,7 +25,7 @@
 
 | 엔드포인트 | 메서드 | 용도 | 상태 |
 |---|---|---|---|
-| `/services/apexrest/tongss/store-status/*` `[확인필요: 실제 urlMapping 확정]` | POST | store-app → 매장 상태 갱신 | `[확인필요]` (미착수/스파이크 완료/실동작) |
+| `/services/apexrest/tongss/store-status/*` `[확인필요: 실제 urlMapping 확정]` | POST | TongssApp → 매장 상태 갱신 | `[확인필요]` (미착수/스파이크 완료/실동작) |
 
 ## CORS Allowed Origins 등록 현황
 

@@ -1,7 +1,7 @@
-# 🎨 toss-org/docs/07_DESIGN_SYSTEM — 디자인 시스템 (SLDS 2 버전)
+# 🎨 TongssOrg/docs/07_DESIGN_SYSTEM — 디자인 시스템 (SLDS 2 버전)
 
 > **문서 소유권:** 최종 수정 권한은 **Org PO**. 아래는 이전 프로젝트(Pepper's Oven) 원칙을 그대로 채택 (스택 지식이라 도메인 무관).
-> ⚠️ 이 문서는 **Salesforce 앱 안의 LWC/표준 화면** 전용입니다. store-app은 SLDS를 쓰지 않는 완전히 별도 프로젝트라 `../../store-app/docs/07_DESIGN_SYSTEM.md`에서 자체 토큰을 따로 정의합니다. 헷갈리지 않게 구분!
+> ⚠️ 이 문서는 **Salesforce 앱 안의 LWC/표준 화면** 전용입니다. TongssApp은 SLDS를 쓰지 않는 완전히 별도 프로젝트라 `../../TongssApp/docs/07_DESIGN_SYSTEM.md`에서 자체 토큰을 따로 정의합니다. 헷갈리지 않게 구분!
 
 ## 우리가 할 일
 
@@ -24,9 +24,9 @@ Salesforce가 이미 만들어둔 토큰 체계(SLDS 2)를 쓴다. 우리가 할
 ## Tongss 팔레트 적용 `[확인필요: Org PO 확정]`
 
 ```css
-/* store-app의 07_DESIGN_SYSTEM.md 팔레트와 통일할지, org는 SLDS 기본값 유지할지 결정 필요 */
---slds-g-color-brand-base-50: #111111;   /* store-app --color-primary와 동일 값 제안 */
---slds-g-color-accent-1: #ff4f97;         /* store-app --color-accent와 동일 값 제안, 단 이 값 자체가 store-app 쪽에서도 재검토 중 */
+/* TongssApp의 07_DESIGN_SYSTEM.md 팔레트와 통일할지, org는 SLDS 기본값 유지할지 결정 필요 */
+--slds-g-color-brand-base-50: #111111;   /* TongssApp --color-primary와 동일 값 제안 */
+--slds-g-color-accent-1: #ff4f97;         /* TongssApp --color-accent와 동일 값 제안, 단 이 값 자체가 TongssApp 쪽에서도 재검토 중 */
 ```
 
 > 정확한 훅 이름은 SLDS 2 버전에 따라 다를 수 있어, 실제 적용 시 Setup의 Themes and Branding 화면에서 이름을 확인하고 맞출 것을 권장.
@@ -56,5 +56,5 @@ Salesforce가 이미 만들어둔 토큰 체계(SLDS 2)를 쓴다. 우리가 할
 2. 색은 SLDS 훅만 사용했는가? (하드코딩 금지)
 3. 간격은 SLDS spacing 유틸리티 클래스 사용했는가? (slds-p-around_medium 등)
 4. 새 색이 필요하면 → Org PO와 상의 후 Themes and Branding에서 전역 설정
-5. store-app 팔레트와 통일할지 여부를 Org PO가 결정했는가?
+5. TongssApp 팔레트와 통일할지 여부를 Org PO가 결정했는가?
 ```

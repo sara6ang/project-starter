@@ -1,7 +1,7 @@
-# store-app/CLAUDE.md
+# TongssApp/CLAUDE.md
 
 > **문서 소유권:** 이 파일의 최종 수정 권한은 **Store PO**에게 있습니다. 아래는 PM이 제시하는 초안 가이드라인이며, Store PO가 검토·확정·수정합니다.
-> 이 파일은 Claude Code가 이 프로젝트(store-app 폴더)에서 작업할 때 **매번 자동으로 읽습니다.** 팀원이 매번 규칙을 복붙하지 않아도, Claude Code는 이 내용을 항상 알고 있는 상태로 시작합니다.
+> 이 파일은 Claude Code가 이 프로젝트(TongssApp 폴더)에서 작업할 때 **매번 자동으로 읽습니다.** 팀원이 매번 규칙을 복붙하지 않아도, Claude Code는 이 내용을 항상 알고 있는 상태로 시작합니다.
 > 루트 규칙은 `../CLAUDE.md` 참조 (docs 번호 체계, 팀 공통 AI 규칙).
 
 ---
@@ -54,7 +54,7 @@
 ## 문서 전체 목록
 
 ```
-store-app/docs/
+TongssApp/docs/
 ├── 03_USER_FLOW.md
 ├── 04_COMPONENT_MAP.md
 ├── 05_DATA.md
@@ -67,4 +67,4 @@ store-app/docs/
 
 ## 문서 소유권 원칙
 
-이 CLAUDE.md를 포함한 `store-app/docs/` 전체의 **최종 수정 권한은 Store PO**에게 있다. PM(Sara)은 초안과 가이드라인을 제시하지만, 확정·변경은 Store PO의 몫이다. 트랙을 넘는 결정(데이터 계약 변경 등)은 `../docs/08_DECISIONS.md`에 기록.
+이 CLAUDE.md를 포함한 `TongssApp/docs/` 전체의 **최종 수정 권한은 Store PO**에게 있다. PM(Sara)은 초안과 가이드라인을 제시하지만, 확정·변경은 Store PO의 몫이다. 트랙을 넘는 결정(데이터 계약 변경 등)은 `../docs/08_DECISIONS.md`에 기록.

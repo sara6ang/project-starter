@@ -1,4 +1,4 @@
-# 🧩 toss-org/docs/04_COMPONENT_MAP — 컴포넌트 지도 (LWC)
+# 🧩 TongssOrg/docs/04_COMPONENT_MAP — 컴포넌트 지도 (LWC)
 
 > **문서 소유권:** 최종 수정 권한은 **Org PO**. 아래는 PM이 제시하는 초안 — LWC 개념 설명은 이전 프로젝트(Pepper's Oven) 자료를 그대로 채택(스택 지식이라 도메인 무관), 실제 컴포넌트 목록만 Tongss 기준으로 교체.
 
@@ -38,12 +38,12 @@ lightning-datatable   (매장 리스트뷰는 표준 List View라 이것도 불�
 lightning-card        lightning-badge       lightning-formatted-text
 lightning-icon        lightning-button
 ```
-👉 02_PRD 스코프상 이번엔 표준 List View + 표준 Lightning Record Page만으로 대부분 해결된다. store-app 때와 달리 **커스텀 LWC가 거의 필요 없을 수 있다** — 02_PRD의 In 스코프가 "필드 표시 + 필터"라 표준 기능으로 충분하기 때문.
+👉 02_PRD 스코프상 이번엔 표준 List View + 표준 Lightning Record Page만으로 대부분 해결된다. TongssApp 때와 달리 **커스텀 LWC가 거의 필요 없을 수 있다** — 02_PRD의 In 스코프가 "필드 표시 + 필터"라 표준 기능으로 충분하기 때문.
 
 ### Level 2: 커스텀 LWC (공용) — 필요 시에만
 ```
 storeHealthBadge      ← 활성/방치 상태를 조건부 색상 배지로 (Base Component로 안 되는 부분)
-sharedEmptyState       ← "매뉴얼 아직 없음" 등 (store-app과 개념은 같으나 org 안에서 별도 제작)
+sharedEmptyState       ← "매뉴얼 아직 없음" 등 (TongssApp과 개념은 같으나 org 안에서 별도 제작)
 ```
 `[확인필요]` `storeHealthBadge`를 실제로 만들지, 필드 조건부 서식(Setup에서 클릭으로 설정)으로 대체할지 — 03_USER_FLOW 리뷰 세션 안건.
 

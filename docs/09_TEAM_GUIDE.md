@@ -35,16 +35,16 @@ Week 1 OT 이후 팀 합의로, PM과 Team Lead를 분리했다. **은영이 Org
 |---|---|
 | 이 기능 스코프에 넣어야 하나, 우선순위가 뭔가 | **PM (Sara)** |
 | 일정이 밀릴 것 같다, 로드맵 조정이 필요하다 | **PM (Sara)** |
-| store-app ↔ toss-org 데이터 계약을 바꿔야 할 것 같다 | **PM (Sara)** (단, 실제 필드 협의는 아론·은영·승우와 함께) |
+| TongssApp ↔ TongssOrg 데이터 계약을 바꿔야 할 것 같다 | **PM (Sara)** (단, 실제 필드 협의는 아론·은영·승우와 함께) |
 | git 브랜치/머지 충돌, PR이 안 열린다, 프리즈 규칙 위반 | **Team Lead (은영)** |
 | 팀원과 소통이 안 된다, 일정 조율이 껄끄럽다 | **Team Lead (은영)** |
 | 막힌 지 30분 넘었는데 누구한테 말해야 할지 모르겠다 | 우선 **스탠드업**에서 공유, 급하면 **Team Lead** |
-| store-app 트랙 내부 결정 (컴포넌트 구조 등) | **아론 (Store PO)** |
-| toss-org 데이터 모델 결정 (Object·Field·Relationship·Record Type 여부) | **은영 (Org PO 모자)** — 단, Record Type처럼 레이아웃·권한이 따라오는 건 혜준과 함께 |
+| TongssApp 트랙 내부 결정 (컴포넌트 구조 등) | **아론 (Store PO)** |
+| TongssOrg 데이터 모델 결정 (Object·Field·Relationship·Record Type 여부) | **은영 (Org PO 모자)** — 단, Record Type처럼 레이아웃·권한이 따라오는 건 혜준과 함께 |
 | 연동/통합 이슈 (CORS, Guest User 권한 등) | **승우 (Integration Lead)** |
 | Page Layout, Permission Set, Profile/Sharing, Validation Rule, Flow, Org 설정, QA 이슈 | **혜준 (Platform Lead)** |
 
-⚠️ 은영은 Org PO와 Team Lead를 겸임한다. toss-org 스코프 질문이면 "Org PO 은영"에게, 팀 운영/git 질문이면 "Team Lead 은영"에게 가는 것이지만 결국 같은 사람이니 실질적으로는 그냥 은영에게 가면 된다 — 다만 **어떤 모자를 쓰고 답하는지는 은영 본인도 명확히 구분해서 말하는 게 좋다** (예: "이건 Org PO로서 답하면...").
+⚠️ 은영은 Org PO와 Team Lead를 겸임한다. TongssOrg 스코프 질문이면 "Org PO 은영"에게, 팀 운영/git 질문이면 "Team Lead 은영"에게 가는 것이지만 결국 같은 사람이니 실질적으로는 그냥 은영에게 가면 된다 — 다만 **어떤 모자를 쓰고 답하는지는 은영 본인도 명확히 구분해서 말하는 게 좋다** (예: "이건 Org PO로서 답하면...").
 
 ---
 
@@ -53,9 +53,9 @@ Week 1 OT 이후 팀 합의로, PM과 Team Lead를 분리했다. **은영이 Org
 | 이름 | 역할 | 핵심 책임 | 왜 이 사람인가 |
 |------|------|-----------|----------------|
 | **Sara** | PM / Project Operations | 로드맵, 문서 체계, 스코프·우선순위, 리스크 관리, 트랙 간 조율, 데이터 계약 오너 | Salesforce 풀사이클(Pepper's Oven) 완주 경험 + docs 체계 설계자 |
-| **은영** | Salesforce Org PO / **Team Lead** / 발표 리드 | toss-org 스코프 확정, Object·화면 설계 리드, **git 저장소 운영·팀 커뮤니케이션**, Demo Day 발표 및 대외 커뮤니케이션 | 구조화 설계 강점 + SE 적합 피드백, 인지심리 배경으로 "매뉴얼 학습" 관점 자문 겸임 |
-| **아론** | Store App PO | store-app 스코프 확정, 화면·기능 구현 리드, **Demo Day PPT 디자인·제작 오너** | 재고관리 앱을 직접 만들어본 도메인 경험자 + 개인 프로젝트에서 검증된 PPT 디자인 역량 |
-| **승우** | Integration Lead | store-app ↔ toss-org 연동 (Apex REST, 데이터 파이프라인), 통합 전 단계에서는 org 구축 참여 | 크롤링→웹 정리 프로젝트로 "시스템 간 데이터 이동"을 이미 경험 |
+| **은영** | Salesforce Org PO / **Team Lead** / 발표 리드 | TongssOrg 스코프 확정, Object·화면 설계 리드, **git 저장소 운영·팀 커뮤니케이션**, Demo Day 발표 및 대외 커뮤니케이션 | 구조화 설계 강점 + SE 적합 피드백, 인지심리 배경으로 "매뉴얼 학습" 관점 자문 겸임 |
+| **아론** | Store App PO | TongssApp 스코프 확정, 화면·기능 구현 리드, **Demo Day PPT 디자인·제작 오너** | 재고관리 앱을 직접 만들어본 도메인 경험자 + 개인 프로젝트에서 검증된 PPT 디자인 역량 |
+| **승우** | Integration Lead | TongssApp ↔ TongssOrg 연동 (Apex REST, 데이터 파이프라인), 통합 전 단계에서는 org 구축 참여 | 크롤링→웹 정리 프로젝트로 "시스템 간 데이터 이동"을 이미 경험 |
 | **혜준** | Platform Lead / QA 리드 | org 생성, 권한·설정·Flow 세팅, Week 4부터 QA 리드, 매뉴얼 콘텐츠 공동 제작 | 팀 유일 Salesforce Admin cert 보유 + "가장 쉬운 언어로 가르치는" 교육 전공 배경 |
 
 원칙: **트랙 안의 결정은 트랙 리드가 한다.** PM은 방향을, Team Lead는 팀 실행을 만든다.
@@ -68,11 +68,11 @@ Week 1 OT 이후 팀 합의로, PM과 Team Lead를 분리했다. **은영이 Org
 
 | 작업 | 주도 | 함께 | 비고 |
 |------|------|------|------|
-| org 데이터 모델 설계 + 세팅 | 은영 + 혜준 (공동) | 승우(학습 참여) | **설계와 세팅을 분리하지 않는다.** 은영=Object·Field·Relationship·Record Type 여부 책임 / 혜준=Validation Rule·Page Layout·Permission Set·Profile·Flow·Org 설정 책임. 상세 분담표는 `toss-org/docs/05_DATA.md` §책임 분담 |
-| Flow vs Apex 처리 방식 결정 | 은영 | **승우 + 혜준** | 결정 결과는 toss-org/docs/06_ARCHITECTURE.md + 08_DECISIONS.md에 기록 |
-| store-app 화면 시안 | 아론 | **Sara** | Sara의 제품 디자인 경력 투입. 시안 = Sara 참여, 구현 = 아론 오너 |
+| org 데이터 모델 설계 + 세팅 | 은영 + 혜준 (공동) | 승우(학습 참여) | **설계와 세팅을 분리하지 않는다.** 은영=Object·Field·Relationship·Record Type 여부 책임 / 혜준=Validation Rule·Page Layout·Permission Set·Profile·Flow·Org 설정 책임. 상세 분담표는 `TongssOrg/docs/05_DATA.md` §책임 분담 |
+| Flow vs Apex 처리 방식 결정 | 은영 | **승우 + 혜준** | 결정 결과는 TongssOrg/docs/06_ARCHITECTURE.md + 08_DECISIONS.md에 기록 |
+| TongssApp 화면 시안 | 아론 | **Sara** | Sara의 제품 디자인 경력 투입. 시안 = Sara 참여, 구현 = 아론 오너 |
 | Demo Day PPT 제작 | 아론 | **Sara(대본)** | 아론이 디자인·제작, Sara가 쓴 대본(04_ROADMAP Week4)을 콘텐츠로 사용. 은영은 리허설·발표만 담당 (부담 조정) |
-| UX 리뷰 (store-app) | 아론 | **은영 + 승우** | W2 말 1차, W4 초 2차. 은영은 학습·인지 관점, 승우는 사용자 동선 관점 |
+| UX 리뷰 (TongssApp) | 아론 | **은영 + 승우** | W2 말 1차, W4 초 2차. 은영은 학습·인지 관점, 승우는 사용자 동선 관점 |
 | 직원 매뉴얼 콘텐츠 (데모용 실제 매뉴얼) | Sara | **승우 + 혜준** | 제품에 담길 샘플 매뉴얼. 혜준의 "처음 온 사람도 이해하는 언어" 기준 적용 |
 | 데이터 계약 (05_DATA_CONTRACT.md) | Sara | 아론 + 은영 + 승우 | 필드 레벨 합의. 확정 후 변경은 반드시 4인 합의 + 08_DECISIONS 기록 |
 | Week 3 통합 | 승우 | **혜준(1번 지원)** + 전원 대기 | 권한·설정 이슈는 혜준이 즉시 대응, 나머지는 요청 시 투입 |
@@ -109,14 +109,14 @@ Sara는 위 모든 협업 세션에 참관 가능하며, 참관 시 역할은 "�
 
 > **저장소 운영 총괄: Team Lead(은영).** 도메인별 코드 리뷰는 기존대로 각 트랙 리드가 맡는다 — 팀장이 모든 PR 내용을 검토한다는 뜻이 아니라, 저장소 규칙이 지켜지는지·트랙 간 충돌이 없는지를 관리한다는 뜻이다.
 
-- **모노레포**: `Tongss/` 하나에 `docs/`, `store-app/`, `toss-org/`, `integration-lead/`, `platform-lead/` 포함.
+- **모노레포**: `Tongss/` 하나에 `docs/`, `TongssApp/`, `TongssOrg/`, `integration-lead/`, `platform-lead/` 포함.
 - `main`은 보호 브랜치. 직접 push 금지, PR로만 병합. **브랜치 보호 설정 및 관리는 Team Lead.**
 - 브랜치 이름: `store/기능명`, `org/기능명`, `docs/문서명` (예: `store/inventory-input`)
-- **PR 리뷰어(도메인 내용 검토)**: store-app 쪽은 아론, toss-org 쪽은 은영, docs는 Sara. 셀프 머지 금지.
+- **PR 리뷰어(도메인 내용 검토)**: TongssApp 쪽은 아론, TongssOrg 쪽은 은영, docs는 Sara. 셀프 머지 금지.
 - **PR 병합 최종 승인(저장소 규칙 준수 확인)**: Team Lead(은영) — 도메인 리뷰 통과 + 프리즈 규칙 등 저장소 규칙 위반이 없는지 최종 확인 후 머지.
 - 커밋 메시지: 한 줄 요약 + (필요 시) 관련 문서 번호 언급 (예: `재고 입력 폼 추가 (02_PRD 3.2)`)
 - **Final week(8/31~) 프리즈**: 신규 기능 브랜치 생성 금지, 버그픽스만. **Team Lead가 프리즈 기간 브랜치 생성 여부를 모니터링.**
-- **트랙 간 머지 충돌**(예: 데이터 계약 변경으로 store-app·toss-org 양쪽 PR이 동시에 걸림) 발생 시 → Team Lead가 순서 조율.
+- **트랙 간 머지 충돌**(예: 데이터 계약 변경으로 TongssApp·TongssOrg 양쪽 PR이 동시에 걸림) 발생 시 → Team Lead가 순서 조율.
 
 ---
 
@@ -127,7 +127,7 @@ Sara는 위 모든 협업 세션에 참관 가능하며, 참관 시 역할은 "�
 1. **작업 시작 전 docs 먼저**: AI에게 코드를 시키기 전에 해당 스택의 `CLAUDE.md`와 관련 docs(특히 05_DATA_CONTRACT)를 컨텍스트로 제공한다.
 2. **AI 산출물은 본인이 이해한 후 커밋**: 이해 못 한 코드는 커밋하지 않는다. 모르겠으면 AI에게 설명을 시키거나 Show & Tell에서 질문.
 3. **데이터 계약 관련 코드는 계약 문서가 진실**: AI가 임의로 필드를 추가/변경하면 계약 문서 기준으로 되돌린다. 계약을 바꿔야 한다면 코드가 아니라 문서부터.
-4. **CLAUDE.md 구조**: 루트(팀 공통 규칙) → store-app/toss-org(각 스택 규칙) → integration-lead/platform-lead(역할별 규칙). 각 오너가 자기 폴더의 CLAUDE.md를 관리한다.
+4. **CLAUDE.md 구조**: 루트(팀 공통 규칙) → TongssApp/TongssOrg(각 스택 규칙) → integration-lead/platform-lead(역할별 규칙). 각 오너가 자기 폴더의 CLAUDE.md를 관리한다.
 5. 가급적 VS Code + Claude Code 확장을 사용한다 (diff 확인, 팀 리뷰가 쉬움).
 6. 유용한 프롬프트 패턴이나 삽질 회피법을 발견하면 Show & Tell에서 공유.
 

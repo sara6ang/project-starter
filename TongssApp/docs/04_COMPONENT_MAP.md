@@ -1,4 +1,4 @@
-# store-app/docs/04_COMPONENT_MAP — 컴포넌트 지도
+# TongssApp/docs/04_COMPONENT_MAP — 컴포넌트 지도
 
 > **문서 소유권:** 최종 수정 권한은 **Store PO**. 아래는 PM이 제시하는 초안.
 > **스택: HTML + CSS + JS (프레임워크 없음)** — 폴더/패턴은 기존 템플릿 구조를 그대로 채택, 내용은 Tongss 도메인으로 교체.

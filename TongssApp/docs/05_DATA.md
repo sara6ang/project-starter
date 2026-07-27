@@ -1,8 +1,8 @@
-# store-app/docs/05_DATA — 데이터 정의
+# TongssApp/docs/05_DATA — 데이터 정의
 
 > **문서 소유권:** 최종 수정 권한은 **Store PO**. 아래는 PM이 제시하는 초안.
-> ⚠️ 이 문서는 store-app **내부**에서 다루는 데이터 전체를 정의한다. 이 중 org로 전송되는 필드(집계값)만 뽑아 정의한 것이 `../../docs/05_DATA_CONTRACT.md`(shared)다. **두 문서는 다른 문서다 — 헷갈리지 말 것.**
-> - `05_DATA.md` (여기, store-app 전용) = store-app이 다루는 **모든** 데이터
+> ⚠️ 이 문서는 TongssApp **내부**에서 다루는 데이터 전체를 정의한다. 이 중 org로 전송되는 필드(집계값)만 뽑아 정의한 것이 `../../docs/05_DATA_CONTRACT.md`(shared)다. **두 문서는 다른 문서다 — 헷갈리지 말 것.**
+> - `05_DATA.md` (여기, TongssApp 전용) = TongssApp이 다루는 **모든** 데이터
 > - `05_DATA_CONTRACT.md` (shared) = 그중 org로 **나가는** 필드만 (부분집합)
 
 ---
@@ -143,9 +143,9 @@ erDiagram
 
 ---
 
-## store-app → toss-org로 나가는 필드 (요약, 상세는 shared 05_DATA_CONTRACT.md)
+## TongssApp → TongssOrg로 나가는 필드 (요약, 상세는 shared 05_DATA_CONTRACT.md)
 
-| store-app 데이터 | org로 나가는 파생 필드 |
+| TongssApp 데이터 | org로 나가는 파생 필드 |
 |---|---|
 | Manual 전체 | `manual_count`, `last_manual_updated_at` |
 | ManualProgress 전체 | `manual_completion_rate` |

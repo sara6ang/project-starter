@@ -1,7 +1,7 @@
-# 🗺️ toss-org/docs/03_USER_FLOW — 사용자 흐름
+# 🗺️ TongssOrg/docs/03_USER_FLOW — 사용자 흐름
 
 > **문서 소유권:** 최종 수정 권한은 **Org PO**. 아래는 PM이 제시하는 초안.
-> 만든 순서 그대로 정리: **① Salesforce org 내부(박세일즈 화면) → ② store-app에서 오는 데이터 연결**
+> 만든 순서 그대로 정리: **① Salesforce org 내부(박세일즈 화면) → ② TongssApp에서 오는 데이터 연결**
 > 공유 `../../docs/03_USER_FLOW.md`(전체 여정)의 4단계(박세일즈), 5단계(박오너)를 화면 단위로 상세화한 것.
 
 ---
@@ -20,7 +20,7 @@ flowchart TD
     StoreList -->|"행 클릭"| StoreDetail
     StoreDetail --> Badge
     StoreDetail --> Fields["Manual Count / Completion Rate\n등 커스텀 필드"]
-    Fields -.->|"store-app에서 실시간 반영"| Sync["데이터 계약 (05_DATA_CONTRACT)"]
+    Fields -.->|"TongssApp에서 실시간 반영"| Sync["데이터 계약 (05_DATA_CONTRACT)"]
 ```
 
 ### 매장 리스트뷰 — 박세일즈용 (표준 List View)
@@ -37,13 +37,13 @@ flowchart TD
 
 ---
 
-## 2️⃣ store-app에서 오는 데이터 연결
+## 2️⃣ TongssApp에서 오는 데이터 연결
 
-store-app의 활동(매뉴얼 등록, 체크리스트 완료, 학습 완료)이 실시간으로 이 매장 레코드에 반영되는 구간. Pepper's Oven 때 만들었던 "외부 키오스크 → Guest User → Apex REST" 구조와 방향만 다르고 패턴은 동일하다 (그때는 손님이 주문을 org로 밀어넣었고, 지금은 store-app이 매장 활동 데이터를 org로 밀어넣는다).
+TongssApp의 활동(매뉴얼 등록, 체크리스트 완료, 학습 완료)이 실시간으로 이 매장 레코드에 반영되는 구간. Pepper's Oven 때 만들었던 "외부 키오스크 → Guest User → Apex REST" 구조와 방향만 다르고 패턴은 동일하다 (그때는 손님이 주문을 org로 밀어넣었고, 지금은 TongssApp이 매장 활동 데이터를 org로 밀어넣는다).
 
 ```mermaid
 flowchart LR
-    subgraph StoreAppSide["store-app"]
+    subgraph StoreAppSide["TongssApp"]
         Activity["매뉴얼 등록 / 체크리스트 완료 / 학습 완료"]
     end
 
@@ -63,9 +63,9 @@ flowchart LR
     AccountUpdate --> StoreDetail2
 ```
 
-- **연결 방식**: store-app에서 활동 발생 → Digital Experience의 Guest User 권한으로 → Apex REST(`StoreRestService`)를 호출 → 해당 `store_id`와 매핑된 Account 레코드의 커스텀 필드 갱신
-- **인증 없음**: store-app은 로그인하지 않음, 대신 Guest User Sharing Rule로 딱 필요한 데이터(Account, 특정 필드만)만 접근 허용
-- **연결 확인 지점**: store-app에서 매뉴얼을 등록하면 → 박세일즈의 매장 레코드 페이지에서 `Manual_Count__c`가 즉시 올라가야 정상 (04_ROADMAP Week 1 Hello World 스파이크가 바로 이 경로를 확인하는 것)
+- **연결 방식**: TongssApp에서 활동 발생 → Digital Experience의 Guest User 권한으로 → Apex REST(`StoreRestService`)를 호출 → 해당 `store_id`와 매핑된 Account 레코드의 커스텀 필드 갱신
+- **인증 없음**: TongssApp은 로그인하지 않음, 대신 Guest User Sharing Rule로 딱 필요한 데이터(Account, 특정 필드만)만 접근 허용
+- **연결 확인 지점**: TongssApp에서 매뉴얼을 등록하면 → 박세일즈의 매장 레코드 페이지에서 `Manual_Count__c`가 즉시 올라가야 정상 (04_ROADMAP Week 1 Hello World 스파이크가 바로 이 경로를 확인하는 것)
 - **필드 매핑**: `../../docs/05_DATA_CONTRACT.md`(shared)가 유일한 진실
 
 ---
@@ -88,4 +88,4 @@ flowchart LR
 
 ## 리뷰 세션 안건
 1. 활성 상태 배지(`storeHealthBadge`)를 만들지, 필드 색상 포맷팅(조건부 서식)으로 충분한지 — Org PO 결정
-2. 리스트뷰 필터 기준(방치 매장 판정 로직)을 Flow로 자동 계산할지, store-app이 `is_active`를 직접 보낼지 — 05_DATA.md §자동화 참조
+2. 리스트뷰 필터 기준(방치 매장 판정 로직)을 Flow로 자동 계산할지, TongssApp이 `is_active`를 직접 보낼지 — 05_DATA.md §자동화 참조

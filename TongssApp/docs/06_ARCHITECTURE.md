@@ -1,4 +1,4 @@
-# store-app/docs/06_ARCHITECTURE — 폴더 구조 & 규칙
+# TongssApp/docs/06_ARCHITECTURE — 폴더 구조 & 규칙
 
 > **문서 소유권:** 최종 수정 권한은 **Store PO**. 아래는 기존 템플릿(패턴)을 그대로 채택하고, 화면 목록만 Tongss 도메인(owner/staff)으로 교체한 초안.
 > **스택: HTML + CSS + JS만 (프레임워크 없음, 빌드 없음, Live Server로 바로 실행)** — `[확인필요]` Week 1에 React 여부 최종 확정 (08_DECISIONS.md)
@@ -14,7 +14,7 @@
 ## 폴더 구조
 
 ```
-store-app/
+TongssApp/
 ├── README.md
 ├── CLAUDE.md
 │

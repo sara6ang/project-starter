@@ -9,9 +9,9 @@
 
 | 대상 | 방식 | 담당 |
 |---|---|---|
-| store-app 화면 전체 | 기능 테스트 + "처음 보는 사람 눈" | Platform Lead |
-| toss-org 화면 전체 | 기능 테스트 | Platform Lead + Org PO |
-| store-app ↔ toss-org 연동 | 엔드투엔드 시나리오 테스트 | Platform Lead + Integration Lead |
+| TongssApp 화면 전체 | 기능 테스트 + "처음 보는 사람 눈" | Platform Lead |
+| TongssOrg 화면 전체 | 기능 테스트 | Platform Lead + Org PO |
+| TongssApp ↔ TongssOrg 연동 | 엔드투엔드 시나리오 테스트 | Platform Lead + Integration Lead |
 
 ## 일정 (04_ROADMAP과 연동)
 

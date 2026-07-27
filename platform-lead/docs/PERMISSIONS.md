@@ -6,7 +6,7 @@
 
 ## 이 문서가 다루는 범위 (Org PO와의 경계)
 
-org 데이터 모델은 **설계와 세팅을 분리하지 않고** 은영(Org PO)·혜준(Platform Lead)이 함께 진행한다. 전체 책임 분담표는 `../../toss-org/docs/05_DATA.md` §책임 분담 참조. 그중 **이 문서에 기록할 것은 Platform Lead 책임 영역**이다.
+org 데이터 모델은 **설계와 세팅을 분리하지 않고** 은영(Org PO)·혜준(Platform Lead)이 함께 진행한다. 전체 책임 분담표는 `../../TongssOrg/docs/05_DATA.md` §책임 분담 참조. 그중 **이 문서에 기록할 것은 Platform Lead 책임 영역**이다.
 
 | 이 문서(PERMISSIONS.md)에 기록 | 05_DATA.md에 기록 (Org PO 책임) |
 |---|---|
@@ -29,13 +29,13 @@ org 데이터 모델은 **설계와 세팅을 분리하지 않고** 은영(Org P
 | Platform Lead | `[확인필요]` | `[확인필요]` | Admin |
 | PM (참관) | `[확인필요]` | 읽기 전용 권장 | |
 
-## Guest User 프로필 (store-app 연동용) — 가장 중요
+## Guest User 프로필 (TongssApp 연동용) — 가장 중요
 
 | 항목 | 범위 | 이유 |
 |---|---|---|
 | Object 접근 | Account만 | 05_DATA_CONTRACT 필드 갱신 목적 외 접근 불필요 |
 | 필드 접근 | `Store_Id__c`, `Manual_Count__c`, `Last_Manual_Updated__c`, `Manual_Completion_Rate__c`, `Checklist_Completion_Rate__c` (Edit만) | 계약에 정의된 필드만 |
-| Object 권한 수준 | Edit만, **Create/Delete 금지** | 매장 레코드는 Org PO가 미리 생성, store-app은 갱신만 |
+| Object 권한 수준 | Edit만, **Create/Delete 금지** | 매장 레코드는 Org PO가 미리 생성, TongssApp은 갱신만 |
 | Apex Class 접근 | `StoreRestService`만 | 다른 클래스 호출 불가하도록 |
 | `[확인필요]` Sharing Rule | | Guest User가 어떤 Account를 볼 수 있는지 범위 설정 |
 
@@ -67,7 +67,7 @@ org 데이터 모델은 **설계와 세팅을 분리하지 않고** 은영(Org P
 
 | 항목 | 설정값 | 설정일 | 비고 |
 |---|---|---|---|
-| CORS Allowed Origins | `[확인필요]` | | store-app 배포 도메인 (integration-lead/docs/ENVIRONMENTS.md와 동기화) |
+| CORS Allowed Origins | `[확인필요]` | | TongssApp 배포 도메인 (integration-lead/docs/ENVIRONMENTS.md와 동기화) |
 | Digital Experience Site | `[확인필요]` | | Guest User 연동용 |
 
 ---

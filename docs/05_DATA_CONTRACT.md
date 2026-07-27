@@ -1,6 +1,6 @@
-# 05_DATA_CONTRACT — store-app ↔ toss-org 데이터 계약
+# 05_DATA_CONTRACT — TongssApp ↔ TongssOrg 데이터 계약
 
-> 오너: Sara / 상태: **초안 샘플 — Week 2에 아론(store-app) + 은영(toss-org) + 승우(Integration)와 필드 레벨로 확정**
+> 오너: Sara / 상태: **초안 샘플 — Week 2에 아론(TongssApp) + 은영(TongssOrg) + 승우(Integration)와 필드 레벨로 확정**
 > 이 문서는 두 시스템이 주고받는 데이터의 유일한 진실이다. 코드가 이 문서와 다르면 코드가 틀린 것이다 (09_TEAM_GUIDE §5).
 > 근거: 02_PRD §1 (기능 매핑), 03_USER_FLOW (3단계)
 
@@ -8,13 +8,13 @@
 
 ## 왜 이 문서가 필요한가
 
-store-app에서 발생하는 활동(매뉴얼 등록, 체크리스트 완료, 재고 실사, 학습 완료)을 toss-org의 매장(Account) 레코드에 반영해야 박세일즈가 "이 매장이 잘 운영되고 있는지"를 볼 수 있다. 이 흐름이 Demo Day 한 줄 시나리오의 마지막 구간이다.
+TongssApp에서 발생하는 활동(매뉴얼 등록, 체크리스트 완료, 재고 실사, 학습 완료)을 TongssOrg의 매장(Account) 레코드에 반영해야 박세일즈가 "이 매장이 잘 운영되고 있는지"를 볼 수 있다. 이 흐름이 Demo Day 한 줄 시나리오의 마지막 구간이다.
 
 ---
 
 ## 1. 전송 방식 (초안)
 
-- **방향:** store-app → toss-org (단방향, 이번 스코프에서는 org → store-app 역방향 없음)
+- **방향:** TongssApp → TongssOrg (단방향, 이번 스코프에서는 org → TongssApp 역방향 없음)
 - **방식:** Apex REST 엔드포인트 (`OrderRestService` 패턴 재활용 — 04_ROADMAP Week 3 참조)
 - **인증:** `[확인필요]` Guest User 권한 범위 확정 (Week 2 스파이크에서 결정)
 - **트리거 시점:** `[확인필요]` 이벤트 발생 즉시 vs 배치(일 1회) — 데모 목적상 즉시 전송을 우선 검토
@@ -27,9 +27,9 @@ store-app에서 발생하는 활동(매뉴얼 등록, 체크리스트 완료, �
 
 | 필드명 | 타입 | 필수 | 설명 |
 |---|---|---|---|
-| `store_id` | String | ✅ | store-app에서 생성한 매장 고유 ID. toss-org의 Account 레코드와 1:1 매핑 |
+| `store_id` | String | ✅ | TongssApp에서 생성한 매장 고유 ID. TongssOrg의 Account 레코드와 1:1 매핑 |
 
-`[확인필요]` toss-org의 Account가 이미 존재하는 매장(토스플레이스 실제 가맹점)과 매핑되는지, 데모용으로 신규 생성하는지 — Week 2 스파이크 전에 승우·은영이 결정
+`[확인필요]` TongssOrg의 Account가 이미 존재하는 매장(토스플레이스 실제 가맹점)과 매핑되는지, 데모용으로 신규 생성하는지 — Week 2 스파이크 전에 승우·은영이 결정
 
 ---
 
@@ -66,11 +66,11 @@ store-app에서 발생하는 활동(매뉴얼 등록, 체크리스트 완료, �
 | `store_id` | String | ✅ | 매장 식별자 | — |
 | `low_stock_alert_count` | Integer | ⚠️ | 현재 "부족" 상태인 품목 수 | 02_PRD Out에 가까움 — Week 3 스코프 조정 시 1순위 컷 후보 |
 
-### 3-5. 매장 활성 상태 (toss-org에서 파생, store-app이 직접 보내지 않을 수 있음)
+### 3-5. 매장 활성 상태 (TongssOrg에서 파생, TongssApp이 직접 보내지 않을 수 있음)
 
 | 필드명 | 타입 | 필수 | 설명 |
 |---|---|---|---|
-| `is_active` | Boolean | toss-org 계산 | `last_manual_updated_at` 또는 `checklist_completion_rate` 기준으로 org 쪽에서 판정할지, store-app이 직접 보낼지 `[확인필요]` |
+| `is_active` | Boolean | TongssOrg 계산 | `last_manual_updated_at` 또는 `checklist_completion_rate` 기준으로 org 쪽에서 판정할지, TongssApp이 직접 보낼지 `[확인필요]` |
 
 ---
 
@@ -93,9 +93,9 @@ store-app에서 발생하는 활동(매뉴얼 등록, 체크리스트 완료, �
 
 ---
 
-## 5. toss-org 쪽 Object/필드 매핑 (초안)
+## 5. TongssOrg 쪽 Object/필드 매핑 (초안)
 
-| toss-org 필드 (Account 커스텀 필드) | store-app 필드 매핑 |
+| TongssOrg 필드 (Account 커스텀 필드) | TongssApp 필드 매핑 |
 |---|---|
 | `Manual_Count__c` | `manual_count` |
 | `Last_Manual_Updated__c` | `last_manual_updated_at` |

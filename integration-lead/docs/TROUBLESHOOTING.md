@@ -21,10 +21,10 @@
 
 ## 예상되는 단골 이슈 (미리 적어두는 참고용, 실제 발생 시 위 양식으로 기록)
 
-- CORS 에러: Setup → CORS Allowed Origins에 store-app 도메인 미등록
+- CORS 에러: Setup → CORS Allowed Origins에 TongssApp 도메인 미등록
 - Guest User 401/403: Guest User Profile에 Apex Class 또는 Object 권한 누락
 - SOQL/DML 권한 에러: Guest User는 기본적으로 매우 제한된 권한만 가짐 — Sharing Rule 추가 필요할 수 있음
-- Store_Id__c 매핑 실패: store-app의 store_id와 Account의 External ID가 안 맞는 경우
+- Store_Id__c 매핑 실패: TongssApp의 store_id와 Account의 External ID가 안 맞는 경우
 
 ---
 
