@@ -2,7 +2,7 @@
 
 > 이 문서는 "누가 무엇을 책임지고, 우리는 어떻게 함께 일하는가"를 정의합니다.
 > 역할·규칙 변경은 반드시 이 문서를 수정하고 08_DECISIONS.md에 기록합니다.
-> 최종 수정: 2026-07-26 / 오너: PM
+> 최종 수정: 2026-07-26 / 오너: Sara
 
 ---
 
@@ -10,13 +10,13 @@
 
 | 이름 | 역할 | 핵심 책임 | 왜 이 사람인가 |
 |------|------|-----------|----------------|
-| **PM** | PM / Project Operations | 로드맵, 문서 체계, 일정·스프린트, 리스크 관리, 트랙 간 조율, 데이터 계약 오너 | Salesforce 풀사이클(Pepper's Oven) 완주 경험 + docs 체계 설계자 |
-| **Store PO** | Store App PO | store-app 스코프 확정, 화면·기능 구현 리드 | 재고관리 앱을 직접 만들어본 도메인 경험자 |
-| **Org PO** | Salesforce Org PO / 발표 리드 | toss-org 스코프 확정, Object·화면 설계 리드, Demo Day 발표 및 대외 커뮤니케이션 | 구조화 설계 강점 + SE 적합 피드백, 인지심리 배경으로 "매뉴얼 학습" 관점 자문 겸임 |
-| **Integration Lead** | Integration Lead | store-app ↔ toss-org 연동 (Apex REST, 데이터 파이프라인), 통합 전 단계에서는 org 구축 참여 | 크롤링→웹 정리 프로젝트로 "시스템 간 데이터 이동"을 이미 경험 |
-| **Platform Lead** | Platform Lead / QA 리드 | org 생성, 권한·설정·Flow 세팅, Week 4부터 QA 리드, 매뉴얼 콘텐츠 공동 제작 | 팀 유일 Salesforce Admin cert 보유 + "가장 쉬운 언어로 가르치는" 교육 전공 배경 |
+| **Sara** | PM / Project Operations | 로드맵, 문서 체계, 일정·스프린트, 리스크 관리, 트랙 간 조율, 데이터 계약 오너 | Salesforce 풀사이클(Pepper's Oven) 완주 경험 + docs 체계 설계자 |
+| **아론** | Store App PO | store-app 스코프 확정, 화면·기능 구현 리드 | 재고관리 앱을 직접 만들어본 도메인 경험자 |
+| **은영** | Salesforce Org PO / 발표 리드 | toss-org 스코프 확정, Object·화면 설계 리드, Demo Day 발표 및 대외 커뮤니케이션 | 구조화 설계 강점 + SE 적합 피드백, 인지심리 배경으로 "매뉴얼 학습" 관점 자문 겸임 |
+| **승우** | Integration Lead | store-app ↔ toss-org 연동 (Apex REST, 데이터 파이프라인), 통합 전 단계에서는 org 구축 참여 | 크롤링→웹 정리 프로젝트로 "시스템 간 데이터 이동"을 이미 경험 |
+| **혜준** | Platform Lead / QA 리드 | org 생성, 권한·설정·Flow 세팅, Week 5부터 QA 리드, 매뉴얼 콘텐츠 공동 제작 | 팀 유일 Salesforce Admin cert 보유 + "가장 쉬운 언어로 가르치는" 교육 전공 배경 |
 
-원칙: **트랙 안의 결정은 트랙 리드가 한다.** PM은 방향과 시스템을 만들고, 실행 오너십은 리드에게 있다.
+원칙: **트랙 안의 결정은 트랙 리드가 한다.** Sara는 방향과 시스템을 만들고, 실행 오너십은 리드에게 있다.
 
 ---
 
@@ -26,15 +26,15 @@
 
 | 작업 | 주도 | 함께 | 비고 |
 |------|------|------|------|
-| org 초기 구축 (Object/필드/권한) | Org PO | **Integration Lead + Platform Lead** | Integration Lead는 통합 착수 전(W1~2)에 여기서 org 내부 구조를 직접 만들며 파악 |
-| Flow vs Apex 처리 방식 결정 | Org PO | **Integration Lead + Platform Lead** (PM 참관) | 결정 결과는 toss-org/docs/06_ARCHITECTURE.md + 08_DECISIONS.md에 기록 |
-| store-app 화면 시안 | Store PO | **PM** | PM의 제품 디자인 경력 투입. 시안 = PM 참여, 구현 오너 = Store PO |
-| UX 리뷰 (store-app) | Store PO | **Org PO + Integration Lead** | W2 말 1차, W4 초 2차. Org PO는 학습·인지 관점, Integration Lead는 사용자 동선 관점 |
-| 직원 매뉴얼 콘텐츠 (데모용 실제 매뉴얼) | PM | **Integration Lead + Platform Lead** | 제품에 담길 샘플 매뉴얼. Platform Lead의 "처음 온 사람도 이해하는 언어" 기준 적용 |
-| 데이터 계약 (05_DATA_CONTRACT.md) | PM | Store PO + Org PO + Integration Lead | 필드 레벨 합의. 확정 후 변경은 반드시 4인 합의 + 08_DECISIONS 기록 |
-| Week 3 통합 | Integration Lead | **Platform Lead(1번 지원)** + 전원 대기 | 권한·설정 이슈는 Platform Lead가 즉시 대응, 나머지는 요청 시 투입 |
+| org 초기 구축 (Object/필드/권한) | 은영 | **승우 + 혜준** | 승우는 통합 착수 전(W1~2)에 여기서 org 내부 구조를 직접 만들며 파악 |
+| Flow vs Apex 처리 방식 결정 | 은영 | **승우 + 혜준** | 결정 결과는 toss-org/docs/06_ARCHITECTURE.md + 08_DECISIONS.md에 기록 |
+| store-app 화면 시안 | 아론 | **Sara** | Sara의 제품 디자인 경력 투입. 시안 = Sara 참여, 구현 = 아론 오너 |
+| UX 리뷰 (store-app) | 아론 | **은영 + 승우** | W2 말 1차, W4 초 2차. 은영은 학습·인지 관점, 승우는 사용자 동선 관점 |
+| 직원 매뉴얼 콘텐츠 (데모용 실제 매뉴얼) | Sara | **승우 + 혜준** | 제품에 담길 샘플 매뉴얼. 혜준의 "처음 온 사람도 이해하는 언어" 기준 적용 |
+| 데이터 계약 (05_DATA_CONTRACT.md) | Sara | 아론 + 은영 + 승우 | 필드 레벨 합의. 확정 후 변경은 반드시 4인 합의 + 08_DECISIONS 기록 |
+| Week 3 통합 | 승우 | **혜준(1번 지원)** + 전원 대기 | 권한·설정 이슈는 혜준이 즉시 대응, 나머지는 요청 시 투입 |
 
-PM은 위 모든 협업 세션에 참관 가능하며, 참관 시 역할은 "기록과 조율"이다 (결정 개입 아님).
+Sara는 위 모든 협업 세션에 참관 가능하며, 참관 시 역할은 "기록과 조율"이다 (결정 개입 아님).
 
 ---
 
@@ -48,15 +48,15 @@ PM은 위 모든 협업 세션에 참관 가능하며, 참관 시 역할은 "기
 ### 주간 Show & Tell — 매주 금요일 오후
 - 각자 이번 주 만든 것을 화면 공유로 **2분씩**. 발표가 아니라 "이만큼 됐어요" 공유.
 - 목적: 트랙에 갇혀 서로 뭘 하는지 모르는 상태 방지. 진행 상황이 눈에 보이게.
-- PM이 진행, 끝나면 다음 주 목표 한 줄씩 확인.
+- Sara가 진행, 끝나면 다음 주 목표 한 줄씩 확인.
 
 ### 페르소나 리뷰 세션 — Week 1, 전원 참여
-- PM이 초안(사장/직원/토스플레이스 직원 3종)을 가져오고, 완성은 5명이 함께.
-- Org PO·Platform Lead의 "사람이 어떻게 배우고 이해하는가" 관점을 반드시 반영.
+- Sara가 초안(사장/직원/토스플레이스 직원 3종)을 가져오고, 완성은 5명이 함께.
+- 은영·혜준의 "사람이 어떻게 배우고 이해하는가" 관점을 반드시 반영.
 - 이 문서(01_PERSONAS.md)가 이후 모든 "왜 이렇게 만들었어?"의 답이 된다.
 
 ### Week 3 통합 주간 — 전원 소집 모드
-- Integration Lead가 벽(권한/CORS류)을 만나면 혼자 두지 않는다. Platform Lead가 1번 지원, PM이 Pepper's Oven 경험으로 조언, 나머지는 즉시 투입 가능 상태 유지.
+- 승우가 벽(권한/CORS류)을 만나면 혼자 두지 않는다. 혜준이 1번 지원, Sara가 Pepper's Oven 경험으로 조언, 나머지는 즉시 투입 가능 상태 유지.
 
 ---
 
@@ -65,7 +65,7 @@ PM은 위 모든 협업 세션에 참관 가능하며, 참관 시 역할은 "기
 - **모노레포**: `Tongss/` 하나에 `docs/`, `store-app/`, `toss-org/` 포함.
 - `main`은 보호 브랜치. 직접 push 금지, PR로만 병합.
 - 브랜치 이름: `store/기능명`, `org/기능명`, `docs/문서명` (예: `store/inventory-input`)
-- PR 리뷰어: store-app 쪽은 Store PO, toss-org 쪽은 Org PO, docs는 PM. 셀프 머지 금지.
+- PR 리뷰어: store-app 쪽은 아론, toss-org 쪽은 은영, docs는 Sara. 셀프 머지 금지.
 - 커밋 메시지: 한 줄 요약 + (필요 시) 관련 문서 번호 언급 (예: `재고 입력 폼 추가 (02_PRD 3.2)`)
 - **Final week(8/31~) 프리즈**: 신규 기능 브랜치 생성 금지, 버그픽스만.
 
@@ -88,7 +88,7 @@ PM은 위 모든 협업 세션에 참관 가능하며, 참관 시 역할은 "기
 - **트랙 내부 결정** (예: 컴포넌트 구조, 화면 배치): 트랙 리드가 결정, 필요 시 트랙 docs에 기록.
 - **트랙을 넘는 결정** (예: 데이터 계약 변경, 스코프 컷, 배포처): 관련자 합의 + **08_DECISIONS.md 기록 필수**. 기록 양식: 날짜 / 결정 / 이유 / 대안과 기각 사유.
 - **스코프 컷 우선순위** (Week 3 조정 대비, 미리 합의): 데모 한 줄 시나리오(사장이 매뉴얼 등록 → 직원이 봄 → 토스 직원이 org에서 확인)에 **없는** 기능부터 자른다.
-- 합의가 안 되면: 해당 트랙 리드 의견 우선, PM이 최종 조율.
+- 합의가 안 되면: 해당 트랙 리드 의견 우선, Sara가 최종 조율.
 
 ---
 
