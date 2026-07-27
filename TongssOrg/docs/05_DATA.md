@@ -1,7 +1,35 @@
 # 🏪 toss-org/docs/05_DATA — Data Model
 
-> **문서 소유권:** 최종 수정 권한은 **Org PO**. 아래는 PM이 제시하는 초안 — 설계 판단의 형식은 이전 프로젝트(Pepper's Oven) 방식을 그대로 채택, 실제 스키마는 Tongss 도메인으로 교체.
+> **문서 소유권:** 최종 수정 권한은 **Org PO(은영)**. 아래는 PM이 제시하는 초안 — 설계 판단의 형식은 이전 프로젝트(Pepper's Oven) 방식을 그대로 채택, 실제 스키마는 Tongss 도메인으로 교체.
 > ⚠️ 이 문서는 org 내부 스키마 전체를 정의한다. store-app에서 넘어오는 필드의 유일한 진실은 `../../docs/05_DATA_CONTRACT.md`(shared)다 — **다른 문서다, 헷갈리지 말 것.**
+
+---
+
+## 책임 분담 (Org PO ↔ Platform Lead)
+
+org의 데이터 모델은 **설계와 세팅을 분리하지 않는다.** 두 사람이 같이 앉아서 정하고 그 자리에서 만든다. 다만 최종 책임은 아래처럼 나눈다.
+
+| 작업 | Org PO (은영) | Platform Lead (혜준, Admin) |
+|---|:---:|:---:|
+| 비즈니스 요구 분석 | ✅ | |
+| Object 설계 | ✅ 책임 | 🤝 의견 |
+| Field 설계 | ✅ 책임 | 🤝 구현 관점 검토 |
+| Relationship 설계 | ✅ 책임 | 🤝 |
+| Record Type 필요 여부 판단 | ✅ 책임 | 🤝 구현 |
+| Validation Rule | 🤝 | ✅ 책임 |
+| Page Layout | | ✅ 책임 |
+| Permission Set | | ✅ 책임 |
+| Profile / Sharing | | ✅ 책임 |
+| Flow | 🤝 | ✅ 책임 |
+| Org 설정 | | ✅ 책임 |
+
+**✅ 책임** = 결정권과 문서 기록 책임 / **🤝** = 함께 논의·검토, 결정은 책임자가
+
+- 이 문서(05_DATA.md)의 기록 책임은 **은영(Org PO)** — Object/Field/Relationship/Record Type 설계 근거를 여기 남긴다.
+- 권한·레이아웃·Flow 관련 기록 책임은 **혜준(Platform Lead)** — `platform-lead/docs/PERMISSIONS.md`에 남긴다.
+- 승우(Integration Lead)는 이 작업에 참여해 org 내부 구조를 파악하지만 오너십은 없다 (학습·통합 준비 목적).
+
+> 💡 **왜 분리하지 않는가:** Record Type을 만들면 Page Layout을 지정해야 하고, Page Layout이 정해지면 Profile/Permission Set에 할당해야 사용자가 실제로 볼 수 있다. 설계자와 세팅자가 따로 움직이면 이 연결고리에서 반드시 막힌다.
 
 ---
 
@@ -9,7 +37,7 @@
 
 | 결정 | 이유 |
 |---|---|
-| Store는 **표준 Account** (Record Type 불필요, 이번엔 거래상대 종류가 하나뿐) | 조직/거래상대 데이터는 Account 우선 검토 원칙 (Pepper's Oven 때와 동일 원칙) |
+| Store는 **표준 Account** (Record Type 불필요, 이번엔 거래상대 종류가 하나뿐) | 조직/거래상대 데이터는 Account 우선 검토 원칙 (Pepper's Oven 때와 동일 원칙). `[확인필요]` **Record Type 여부는 은영 책임 판단** — 만들기로 하면 Page Layout·Profile 할당이 따라오므로 혜준과 함께 결정 |
 | 매뉴얼/체크리스트 **원본 데이터는 org에 저장하지 않음** — 집계 필드만 Account에 | 02_PRD 스코프상 org는 "상태 확인"만 하면 됨. 원본을 다 옮기면 데이터 계약이 비대해지고 store-app과 이중 관리됨 |
 | `Is_Active__c`는 **Flow로 자동 계산** (Apex 트리거 아님) `[확인필요]` | 단순 날짜 비교 로직이라 트리거보다 Flow가 유지보수 쉬움 — Org PO·Integration Lead·Platform Lead가 Flow vs Apex 세션에서 최종 결정 (04_ROADMAP Week 1) |
 | Custom Object **추가하지 않음** (이번 스코프에선) | Order__c/Inventory_Item__c 같은 별도 오브젝트가 필요했던 Pepper's Oven과 달리, Tongss org 쪽은 Account 필드 확장만으로 02_PRD 스코프를 충족 |
@@ -92,4 +120,4 @@ Tongss Org App
 └── Store Detail (Account 레코드 페이지 — 매장 상세, 커스텀 필드 + 배지)
 ```
 
-탭 구성도 단순하다 (New Order, Order Queue, Inventory 같은 운영 탭이 없음 — org는 조회 전용이기 때문).
+Pepper's Oven보다 탭 구성도 단순하다 (New Order, Order Queue, Inventory 같은 운영 탭이 없음 — org는 조회 전용이기 때문).
