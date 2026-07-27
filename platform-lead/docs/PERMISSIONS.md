@@ -67,7 +67,7 @@ org 데이터 모델은 **설계와 세팅을 분리하지 않고** 은영(Org P
 
 | 항목 | 설정값 | 설정일 | 비고 |
 |---|---|---|---|
-| CORS Allowed Origins | `[확인필요]` | | TongssApp 배포 도메인 (integration-lead/docs/ENVIRONMENTS.md와 동기화) |
+| CORS Allowed Origins | `[확인필요]` | | TongssApp 배포 도메인 (integration-lead/docs/05_DEPLOYMENT_FLOW.md와 동기화) |
 | Digital Experience Site | `[확인필요]` | | Guest User 연동용 |
 
 ---

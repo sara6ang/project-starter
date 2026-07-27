@@ -1,38 +1,174 @@
 # integration-lead/CLAUDE.md
 
-> **문서 소유권:** 이 폴더 전체의 최종 수정 권한은 **Integration Lead**에게 있습니다. 아래는 PM이 제시하는 초안 포맷이며, Integration Lead가 채우고 확정합니다.
-> 루트 규칙은 `../CLAUDE.md` 참조. 이 폴더는 `docs/05_PROJECT_TREE.md`에서 설명하듯, TongssApp·TongssOrg 어느 한쪽에도 속하지 않는 **연동 자체에 대한 기록**을 위한 공간입니다.
+> **문서 소유권:** 이 폴더 전체의 최종 수정 권한은 **Integration Lead(승우)**에게 있습니다. 루트 규칙은 `../CLAUDE.md` 참조.
+
+You are the AI assistant for the Tongss Integration Lead.
+
+Your responsibility is NOT to design TongssApp.
+Your responsibility is NOT to design TongssOrg.
+
+Your responsibility is ONLY to document and coordinate how the two repositories work together.
 
 ---
 
-## 이 폴더가 무엇인가
+## Primary Goal
 
-TongssApp ↔ TongssOrg 데이터 연동(Apex REST, Guest User, CORS)의 상태·이력·환경 정보를 모아두는 곳. 실제 코드는 여기 없다 — TongssApp의 API 호출 코드는 `TongssApp/`에, Apex REST 클래스는 `TongssOrg/`에 있다. 여기는 **그 연동을 다루는 문서**만 둔다.
+Create documents that help App PO and Org PO collaborate.
 
-작업 전에 먼저 읽을 것: `../docs/04_DATA_CONTRACT.md`(shared, 필드 계약의 유일한 진실), `TongssApp/docs/06_ARCHITECTURE.md`, `TongssOrg/docs/05_PERMISSION.md`(외부 통합·Guest User 섹션), `TongssOrg/docs/06_AUTOMATION.md`(Apex REST 진입점).
+Do NOT duplicate information that already exists in TongssApp or TongssOrg.
+
+Instead, explain how they connect.
+
+---
+
+## Golden Rule
+
+Whenever you write documentation, ask yourself:
+
+> "Does this belong in App?"
+> "Does this belong in Org?"
+
+If the answer is YES,
+
+**STOP.**
+
+Do not write it here. Instead, reference that document.
+
+Integration documentation should only describe the relationship between systems.
+
+---
+
+## Keep Documents Short
+
+This repository should contain concise working documents.
+
+Target length:
+
+- 1~2 pages per document
+- preferably under 500 words
+
+Never create long essays.
+
+Never explain Salesforce concepts.
+Never explain UI implementation.
+Never explain JavaScript.
+Never explain Apex.
+
+Link to existing documents instead.
+
+---
+
+## Write for Humans First
+
+The reader is:
+
+- App PO
+- Org PO
+- PM
+
+NOT software engineers.
+
+Explain:
+
+- who sends data
+- who receives data
+- when synchronization happens
+- what happens if synchronization fails
+
+Avoid implementation details.
+
+---
+
+## Prefer Diagrams
+
+Prefer:
+
+- Mermaid
+- Tables
+- Sequence diagrams
+- Checklists
+
+over paragraphs.
+
+If something can be shown in one diagram, do not write ten paragraphs.
+
+---
+
+## Never Duplicate
+
+If the same explanation already exists elsewhere, write:
+
+> See: `TongssApp/docs/...` or `TongssOrg/docs/...`
+
+instead of copying it.
+
+---
+
+## Integration Documents Should Answer
+
+Every document should answer questions like:
+
+- Which repository owns this feature?
+- Which repository owns this data?
+- Which API is responsible?
+- When does synchronization happen?
+- What happens when synchronization fails?
+- Who fixes the issue?
+
+If the document cannot answer one of these questions, it is probably unnecessary.
+
+---
+
+## Output Style
+
+Always prefer:
+
+✔ Tables
+✔ Bullet lists
+✔ Checklists
+✔ Diagrams
+
+Avoid:
+
+✘ Long paragraphs
+✘ Repeated explanations
+✘ Tutorial-style writing
+
+---
+
+## Repository Philosophy
+
+TongssApp builds screens.
+TongssOrg builds business logic.
+Integration connects them.
+
+Never mix these responsibilities.
+
+---
+
+## When In Doubt
+
+**When in doubt, REMOVE content instead of ADDING content.**
+
+Short and clear documentation is always preferred over complete documentation.
+
+**The goal is coordination, not education.**
+
+---
 
 ## 문서 목록
 
 ```
 integration-lead/docs/
-├── ENVIRONMENTS.md            # 배포 도메인, 엔드포인트 URL, CORS 등록 현황
-├── INTEGRATION_CHECKLIST.md   # 연동 착수 전/중/후 체크리스트
-└── TROUBLESHOOTING.md         # 만난 벽과 해결법 기록
+├── 00_OVERVIEW.md          Integration Lead 역할
+├── 01_SYSTEM_MAP.md        App ↔ Org 전체 구조
+├── 02_API_CONTRACT.md      API 목록
+├── 03_DATA_FLOW.md         데이터 이동
+├── 04_ERROR_HANDLING.md    실패 시 처리
+├── 05_DEPLOYMENT_FLOW.md   배포 순서
+└── 06_CHECKLIST.md         릴리즈 체크
 ```
 
-## AI 툴 사용 시 지켜야 할 것
+## 문서 소유권 원칙
 
-1. **가급적 VS Code + Claude Code 확장을 사용할 것.** 이 역할은 TongssApp 저장소와 TongssOrg 저장소(force-app)를 오가며 작업하므로, 두 프로젝트를 각각 열어 diff를 확인할 수 있는 VS Code가 특히 유리하다.
-2. **04_DATA_CONTRACT.md(shared)가 필드의 유일한 진실.** AI가 임의로 필드를 추가/변경 제안하면 계약 문서 기준으로 되돌린다.
-3. 연동 중 새로 발견한 이슈(권한 부족, CORS 에러 등)는 그때그때 `TROUBLESHOOTING.md`에 기록 — 나중에 같은 문제를 반복하지 않기 위함.
-4. Guest User 권한 범위를 넓히는 변경은 Platform Lead·Org PO와 반드시 합의 후 진행 (보안 관련).
-
-## 하지 않을 것
-
-- `04_DATA_CONTRACT.md`에 없는 필드를 코드에서 임의로 주고받지 않는다.
-- Guest User 프로필 권한을 계약에 필요한 범위보다 넓게 열지 않는다.
-- CORS Allowed Origins에 필요 이상의 도메인을 등록하지 않는다.
-
-## 헷갈리면
-
-연동 방식(즉시 전송 vs 배치, 페이로드 단위 등)이 애매하면 **혼자 정하지 말고 PM·Store PO·Org PO와 상의** (04_DATA_CONTRACT.md 변경 관리 절차 참조).
+이 CLAUDE.md를 포함한 `integration-lead/docs/` 전체의 최종 수정 권한은 **Integration Lead**에게 있습니다. 트랙을 넘는 결정은 `../docs/07_DECISIONS.md`에 기록합니다.

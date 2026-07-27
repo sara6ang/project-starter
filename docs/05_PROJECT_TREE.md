@@ -55,10 +55,14 @@ Tongss/
 │
 ├── integration-lead/               # 🟣 Integration Lead(승우) 오너 — 연동 전담
 │   ├── CLAUDE.md
-│   └── docs/
-│       ├── ENVIRONMENTS.md
-│       ├── INTEGRATION_CHECKLIST.md
-│       └── TROUBLESHOOTING.md
+│   └── docs/                      # App/Org 상세는 안 다룸 — 연결 구조만
+│       ├── 00_OVERVIEW.md
+│       ├── 01_SYSTEM_MAP.md
+│       ├── 02_API_CONTRACT.md
+│       ├── 03_DATA_FLOW.md
+│       ├── 04_ERROR_HANDLING.md
+│       ├── 05_DEPLOYMENT_FLOW.md
+│       └── 06_CHECKLIST.md
 │
 └── platform-lead/                  # 🟤 Platform Lead(혜준) 오너 — org 권한/설정 + QA
     ├── CLAUDE.md
