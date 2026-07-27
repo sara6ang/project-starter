@@ -45,7 +45,7 @@ Salesforce가 이미 만들어둔 토큰 체계(SLDS 2)를 쓴다. 우리가 할
 | Loader | `<lightning-spinner>` |
 | Toast | `ShowToastEvent` |
 
-**이번 스코프에서 직접 만들어야 할 가능성이 있는 건 `storeHealthBadge`(조건부 배지), 필요하다면 `sharedEmptyState` 정도뿐이다.** Pepper's Oven 때보다 커스텀 컴포넌트가 훨씬 적다 — 02_PRD 스코프가 "조회 중심"이라 표준 기능으로 대부분 해결되기 때문.
+**이번 스코프에서 직접 만들어야 할 가능성이 있는 건 `storeHealthBadge`(조건부 배지), 필요하다면 `sharedEmptyState` 정도뿐이다.** Pepper's Oven 때보다 커스텀 컴포넌트가 훨씬 적다 — 00_PRODUCT_GUIDE 스코프가 "조회 중심"이라 표준 기능으로 대부분 해결되기 때문.
 
 ---
 

@@ -2,7 +2,7 @@
 
 > **문서 소유권:** 최종 수정 권한은 **Org PO**. 아래는 PM이 제시하는 초안.
 > 만든 순서 그대로 정리: **① Salesforce org 내부(박세일즈 화면) → ② TongssApp에서 오는 데이터 연결**
-> 공유 `../../docs/03_USER_FLOW.md`(전체 여정)의 4단계(박세일즈), 5단계(박오너)를 화면 단위로 상세화한 것.
+> 공유 `../../docs/02_USER_FLOW.md`(전체 여정)의 4단계(박세일즈), 5단계(박오너)를 화면 단위로 상세화한 것.
 
 ---
 
@@ -20,14 +20,14 @@ flowchart TD
     StoreList -->|"행 클릭"| StoreDetail
     StoreDetail --> Badge
     StoreDetail --> Fields["Manual Count / Completion Rate\n등 커스텀 필드"]
-    Fields -.->|"TongssApp에서 실시간 반영"| Sync["데이터 계약 (05_DATA_CONTRACT)"]
+    Fields -.->|"TongssApp에서 실시간 반영"| Sync["데이터 계약 (04_DATA_CONTRACT)"]
 ```
 
 ### 매장 리스트뷰 — 박세일즈용 (표준 List View)
 
 - **화면에 있는 것**: Account 리스트뷰, "활성"/"방치" 필터, 정렬(마지막 매뉴얼 업데이트일 기준)
 - **할 수 있는 것**: 필터를 눌러 방치 매장만 골라보기 → 행 클릭 시 레코드 페이지 이동
-- **표준 화면으로 되나, 커스텀이 필요한가?**: **표준 List View로 충분.** 커스텀 LWC 불필요 — 02_PRD 스코프상 복잡한 조건부 로직이 없다.
+- **표준 화면으로 되나, 커스텀이 필요한가?**: **표준 List View로 충분.** 커스텀 LWC 불필요 — 00_PRODUCT_GUIDE 스코프상 복잡한 조건부 로직이 없다.
 
 ### 매장 레코드 페이지 — 박세일즈용
 
@@ -65,21 +65,21 @@ flowchart LR
 
 - **연결 방식**: TongssApp에서 활동 발생 → Digital Experience의 Guest User 권한으로 → Apex REST(`StoreRestService`)를 호출 → 해당 `store_id`와 매핑된 Account 레코드의 커스텀 필드 갱신
 - **인증 없음**: TongssApp은 로그인하지 않음, 대신 Guest User Sharing Rule로 딱 필요한 데이터(Account, 특정 필드만)만 접근 허용
-- **연결 확인 지점**: TongssApp에서 매뉴얼을 등록하면 → 박세일즈의 매장 레코드 페이지에서 `Manual_Count__c`가 즉시 올라가야 정상 (04_ROADMAP Week 1 Hello World 스파이크가 바로 이 경로를 확인하는 것)
-- **필드 매핑**: `../../docs/05_DATA_CONTRACT.md`(shared)가 유일한 진실
+- **연결 확인 지점**: TongssApp에서 매뉴얼을 등록하면 → 박세일즈의 매장 레코드 페이지에서 `Manual_Count__c`가 즉시 올라가야 정상 (03_PROJECT_GUIDE Week 1 Hello World 스파이크가 바로 이 경로를 확인하는 것)
+- **필드 매핑**: `../../docs/04_DATA_CONTRACT.md`(shared)가 유일한 진실
 
 ---
 
 ## 3️⃣ 박오너(의사결정자) 관점
 
-박오너는 별도 화면이 없다(02_PRD §1 — Nice-to-have). 박세일즈의 매장 리스트뷰에서 "활성 매장 비율" 같은 숫자를 리포트로 뽑아 보는 정도. 이번 스코프의 커스텀 개발 대상이 아니다.
+박오너는 별도 화면이 없다(00_PRODUCT_GUIDE §4 — Nice-to-have). 박세일즈의 매장 리스트뷰에서 "활성 매장 비율" 같은 숫자를 리포트로 뽑아 보는 정도. 이번 스코프의 커스텀 개발 대상이 아니다.
 
 ---
 
 ## 🚨 이번엔 만들지 않을 것
 
 ```
-❌ 매장별 매뉴얼 상세 콘텐츠를 org 안에 저장/열람 (집계 필드만 받는다 — 05_DATA_CONTRACT 참조)
+❌ 매장별 매뉴얼 상세 콘텐츠를 org 안에 저장/열람 (집계 필드만 받는다 — 04_DATA_CONTRACT 참조)
 ❌ 박오너 전용 대시보드
 ❌ 매장 간 비교 리포트 (Nice-to-have)
 ```

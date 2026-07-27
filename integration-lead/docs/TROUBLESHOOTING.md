@@ -1,7 +1,7 @@
 # integration-lead/docs/TROUBLESHOOTING — 만난 벽과 해결법
 
 > **문서 소유권:** 최종 수정 권한은 **Integration Lead**. PM이 제시하는 빈 포맷 — 발견하는 대로 계속 추가.
-> 목적: 같은 문제를 두 번 겪지 않기. Pepper's Oven 때도 Guest User/CORS류가 가장 어려운 지점이었음 (00_WHY 참고 경험).
+> 목적: 같은 문제를 두 번 겪지 않기. Pepper's Oven 때도 Guest User/CORS류가 가장 어려운 지점이었음 (00_PRODUCT_GUIDE 참고 경험).
 
 ---
 

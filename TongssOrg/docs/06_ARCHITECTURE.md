@@ -48,7 +48,7 @@ flowchart TD
     C -->|"update"| D
 ```
 
-**내부 org 아키텍처와의 분리**: 내부 화면(매장 리스트뷰, 레코드 페이지)은 실제 Salesforce 계정으로 로그인한 박세일즈만 쓸 수 있고, 표준 권한 체계를 따른다. 반면 TongssApp은 로그인 세션이 없는 익명 호출이기 때문에 **Digital Experience Guest Site + Guest User 프로필**이라는 별도 권한 체계로만 동작한다 — Guest User Profile에는 `Account` 객체의 **Edit 권한(해당 커스텀 필드만)**만 최소로 부여하고, Delete·다른 필드 접근은 금지한다. 브라우저에서 실제 호출이 되려면 Setup의 CORS Allowed Origins에 TongssApp 배포 도메인을 반드시 등록해야 한다 (04_ROADMAP Week 1 Hello World 스파이크 체크리스트).
+**내부 org 아키텍처와의 분리**: 내부 화면(매장 리스트뷰, 레코드 페이지)은 실제 Salesforce 계정으로 로그인한 박세일즈만 쓸 수 있고, 표준 권한 체계를 따른다. 반면 TongssApp은 로그인 세션이 없는 익명 호출이기 때문에 **Digital Experience Guest Site + Guest User 프로필**이라는 별도 권한 체계로만 동작한다 — Guest User Profile에는 `Account` 객체의 **Edit 권한(해당 커스텀 필드만)**만 최소로 부여하고, Delete·다른 필드 접근은 금지한다. 브라우저에서 실제 호출이 되려면 Setup의 CORS Allowed Origins에 TongssApp 배포 도메인을 반드시 등록해야 한다 (03_PROJECT_GUIDE Week 1 Hello World 스파이크 체크리스트).
 
 ---
 
@@ -80,8 +80,8 @@ Q. Flow는 어디 폴더에 있나요?
 A. flows/ 폴더, Flow Builder(화면 클릭 방식)로 만드는 게 기본입니다.
 
 Q. Is_Active__c를 Flow로 할지 Apex로 할지 아직 안 정했는데요?
-A. 04_ROADMAP Week 1의 "Flow vs Apex 분담 결정" 세션에서 정합니다. 정해지면 이 문서와
-   shared 08_DECISIONS.md에 기록.
+A. 03_PROJECT_GUIDE Week 1의 "Flow vs Apex 분담 결정" 세션에서 정합니다. 정해지면 이 문서와
+   shared 07_DECISIONS.md에 기록.
 
 Q. force-app 바깥의 TongssApp은 뭔가요?
 A. 사장·직원용 사이트로, Digital Experiences Guest Site를 통해 StoreRestService의 REST
@@ -94,7 +94,7 @@ A. 사장·직원용 사이트로, Digital Experiences Guest Site를 통해 Stor
 ## 직접 만든 API
 
 Custom Apex REST API (`StoreRestService.cls`) — `@RestResource(urlMapping='/tongss/store-status/*')`
-- POST: TongssApp의 활동 데이터를 받아 Account 필드 갱신 (05_DATA_CONTRACT 참조)
+- POST: TongssApp의 활동 데이터를 받아 Account 필드 갱신 (04_DATA_CONTRACT 참조)
 
 ## 내부적으로 쓴 Salesforce API
 

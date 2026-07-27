@@ -1,7 +1,7 @@
 # platform-lead/docs/TEST_PLAN — Week 4 QA 주간 테스트 계획
 
 > **문서 소유권:** 최종 수정 권한은 **Platform Lead**. PM이 제시하는 빈 포맷.
-> 04_ROADMAP 기준 Platform Lead는 Week 4부터 QA 리드로 전환.
+> 03_PROJECT_GUIDE 기준 Platform Lead는 Week 4부터 QA 리드로 전환.
 
 ---
 
@@ -13,7 +13,7 @@
 | TongssOrg 화면 전체 | 기능 테스트 | Platform Lead + Org PO |
 | TongssApp ↔ TongssOrg 연동 | 엔드투엔드 시나리오 테스트 | Platform Lead + Integration Lead |
 
-## 일정 (04_ROADMAP과 연동)
+## 일정 (03_PROJECT_GUIDE과 연동)
 
 | 시점 | 활동 |
 |---|---|

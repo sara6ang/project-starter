@@ -1,7 +1,7 @@
 # TongssApp/docs/06_ARCHITECTURE — 폴더 구조 & 규칙
 
 > **문서 소유권:** 최종 수정 권한은 **Store PO**. 아래는 기존 템플릿(패턴)을 그대로 채택하고, 화면 목록만 Tongss 도메인(owner/staff)으로 교체한 초안.
-> **스택: HTML + CSS + JS만 (프레임워크 없음, 빌드 없음, Live Server로 바로 실행)** — `[확인필요]` Week 1에 React 여부 최종 확정 (08_DECISIONS.md)
+> **스택: HTML + CSS + JS만 (프레임워크 없음, 빌드 없음, Live Server로 바로 실행)** — `[확인필요]` Week 1에 React 여부 최종 확정 (07_DECISIONS.md)
 
 ---
 
@@ -79,7 +79,7 @@ TongssApp/
     ├── 07_DESIGN_SYSTEM.md
 ```
 
-> ⚠️ 이 스택엔 `00/01/02` 문서를 별도로 두지 않는다. shared `docs/00_WHY`, `01_PERSONAS`, `02_PRD`가 그 역할을 이미 하고 있어 중복이기 때문이다. `08_DECISIONS`, `09_TEAM_GUIDE`도 shared 전용이라 여기 없다.
+> ⚠️ 이 스택엔 `00/01/02` 문서를 별도로 두지 않는다. shared `docs/00_PRODUCT_GUIDE`, `01_PERSONAS`가 그 역할을 이미 하고 있어 중복이기 때문이다. `07_DECISIONS`, `03_PROJECT_GUIDE`도 shared 전용이라 여기 없다.
 
 ---
 
@@ -128,7 +128,7 @@ TongssApp/
 ❌ 컴포넌트 스타일 중복 정의
 ❌ React, Vue, 빌드 도구 도입 (스택 결정 전까지)
 ❌ 이모지를 아이콘으로 사용 (Lucide만)
-❌ 05_DATA_CONTRACT.md에 없는 필드를 org 전송 코드에 임의 추가
+❌ 04_DATA_CONTRACT.md에 없는 필드를 org 전송 코드에 임의 추가
 ```
 
 ---
