@@ -34,6 +34,7 @@ Tongss/
 ├── TongssApp/                     # 🟠 Store PO(아론) 오너 — 사장/직원용
 │   ├── CLAUDE.md
 │   ├── docs/
+│   │   ├── 00_OVERVIEW.md
 │   │   ├── 03_USER_FLOW.md
 │   │   ├── 04_COMPONENT_MAP.md
 │   │   ├── 05_DATA.md
@@ -44,6 +45,7 @@ Tongss/
 ├── TongssOrg/                     # 🔷 Org PO(은영) 오너 — 토스플레이스 실무자용 (Salesforce)
 │   ├── CLAUDE.md
 │   ├── docs/                      # App과 달리 Object/Field 중심 문서 체계
+│   │   ├── 00_OVERVIEW.md
 │   │   ├── 01_OBJECT_MODEL.md
 │   │   ├── 02_FIELD_GUIDE.md
 │   │   ├── 03_RELATIONSHIP.md
@@ -67,10 +69,11 @@ Tongss/
 └── platform-lead/                  # 🟤 Platform Lead(혜준) 오너 — org 권한/설정 + QA
     ├── CLAUDE.md
     └── docs/
-        ├── PERMISSIONS.md
-        ├── ARCHITECTURE_DECISIONS.md
-        ├── QA_CHECKLIST.md
-        └── TEST_PLAN.md
+        ├── 00_OVERVIEW.md
+        ├── 01_PERMISSIONS.md
+        ├── 02_ARCHITECTURE_DECISIONS.md
+        ├── 03_QA_CHECKLIST.md
+        └── 04_TEST_PLAN.md
 ```
 
 ---

@@ -4,7 +4,7 @@
 > 👨‍💻 Salesforce Developer(혜준)가 읽어야 할 것: 이 문서 전체 — 권한 구성 책임자입니다.
 > 👀 PM·Integration Lead 참고: TongssApp이 org에 데이터를 보내는 통로가 여기 정의됩니다.
 > ⚠️ **MVP에서 인증(로그인)은 의도적으로 미룹니다.** TongssApp 사용자(사장·직원)가 앱에 들어가는 방식은 **Entry Code**이고, 이건 TongssApp 자체 로직입니다 — Salesforce와는 무관합니다 (`TongssApp/docs/03_USER_FLOW.md` §0 참조). 이 문서는 그와 별개로, "TongssApp이 org로 데이터를 보낼 때 쓰는 통로"만 다룹니다.
-> 자세한 권한 세트 값 자체는 `../../platform-lead/docs/PERMISSIONS.md`에 기록합니다.
+> 자세한 권한 세트 값 자체는 `../../platform-lead/docs/01_PERMISSIONS.md`에 기록합니다.
 
 ---
 
@@ -35,7 +35,7 @@ TongssApp은 Salesforce 계정이 없는 외부 시스템입니다. 사람이 �
 | 필드 접근 | `Manual_Count__c` 등 계약에 정의된 필드만, **Edit 권한만** |
 | 금지 | Delete, 계약 외 필드 접근, 다른 Object 접근 |
 
-**"일단 넓게 열고 나중에 좁히기"는 하지 않습니다.** 처음부터 계약에 필요한 최소 범위만 엽니다. 범위를 넓혀야 할 필요가 생기면 Integration Lead·Org PO와 합의 후 `../../platform-lead/docs/PERMISSIONS.md`에 변경 이력을 남깁니다.
+**"일단 넓게 열고 나중에 좁히기"는 하지 않습니다.** 처음부터 계약에 필요한 최소 범위만 엽니다. 범위를 넓혀야 할 필요가 생기면 Integration Lead·Org PO와 합의 후 `../../platform-lead/docs/01_PERMISSIONS.md`에 변경 이력을 남깁니다.
 
 ---
 

@@ -100,6 +100,7 @@ TongssApp이 "사람 vs AI" 2분류였다면, TongssOrg는 역할이 하나 더 
 
 ```
 TongssOrg/docs/
+├── 00_OVERVIEW.md            👤 이 저장소 개요 — 처음이면 여기부터
 ├── 01_OBJECT_MODEL.md        👤 어떤 Object가 있고 왜 그런지
 ├── 02_FIELD_GUIDE.md         👤🤖 필드 목록·API 이름·화면 표시 위치
 ├── 03_RELATIONSHIP.md        👤 Object 간 관계 (ERD)
@@ -109,7 +110,7 @@ TongssOrg/docs/
 └── 07_REPORT_DASHBOARD.md    👤👀 박세일즈·박오너가 보는 리포트/대시보드
 ```
 
-> ⚠️ `00/01/02`(WHY/PERSONAS/PRD) 문서는 여기 두지 않습니다 — shared `../docs/00_PRODUCT_GUIDE.md`, `01_PERSONAS.md`가 이미 그 역할을 합니다. `07_DECISIONS`, `03_PROJECT_GUIDE`도 shared 전용이라 여기 없습니다. (TongssApp과 달리 이 스택은 01번부터 시작합니다 — App은 화면 흐름이 03번부터 시작해서 번호를 맞췄지만, Org는 Object 모델이 그 자리를 대신합니다. 헷갈리면 번호보다 문서 제목으로 찾으세요.)
+> ⚠️ WHY/PERSONAS/PRD 문서는 여기 두지 않습니다 — shared `../docs/00_PRODUCT_GUIDE.md`, `01_PERSONAS.md`가 이미 그 역할을 합니다. `07_DECISIONS`, `03_PROJECT_GUIDE`도 shared 전용이라 여기 없습니다. `00_OVERVIEW.md`는 예외입니다 — shared의 `00_PRODUCT_GUIDE.md`(제품 배경)와 달리 **"이 저장소 안에서 뭘 먼저 읽어야 하는지" 안내판**이라 성격이 다릅니다. 헷갈리면 번호보다 문서 제목으로 찾으세요.
 
 ## 문서 소유권 원칙
 

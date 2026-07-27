@@ -3,6 +3,26 @@
 > 오너: Sara / 최종 수정: 2026-07-27
 > 이 문서 하나만 읽으면 "우리가 왜, 무엇을 만드는지" 다 알 수 있습니다.
 > 더 깊은 배경(재무 분석, 경쟁사 조사)이 궁금하면 `archive/` 폴더를 보세요 — **지금 몰라도 개발엔 지장 없습니다.**
+> 📍 이 문서는 `docs/`(shared)의 "00번" 자리이자, **shared 전체의 개요(Overview) 역할도 겸합니다** — 아래 문서 지도를 참고하세요.
+
+---
+
+## 문서 지도 (docs/ 전체 안내)
+
+`docs/`는 두 스택(TongssApp, TongssOrg) 모두에 공통으로 적용되는 문서입니다. 각 트랙 전용 문서는 `TongssApp/docs/`, `TongssOrg/docs/`, `integration-lead/docs/`, `platform-lead/docs/`에 따로 있고, 각 폴더의 `00_OVERVIEW.md`(또는 이 문서)에서 안내합니다.
+
+| 문서 | 한 줄 요약 |
+|---|---|
+| **00_PRODUCT_GUIDE.md** | 왜 만드는지, 뭘 만드는지, 스코프 (이 문서) |
+| `01_PERSONAS.md` | 이 서비스를 쓰는 4명 (이대표·김스태프·박세일즈·박오너) |
+| `02_USER_FLOW.md` | 두 스택을 가로지르는 전체 여정, Entry Code 흐름 |
+| `03_PROJECT_GUIDE.md` | 일정, 팀 협업 규칙, 주차별 목표 |
+| `04_DATA_CONTRACT.md` | TongssApp ↔ TongssOrg가 주고받는 필드의 유일한 진실 |
+| `05_PROJECT_TREE.md` | 리포지토리 전체 폴더 지도 |
+| `06_VOICE_AND_TONE.md` | 화면 문구 작성 원칙 |
+| `07_DECISIONS.md` | 트랙을 넘는 결정 기록 |
+
+**추천 읽는 순서:** `00_PRODUCT_GUIDE.md`(이 문서) → `01_PERSONAS.md` → `02_USER_FLOW.md` → (이후는 필요할 때 찾아보는 참고서) `03`~`07`.
 
 ---
 

@@ -1,4 +1,4 @@
-# platform-lead/docs/QA_CHECKLIST — Demo Day 기준 QA 체크리스트
+# platform-lead/docs/03_QA_CHECKLIST — Demo Day 기준 QA 체크리스트
 
 > **문서 소유권:** 최종 수정 권한은 **Platform Lead**. PM이 제시하는 빈 포맷 — 근거는 `../../docs/00_PRODUCT_GUIDE.md` §6(Demo Day 성공 기준)와 `../../docs/01_PERSONAS.md`(페르소나별 성공의 정의).
 

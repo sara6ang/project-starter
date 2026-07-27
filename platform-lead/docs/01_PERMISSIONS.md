@@ -1,4 +1,4 @@
-# platform-lead/docs/PERMISSIONS — 플랫폼 원칙 & 실제 설정 기록
+# platform-lead/docs/01_PERMISSIONS — 플랫폼 원칙 & 실제 설정 기록
 
 > **문서 소유권:** 최종 수정 권한은 **Platform Lead(혜준)**. PM이 제시하는 초안 — 값이 정해지는 대로 채울 것.
 > ⚠️ 이 문서는 "Guest User 권한 세팅 문서"가 아닙니다. **Tongss MVP는 인증을 의도적으로 만들지 않습니다** — 사장·직원은 Entry Code로 TongssApp에 들어가고 (`TongssApp/docs/03_USER_FLOW.md` §0), Salesforce는 로그인을 책임지지 않습니다. 이 문서는 그 위에서 **플랫폼이 지켜야 할 원칙**과 **실제로 설정한 값**을 기록합니다.
@@ -17,7 +17,7 @@ Salesforce 기능 이름(Guest User Profile, Sharing Rule 등)으로 설명하�
 | **연동 계정 권한은 최소로만 연다** | "일단 넓게 열고 나중에 좁히기"는 하지 않는다. 계약에 정의된 필드만, Edit 권한만 |
 | **인증은 나중에, 구조는 그대로** | 실제 로그인 시스템이 도입되어도 위 3단계(App → Integration → Org) 구조 자체는 바뀌지 않는다. 인증은 그 구조 위에 얹는 계층이다 |
 
-> 이 표는 "지금 뭘 지켜야 하는가"의 요약입니다. **왜 이렇게 정했고, 어떤 대가를 감수했는지**는 `ARCHITECTURE_DECISIONS.md`(ADR-001~004)에 기록되어 있습니다.
+> 이 표는 "지금 뭘 지켜야 하는가"의 요약입니다. **왜 이렇게 정했고, 어떤 대가를 감수했는지**는 `02_ARCHITECTURE_DECISIONS.md`(ADR-001~004)에 기록되어 있습니다.
 
 ---
 
@@ -25,7 +25,7 @@ Salesforce 기능 이름(Guest User Profile, Sharing Rule 등)으로 설명하�
 
 org 데이터 모델은 **설계와 세팅을 분리하지 않고** 은영(Org PO)·혜준(Platform Lead)이 함께 진행한다. 전체 책임 분담표는 `../../TongssOrg/CLAUDE.md`(👨‍💻 Salesforce Developer 구현 표) 참조. 그중 **이 문서에 기록할 것은 Platform Lead 책임 영역**이다.
 
-| 이 문서(PERMISSIONS.md)에 기록 | TongssOrg/docs에 기록 (Org PO 책임) |
+| 이 문서(01_PERMISSIONS.md)에 기록 | TongssOrg/docs에 기록 (Org PO 책임) |
 |---|---|
 | Page Layout, Permission Set, Profile / Sharing | Object 설계, Field 설계 (`01_OBJECT_MODEL.md`, `02_FIELD_GUIDE.md`) |
 | Validation Rule, Flow, Org 설정 | Relationship 설계, Record Type 필요 여부 판단 |

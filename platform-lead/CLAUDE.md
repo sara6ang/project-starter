@@ -10,7 +10,7 @@
 > **Platform exists to protect product simplicity.**
 > If a platform decision makes the MVP significantly more complex without validating customer value, the platform decision is probably premature.
 
-새 권한·설정·아키텍처 결정을 내리기 전에 항상 이 질문으로 돌아옵니다: *"이 결정이 MVP를 눈에 띄게 복잡하게 만드는데, 그만큼 고객 가치를 검증해주는가?"* 아니라면 아직 이릅니다. 구체적인 결정 기록은 `docs/ARCHITECTURE_DECISIONS.md`.
+새 권한·설정·아키텍처 결정을 내리기 전에 항상 이 질문으로 돌아옵니다: *"이 결정이 MVP를 눈에 띄게 복잡하게 만드는데, 그만큼 고객 가치를 검증해주는가?"* 아니라면 아직 이릅니다. 구체적인 결정 기록은 `docs/02_ARCHITECTURE_DECISIONS.md`.
 
 ---
 
@@ -26,7 +26,7 @@
 | 연동 계약 정의 | 무엇이 오가는지 (필드 정의 자체의 진실은 `../docs/04_DATA_CONTRACT.md`) |
 | 운영 원칙 정의 | 누가 뭘 책임지는지 |
 | 데이터 오너십 정의 | 어떤 시스템이 어떤 데이터의 주인인지 |
-| MVP에 맞는 보안 원칙 정의 | Salesforce 인증 구현이 아니라 **원칙**으로 (`docs/PERMISSIONS.md` §보안 원칙) |
+| MVP에 맞는 보안 원칙 정의 | Salesforce 인증 구현이 아니라 **원칙**으로 (`docs/01_PERMISSIONS.md` §보안 원칙) |
 
 Week 4부터는 여기에 **전체 제품 QA**(TongssApp+TongssOrg 통합 시나리오 검증)도 더해집니다. Object/필드 자체의 구조는 `TongssOrg/docs/01_OBJECT_MODEL.md` · `02_FIELD_GUIDE.md`(Org PO 소유)에 있습니다.
 
@@ -36,13 +36,14 @@ Week 4부터는 여기에 **전체 제품 QA**(TongssApp+TongssOrg 통합 시나
 
 ```
 platform-lead/docs/
-├── PERMISSIONS.md              # 플랫폼/보안 원칙 + 실제 설정 기록 (Guest User 세팅 문서 아님)
-├── ARCHITECTURE_DECISIONS.md   # ADR — 왜 그렇게 정했고, 그 대가는 무엇인가
-├── QA_CHECKLIST.md             # Demo Day 한 줄 시나리오 기준 QA 체크리스트
-└── TEST_PLAN.md                # Week 4 QA 주간 테스트 계획
+├── 00_OVERVIEW.md                 # 이 폴더 개요 — 처음이면 여기부터
+├── 01_PERMISSIONS.md              # 플랫폼/보안 원칙 + 실제 설정 기록 (Guest User 세팅 문서 아님)
+├── 02_ARCHITECTURE_DECISIONS.md   # ADR — 왜 그렇게 정했고, 그 대가는 무엇인가
+├── 03_QA_CHECKLIST.md             # Demo Day 한 줄 시나리오 기준 QA 체크리스트
+└── 04_TEST_PLAN.md                # Week 4 QA 주간 테스트 계획
 ```
 
-> 💡 **Future Improvement:** `PERMISSIONS.md`는 지금 "원칙 + 실제 설정 기록"을 한 파일에 담고 있습니다. 실제 설정값(Page Layout, Permission Set 등)이 크게 늘어나면 `PLATFORM_PRINCIPLES.md`(원칙)와 `CONFIG_LOG.md`(설정 기록)로 분리하는 걸 고려하세요. 지금은 분량이 작아 나눌 필요 없습니다.
+> 💡 **Future Improvement:** `01_PERMISSIONS.md`는 지금 "원칙 + 실제 설정 기록"을 한 파일에 담고 있습니다. 실제 설정값(Page Layout, Permission Set 등)이 크게 늘어나면 `PLATFORM_PRINCIPLES.md`(원칙)와 `CONFIG_LOG.md`(설정 기록)로 분리하는 걸 고려하세요. 지금은 분량이 작아 나눌 필요 없습니다.
 
 ## AI 툴 사용 시 지켜야 할 것
 

@@ -1,7 +1,7 @@
-# platform-lead/docs/ARCHITECTURE_DECISIONS — Architecture Decision Records (ADR)
+# platform-lead/docs/02_ARCHITECTURE_DECISIONS — Architecture Decision Records (ADR)
 
 > **문서 소유권:** 최종 수정 권한은 **Platform Lead(혜준)**, PM(Sara)과 협의.
-> `PERMISSIONS.md`가 "지금 뭘 해야 하는가"(원칙 + 실제 설정값)를 다룬다면, 이 문서는 **"왜 그렇게 정했고, 그 대가는 무엇인가"**를 다룹니다. 둘은 서로를 대체하지 않습니다.
+> `01_PERMISSIONS.md`가 "지금 뭘 해야 하는가"(원칙 + 실제 설정값)를 다룬다면, 이 문서는 **"왜 그렇게 정했고, 그 대가는 무엇인가"**를 다룹니다. 둘은 서로를 대체하지 않습니다.
 > 새 ADR을 추가할 때는 아래 Golden Rule을 먼저 통과시키세요.
 
 ---
@@ -37,7 +37,7 @@ before implementing authentication.
 | Easier demos | |
 
 **Future**
-Authentication can be introduced later without changing the `TongssApp → Integration → TongssOrg` architecture. See `PERMISSIONS.md` §미래 인증 도입 시 체크리스트.
+Authentication can be introduced later without changing the `TongssApp → Integration → TongssOrg` architecture. See `01_PERMISSIONS.md` §미래 인증 도입 시 체크리스트.
 
 ---
 

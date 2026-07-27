@@ -19,6 +19,7 @@
 
 ## 👤 화면을 요청하기 전에 알아두면 좋은 것
 
+0. 처음이라면 `docs/00_OVERVIEW.md`부터 — 이 저장소 문서 전체를 5분 안에 훑을 수 있습니다
 1. `../docs/00_PRODUCT_GUIDE.md` — 왜 만드는지, 뭘 만드는지 (5분 요약)
 2. `docs/03_USER_FLOW.md` — 화면별로 뭐가 있고 뭘 할 수 있는지, **Claude에게 요청할 문장도 여기 그대로 있습니다**
 3. `docs/07_DESIGN_SYSTEM.md` — 실제 색·컴포넌트를 눈으로 보려면 `design-system/index.html`을 브라우저로 열어보세요 (Figma 대신 이걸 씁니다)
@@ -66,6 +67,7 @@
 
 ```
 TongssApp/docs/
+├── 00_OVERVIEW.md        👤 이 저장소 개요 — 처음이면 여기부터
 ├── 03_USER_FLOW.md       👤 화면별 목적·구성·Claude 요청 문장
 ├── 04_COMPONENT_MAP.md   👤🤖 부품 지도 (사람용 설명 + AI용 코드 참고)
 ├── 05_DATA.md            👤🤖 데이터 구조 (사람용 설명 + AI용 코드 참고)
@@ -73,7 +75,7 @@ TongssApp/docs/
 └── 07_DESIGN_SYSTEM.md   👤🤖 디자인 값 + 실제 화면 미리보기 링크
 ```
 
-> ⚠️ `00/01/02` 문서는 여기 두지 않습니다 — 같은 역할을 이미 `../docs/00_PRODUCT_GUIDE.md`, `01_PERSONAS.md`(shared)가 하고 있어서 중복이기 때문입니다. `07_DECISIONS`, `03_PROJECT_GUIDE`도 shared 전용이라 여기 없습니다.
+> ⚠️ `01/02` 문서는 여기 두지 않습니다 — 같은 역할을 이미 `../docs/01_PERSONAS.md`(shared)가 하고 있어서 중복이기 때문입니다. `07_DECISIONS`, `03_PROJECT_GUIDE`도 shared 전용이라 여기 없습니다. `00_OVERVIEW.md`는 예외입니다 — shared의 `00_PRODUCT_GUIDE.md`(제품 배경)와 달리, 이건 **"이 저장소 안에서 뭘 먼저 읽어야 하는지" 안내판**이라 성격이 다릅니다.
 
 ## 문서 소유권 원칙
 
