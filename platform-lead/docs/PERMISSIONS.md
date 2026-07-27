@@ -6,7 +6,7 @@
 
 ## 이 문서가 다루는 범위 (Org PO와의 경계)
 
-org 데이터 모델은 **설계와 세팅을 분리하지 않고** 은영(Org PO)·혜준(Platform Lead)이 함께 진행한다. 전체 책임 분담표는 `../../TongssOrg/docs/05_DATA.md` §책임 분담 참조. 그중 **이 문서에 기록할 것은 Platform Lead 책임 영역**이다.
+org 데이터 모델은 **설계와 세팅을 분리하지 않고** 은영(Org PO)·혜준(Platform Lead)이 함께 진행한다. 전체 책임 분담표는 `../../TongssOrg/CLAUDE.md`(👨‍💻 Salesforce Developer 구현 표) 참조. 그중 **이 문서에 기록할 것은 Platform Lead 책임 영역**이다.
 
 | 이 문서(PERMISSIONS.md)에 기록 | 05_DATA.md에 기록 (Org PO 책임) |
 |---|---|

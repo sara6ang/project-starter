@@ -9,7 +9,7 @@
 
 TongssApp ↔ TongssOrg 데이터 연동(Apex REST, Guest User, CORS)의 상태·이력·환경 정보를 모아두는 곳. 실제 코드는 여기 없다 — TongssApp의 API 호출 코드는 `TongssApp/`에, Apex REST 클래스는 `TongssOrg/`에 있다. 여기는 **그 연동을 다루는 문서**만 둔다.
 
-작업 전에 먼저 읽을 것: `../docs/04_DATA_CONTRACT.md`(shared, 필드 계약의 유일한 진실), `TongssApp/docs/06_ARCHITECTURE.md`, `TongssOrg/docs/06_ARCHITECTURE.md`(외부 통합 아키텍처 섹션).
+작업 전에 먼저 읽을 것: `../docs/04_DATA_CONTRACT.md`(shared, 필드 계약의 유일한 진실), `TongssApp/docs/06_ARCHITECTURE.md`, `TongssOrg/docs/05_PERMISSION.md`(외부 통합·Guest User 섹션), `TongssOrg/docs/06_AUTOMATION.md`(Apex REST 진입점).
 
 ## 문서 목록
 

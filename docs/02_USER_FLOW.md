@@ -1,7 +1,7 @@
 # 02_USER_FLOW — 전체 여정 (공유)
 
 > 오너: Sara
-> 두 스택을 가로지르는 흐름만 다룹니다. TongssApp 안의 세부 화면 흐름은 `TongssApp/docs/03_USER_FLOW.md`, TongssOrg 안은 `TongssOrg/docs/03_USER_FLOW.md`에서 상세화합니다.
+> 두 스택을 가로지르는 흐름만 다룹니다. TongssApp 안의 세부 화면 흐름은 `TongssApp/docs/03_USER_FLOW.md`에서 상세화합니다. TongssOrg는 화면 흐름이 아니라 Object/Field 중심 문서 체계라 대응 문서가 다릅니다 — 외부(TongssApp) 연결 구조는 `TongssOrg/docs/05_PERMISSION.md`, 필드별 화면 표시는 `TongssOrg/docs/02_FIELD_GUIDE.md`에서 상세화합니다.
 > 근거: `00_PRODUCT_GUIDE.md` §3 (Demo Day 한 줄), `01_PERSONAS.md`
 
 ---

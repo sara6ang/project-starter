@@ -43,12 +43,14 @@ Tongss/
 │
 ├── TongssOrg/                     # 🔷 Org PO(은영) 오너 — 토스플레이스 실무자용 (Salesforce)
 │   ├── CLAUDE.md
-│   ├── docs/
-│   │   ├── 03_USER_FLOW.md
-│   │   ├── 04_COMPONENT_MAP.md
-│   │   ├── 05_DATA.md
-│   │   ├── 06_ARCHITECTURE.md
-│   │   └── 07_DESIGN_SYSTEM.md
+│   ├── docs/                      # App과 달리 Object/Field 중심 문서 체계
+│   │   ├── 01_OBJECT_MODEL.md
+│   │   ├── 02_FIELD_GUIDE.md
+│   │   ├── 03_RELATIONSHIP.md
+│   │   ├── 04_FLOW.md
+│   │   ├── 05_PERMISSION.md
+│   │   ├── 06_AUTOMATION.md
+│   │   └── 07_REPORT_DASHBOARD.md
 │   └── force-app/
 │
 ├── integration-lead/               # 🟣 Integration Lead(승우) 오너 — 연동 전담
