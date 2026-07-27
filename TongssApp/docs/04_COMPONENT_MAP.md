@@ -1,76 +1,114 @@
-# TongssApp/docs/04_COMPONENT_MAP — 컴포넌트 지도
+# TongssApp/docs/04_COMPONENT_MAP — 화면 부품 지도
 
-> **문서 소유권:** 최종 수정 권한은 **Store PO**. 아래는 PM이 제시하는 초안.
-> **스택: HTML + CSS + JS (프레임워크 없음)** — 폴더/패턴은 기존 템플릿 구조를 그대로 채택, 내용은 Tongss 도메인으로 교체.
-> 이 문서를 만들기 전에 `03_USER_FLOW.md`를 먼저 읽을 것.
+> **문서 소유권:** 최종 수정 권한은 **Store PO(아론)**.
+> 👤 아론님이 읽어야 할 것: "이런 부품들이 있고, 어디서 재사용되는지"만 알면 충분합니다.
+> 🤖 Claude Code 참고: 실제 함수 이름·코드 형태 — 아론님은 몰라도 됩니다.
+> 이 문서를 보기 전에 `03_USER_FLOW.md`를 먼저 읽으세요 — 거기서 화면을 정하고, 여기서 "그 화면을 만들 부품이 이미 있는지"만 확인합니다.
 
 ---
 
-## 컴포넌트 형태 (2가지, 기존 패턴 유지)
+## 👤 이 문서를 왜 보는가
 
-**A. 정적 조각 (`components/` + `data-include`)** — header, bottom-nav처럼 여러 화면에 통째로 붙는 것. 마크업만.
-**B. 만드는 함수 (js 함수 하나)** — 데이터에 따라 여러 번 찍어내는 것 (버튼, 카드, 체크리스트 행).
+새 화면을 Claude에게 요청하기 전에, "이미 만들어둔 부품이 있나?"를 여기서 확인하세요. 있으면 "이 부품 재사용해줘"라고 요청하고, 없으면 새로 만들어 달라고 하면 됩니다. 부품이 화면마다 따로 만들어지면 나중에 디자인이 제각각이 되는 문제가 생깁니다.
 
+---
+
+## 👤 부품은 3단계로 나뉩니다
+
+| 단계 | 쉽게 말하면 | 예시 |
+|---|---|---|
+| 기본 부품 | 어디서나 쓰는 가장 작은 조각 | 버튼, 입력창, 체크박스, 배지, 카드 |
+| Tongss 전용 조각 | 기본 부품을 조합한, 이 프로젝트에서만 쓰는 뭉치 | 매뉴얼 카드, 체크리스트 줄, 재고 확인 줄 |
+| 공용 레이아웃 | 여러 화면에 통째로 붙는 것 | 사장용 상단 헤더, 직원용 하단 탭 메뉴 |
+
+실제 화면(페이지)은 이 부품들을 조립해서 만듭니다. 아래로 갈수록 "Tongss만의 것"에 가까워집니다.
+
+---
+
+## 👤 기본 부품 목록
+
+| 부품 | 어디서 쓰이나 |
+|---|---|
+| 버튼 | 거의 모든 화면 |
+| 입력창 | 매뉴얼 등록, 체크리스트 설정 |
+| 체크박스 | 체크리스트 실행, 재고 확인 |
+| 배지 | "부족", "완료" 같은 상태 표시 |
+| 카드 | 매뉴얼 목록, 대시보드 요약 |
+
+🤖 **Claude 참고 — 실제 함수 (위치: `assets/js/shared/ui/`)**
 ```javascript
-// assets/js/shared/ui/button.js
-export function createButton({ label, variant = 'primary', onClick }) {
-  const btn = document.createElement('button');
-  btn.className = `btn btn--${variant}`;
-  btn.textContent = label;
-  btn.addEventListener('click', onClick);
-  return btn;
-}
+export function createButton({ label, variant = 'primary', onClick }) { /* ... */ }
+```
+나머지: `createInput()`, `createLabel()`, `createIcon()`, `createCard()`, `createBadge()`, `createCheckbox()`, `createCounterInput()`(재고 관련 화면이 확인 체크리스트 방식으로 바뀌며 사용 빈도 낮아짐)
+
+---
+
+## 👤 Tongss 전용 화면 조각
+
+| 부품 | 무엇을 위한 것인가 | 어디서 쓰이나 |
+|---|---|---|
+| 매뉴얼 카드 | 사진+제목으로 매뉴얼 하나를 보여줌 | 매뉴얼 목록(사장), 매뉴얼 뷰어(직원) |
+| 체크리스트 줄 | 항목 하나 + 체크박스 | 체크리스트 설정(사장), 체크리스트 실행(직원) |
+| 재고 확인 줄 | 품목 하나 + "확인함" 체크 + "부족해요" 토글 | 재고 확인 항목 설정(사장), 재고 확인(직원) |
+| 직원 현황 줄 | 이름 + 학습률/수행 배지 | 직원 현황(사장) |
+| 요약 카드 | 숫자 하나를 크게 보여줌 | 홈 대시보드(사장) |
+| 빈 상태 안내 | "아직 없어요" 문구 | 매뉴얼이 0개일 때 등 |
+
+🤖 **Claude 참고 — 실제 함수 (위치: `assets/js/shared/composite/`)**
+```
+createManualCard()   createChecklistItemRow()   createInventoryRow()
+createStaffStatusRow()   createStatCard()   createEmptyState()
 ```
 
 ---
 
-## 컴포넌트 레벨
+## 👤 공용 레이아웃
 
-### Level 1: 기본 컴포넌트 (패턴 B)
-```
-createButton()   createInput()   createLabel()
-createIcon()     createCard()    createBadge()
-createCheckbox() createCounterInput()   ← 재고 수량 +/- 조작용
-```
-위치: `assets/js/shared/ui/`
+| 조각 | 쓰이는 화면 | 왜 이렇게 나눴나 |
+|---|---|---|
+| 사장용 상단 헤더 (로고+메뉴) | 사장 화면 전체 | 여유 있게 훑어보는 화면이라 위쪽 메뉴가 자연스러움 |
+| 직원용 하단 탭 메뉴 | 직원 화면 전체 | 폰으로 현장에서 쓰므로 엄지로 누르기 편한 하단 탭이 적합 |
 
-### Level 2: 합성 컴포넌트 — Tongss 도메인 (패턴 B)
-```
-createManualCard()        ← createCard + 사진 썸네일 + 제목 (매뉴얼 목록/뷰어에서 사용)
-createChecklistItemRow()  ← createCheckbox + 라벨 (체크리스트 실행 화면)
-createInventoryRow()      ← createCounterInput + "부족" createBadge
-createStaffStatusRow()    ← 직원 이름 + 학습률/체크리스트 완료 badge
-createStatCard()          ← createCard + 숫자 (대시보드 요약)
-createEmptyState()        ← 매뉴얼 0개일 때 등 (VOICE_AND_TONE.md 문구 원칙 따름)
-```
-위치: `assets/js/shared/composite/`
+🤖 **Claude 참고:** `components/header.html`, `components/bottom-nav.html` — `data-include`로 삽입, `assets/js/shared/nav.js`가 동작 연결. 이미 구현되어 있으니 새로 만들 필요 없음.
 
-### Level 3: 정적 조각 (패턴 A)
-```
-components/header.html       ← 사장 화면용 (로고 + 메뉴)
-components/bottom-nav.html    ← 직원 화면용 (오늘 할 일/매뉴얼/체크리스트/재고 탭) — 모바일 우선
-```
-> 기존 템플릿은 `sidebar.html`이었지만, 김스태프는 폰으로 현장에서 쓰므로 **하단 탭 내비게이션**이 더 적합하다고 판단해 교체함. `[확인필요]` Store PO 확정 필요.
-동작 연결은 `assets/js/shared/nav.js`가 `components:ready` 이벤트 이후 담당.
+---
 
-### Level 4: 페이지 (마크업/로직 분리, 기존 패턴 유지)
+## 👤 어떤 부품이 여러 화면에서 재사용되는지
+
+| 부품 | 재사용되는 화면 |
+|---|---|
+| 매뉴얼 카드 | 매뉴얼 목록(사장) + 매뉴얼 뷰어(직원) |
+| 체크리스트 줄 | 체크리스트 설정(사장) + 체크리스트 실행(직원) |
+| 재고 확인 줄 | 재고 확인 항목 설정(사장) + 재고 확인(직원) |
+| 하단 탭 메뉴 | 직원 화면 전체 |
+| 상단 헤더 | 사장 화면 전체 |
+
+같은 부품을 두 번 새로 만들지 않도록, Claude에게 요청할 때 **"이 부품 재사용해줘"**라고 명시하세요.
+
+---
+
+## 🤖 실제 페이지 파일 목록 (Claude 참고)
+
 ```
 pages/owner/dashboard.html              assets/js/features/owner/dashboard.js
 pages/owner/manual-list.html            assets/js/features/owner/manual-list.js
 pages/owner/manual-edit.html            assets/js/features/owner/manual-edit.js
 pages/owner/checklist-setting.html      assets/js/features/owner/checklist-setting.js
-pages/owner/inventory-setting.html      assets/js/features/owner/inventory-setting.js
+pages/owner/inventory-setting.html      assets/js/features/owner/inventory-setting.js  ← 재고 확인 항목 설정
 pages/owner/staff-status.html           assets/js/features/owner/staff-status.js
 
 pages/staff/today.html                  assets/js/features/staff/today.js
 pages/staff/manual-viewer.html          assets/js/features/staff/manual-viewer.js
 pages/staff/checklist-run.html          assets/js/features/staff/checklist-run.js
-pages/staff/inventory-input.html        assets/js/features/staff/inventory-input.js
+pages/staff/inventory-input.html        assets/js/features/staff/inventory-input.js  ← 재고 확인
 ```
 
 ---
 
-## 페이지별 컴포넌트 분해 예시
+## 🤖 구현 코드 예시 (참고용, 아론님은 안 읽어도 됩니다)
+
+<details>
+<summary>펼쳐서 보기 — 실제 코드는 이미 코드베이스에 있고, 이건 Claude가 일관된 패턴으로 짜도록 돕는 참고 스니펫입니다</summary>
 
 ### 매뉴얼 등록 (사장)
 ```html
@@ -98,7 +136,6 @@ document.getElementById('save-btn-slot').appendChild(saveBtn);
 
 async function handleSave() {
   const title = document.getElementById('title-input').value;
-  // 사진 업로드 처리 후
   await saveManual({ title, photos: [...], updatedAt: new Date().toISOString() });
   window.location.href = '/pages/owner/manual-list.html';
 }
@@ -122,7 +159,7 @@ items.forEach(item => {
 });
 ```
 
-### 오늘 할 일 (직원, 맥락 기반 정렬)
+### 오늘 할 일 (직원, 시간대 기반 정렬)
 ```javascript
 // assets/js/features/staff/today.js
 import { getCurrentTimeContext } from '../../shared/context.js';
@@ -134,23 +171,13 @@ if (context === 'closing') {
 }
 ```
 
----
-
-## 컴포넌트 재사용 지도
-```
-createManualCard():       manual-list.js (owner), manual-viewer.js (staff) → 공용
-createChecklistItemRow(): checklist-setting.js (owner, 미리보기), checklist-run.js (staff) → 공용
-createCounterInput():     inventory-setting.js (owner), inventory-input.js (staff) → 공용
-components/bottom-nav.html: staff/*.html 전체
-components/header.html:    owner/*.html 전체
-```
+</details>
 
 ---
 
-## 체크리스트: 컴포넌트 만들 때 (기존 원칙 유지)
-```
-1. 몇 군데에서 쓸 것인가? 2곳 이상 → shared/
-2. 패턴 A(정적 조각) vs 패턴 B(js 함수) 구분
-3. 디자인 토큰(07_DESIGN_SYSTEM.md)만 사용
-4. 문구는 VOICE_AND_TONE.md 원칙(화면 성격별 톤 강도) 따를 것
-```
+## 👤🤖 새 부품을 만들 때 체크리스트
+
+1. 몇 군데에서 쓸 것인가? 2곳 이상 → 공용 부품으로
+2. 기본 부품인지, Tongss 전용 화면 조각인지 구분
+3. 디자인 값(토큰, `07_DESIGN_SYSTEM.md`)만 사용
+4. 문구는 `../../docs/06_VOICE_AND_TONE.md`의 화면 성격별 톤 원칙을 따를 것

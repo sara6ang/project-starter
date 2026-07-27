@@ -1,11 +1,24 @@
-# TongssApp/docs/07_DESIGN_SYSTEM — 디자인 시스템
+# TongssApp/docs/07_DESIGN_SYSTEM — 디자인 값(토큰)
 
-> **문서 소유권:** 최종 수정 권한은 **Store PO**. 아래는 기존에 확보해둔 토큰 시스템을 그대로 채택한 초안 — 값 자체(색상 등)는 Store PO가 Tongss 브랜드에 맞게 조정할 수 있다.
-> ⚠️ 색·타이포 **구조**(토큰 방식, 4px 배수, 5단계 글자크기)는 검증된 패턴이라 그대로 두는 걸 권장하지만, **정확한 색상값(특히 accent 핑크)은 이 프로젝트를 위해 새로 정한 게 아니라 이전 프로젝트에서 가져온 값**이다. ../../docs/06_VOICE_AND_TONE.md의 브랜드 키워드(Instant·Effortless·Reassuring)에 맞는 색인지 Store PO가 한 번 검토할 것.
+> **문서 소유권:** 최종 수정 권한은 **Store PO(아론)**. 아래는 기존에 확보해둔 토큰 시스템을 그대로 채택한 초안 — 값 자체(색상 등)는 Store PO가 Tongss 브랜드에 맞게 조정할 수 있다.
+> 👤 아론님이 읽어야 할 것: 이 문서 대신 **먼저 브라우저로 `design-system/index.html`을 열어보세요.** 헥스코드(`#ff4f97` 등)를 눈으로 읽는 것보다, 실제 색·버튼·카드가 화면에 어떻게 보이는지 직접 보는 게 훨씬 빠릅니다. Figma가 없어도 이 파일이 그 역할을 합니다.
+> 🤖 Claude Code 참고: 아래 CSS 변수(토큰)만 사용해서 화면을 만들 것 — 새 색이나 크기를 임의로 추가하지 말 것.
+> ⚠️ 색·타이포 **구조**(토큰 방식, 4px 배수, 5단계 글자크기)는 검증된 패턴이라 그대로 두는 걸 권장하지만, **정확한 색상값(특히 accent 핑크)은 이 프로젝트를 위해 새로 정한 게 아니라 이전 프로젝트에서 가져온 값**이다. `../../docs/06_VOICE_AND_TONE.md`의 브랜드 키워드(Instant·Effortless·Reassuring)에 맞는 색인지 Store PO가 한 번 검토할 것.
 
 ---
 
-## Tokens
+## 👤 실제 화면으로 먼저 확인하기
+
+```
+design-system/index.html 을 브라우저로 열기
+→ 실제 색상, 버튼, 카드, 배지가 전부 눈으로 보입니다.
+```
+
+아래 CSS 코드는 🤖 Claude가 참고하는 실제 값입니다. 색이 마음에 안 들면 헥스코드를 직접 안 고쳐도 됩니다 — "이 버튼 색을 더 밝게 해줘"처럼 말로 요청하면 됩니다.
+
+---
+
+## 🤖 Tokens (실제 값)
 
 ### 색 (Colors) — `[확인필요: Store PO 검토]`
 
@@ -16,7 +29,7 @@
   --color-neutral: #6b6b6b;
 
   --color-success: #22a34a;   /* 체크리스트 완료, 학습 완료 등에 사용 */
-  --color-warning: #e9a23b;   /* 재고 부족 알림 등에 사용 */
+  --color-warning: #e9a23b;   /* 재고 "부족해요" 표시 등에 사용 */
   --color-error: #df5a5a;
   --color-info: #6f8de8;
 
@@ -54,7 +67,7 @@
 }
 ```
 
-**Tongss 적용 지침:** 김스태프 현장 화면(체크리스트, 재고 입력)은 `--fs-16` 이상만 사용 — 현장에서 작은 글자는 안 읽힌다. `--fs-12`는 사장 대시보드의 보조 정보에만.
+**Tongss 적용 지침:** 김스태프 현장 화면(체크리스트, 재고 확인)은 `--fs-16` 이상만 사용 — 현장에서 작은 글자는 안 읽힌다. `--fs-12`는 사장 대시보드의 보조 정보에만.
 
 ### 간격 (Spacing) — 4px 배수만
 
@@ -90,17 +103,17 @@
 
 ---
 
-## design-system/ — 컴포넌트 카탈로그
+## 👤 design-system/ — 컴포넌트 카탈로그
 
 ```
 design-system/
 ├─ index.html
 ├─ components/
-│  ├─ button.html          ├─ counter-input.html   ← 재고 수량 +/-, 신규
-│  ├─ input.html            ├─ manual-card.html      ← 신규 (매뉴얼 카드)
-│  ├─ checkbox.html          ├─ checklist-row.html    ← 신규
-│  ├─ badge.html             ├─ empty-state.html
-│  ├─ card.html               ├─ bottom-nav.html       ← 신규 (직원 화면 탭)
+│  ├─ button.html            ├─ inventory-row.html   ← 신규 (재고 확인 줄: 확인함+부족해요)
+│  ├─ input.html              ├─ manual-card.html      ← 신규 (매뉴얼 카드)
+│  ├─ checkbox.html            ├─ checklist-row.html    ← 신규
+│  ├─ badge.html               ├─ empty-state.html
+│  ├─ card.html                 ├─ bottom-nav.html       ← 신규 (직원 화면 탭)
 │  └─ ... (기존 목록 유지: modal, toast, table, tabs 등 필요 시)
 └─ assets/css/components.css
 ```
@@ -109,7 +122,7 @@ design-system/
 
 ```
 필수: Button, Input, Checkbox, Badge, Card, Manual Card, Checklist Row,
-      Counter Input, Empty State, Bottom Nav, Loader
+      Inventory Row, Empty State, Bottom Nav, Loader
 
 있으면 좋음: Toast, Tabs, Avatar
 
@@ -126,7 +139,7 @@ design-system/
 
 ---
 
-## 체크리스트
+## 👤🤖 체크리스트
 ```
 1. 색 → var(--color-primary) 등 토큰만 사용
 2. 글자 크기 → 김스태프 화면은 --fs-16 이상

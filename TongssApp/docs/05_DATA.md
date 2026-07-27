@@ -1,25 +1,29 @@
 # TongssApp/docs/05_DATA — 데이터 정의
 
-> **문서 소유권:** 최종 수정 권한은 **Store PO**. 아래는 PM이 제시하는 초안.
-> ⚠️ 이 문서는 TongssApp **내부**에서 다루는 데이터 전체를 정의한다. 이 중 org로 전송되는 필드(집계값)만 뽑아 정의한 것이 `../../docs/04_DATA_CONTRACT.md`(shared)다. **두 문서는 다른 문서다 — 헷갈리지 말 것.**
+> **문서 소유권:** 최종 수정 권한은 **Store PO(아론)**.
+> 👤 아론님이 읽어야 할 것: "어떤 정보가 있고, 어느 화면에서 쓰이는지"만 알면 충분합니다.
+> 🤖 Claude Code 참고: 실제 필드 이름과 코드 형태.
+> ⚠️ 이 문서는 TongssApp **내부**에서 다루는 데이터 전체를 정의합니다. 이 중 org로 전송되는 필드(집계값)만 뽑은 것이 `../../docs/04_DATA_CONTRACT.md`(shared)입니다. **두 문서는 다른 문서입니다 — 헷갈리지 마세요.**
 > - `05_DATA.md` (여기, TongssApp 전용) = TongssApp이 다루는 **모든** 데이터
 > - `04_DATA_CONTRACT.md` (shared) = 그중 org로 **나가는** 필드만 (부분집합)
 
 ---
 
-## 데이터 종류 (총 5가지)
+## 👤 데이터 종류 5가지 — 어느 화면에서 쓰이나
 
-```
-1. Store (매장)
-2. Manual (매뉴얼)
-3. ChecklistItem / ChecklistCompletion (체크리스트 항목 / 완료 기록)
-4. InventoryItem (재고 품목)
-5. Staff (직원) / ManualProgress (직원별 매뉴얼 학습 기록)
-```
+| 데이터 | 쉽게 말하면 | 어느 화면에서 쓰이나 |
+|---|---|---|
+| Store | 매장 정보 | 최초 설정 |
+| Manual | 매뉴얼 | 매뉴얼 등록·목록(사장), 매뉴얼 뷰어(직원) |
+| ChecklistItem / Completion | 체크리스트 항목 / 완료 기록 | 체크리스트 설정(사장), 체크리스트 실행(직원) |
+| InventoryItem | 재고 확인 항목 | 재고 확인 항목 설정(사장), 재고 확인(직원) — ⚠️ **수량이 아니라 "확인했는지"를 기록** |
+| Staff / ManualProgress | 직원 / 학습 기록 | 직원 현황(사장) |
 
 ---
 
-## 1. Store (매장)
+## 🤖 각 데이터의 실제 형태
+
+### 1. Store (매장)
 
 ```javascript
 {
@@ -29,7 +33,7 @@
 }
 ```
 
-## 2. Manual (매뉴얼)
+### 2. Manual (매뉴얼)
 
 ```javascript
 {
@@ -41,9 +45,9 @@
   updatedAt: "2026-08-10T09:00:00+09:00"
 }
 ```
-`store_id` 참조로 매장 소속을 표시 (VLOOKUP과 동일한 개념). `manual_count`, `last_manual_updated_at`은 이 데이터에서 파생되어 org로 전송된다 (04_DATA_CONTRACT §3-1).
+`store_id` 참조로 매장 소속을 표시 (엑셀 VLOOKUP과 같은 개념). `manual_count`, `last_manual_updated_at`은 이 데이터에서 파생되어 org로 전송된다 (04_DATA_CONTRACT §3-1).
 
-## 3. ChecklistItem / ChecklistCompletion
+### 3. ChecklistItem / ChecklistCompletion
 
 ```javascript
 // ChecklistItem — 사장이 설정한 항목 (템플릿)
@@ -66,22 +70,23 @@
 ```
 `checklist_completion_rate`(해당 날짜의 완료 항목 수 / 전체 항목 수)가 org로 전송된다 (04_DATA_CONTRACT §3-3).
 
-## 4. InventoryItem (재고 품목)
+### 4. InventoryItem (재고 확인 항목)
+
+> ⚠️ **수량 계산이 아니라 "확인 여부" 기록입니다.** 재고 수량 관리는 토스플레이스가 이미 제공하는 기능이라 Tongss가 다시 만들지 않습니다 (`../../docs/00_PRODUCT_GUIDE.md` §2, §5). 직원이 "오늘 이 품목을 확인했는지", "부족하다고 느꼈는지"만 기록합니다.
 
 ```javascript
 {
   id: "inv_001",
   store_id: "store_001",
-  name: "우유",
-  unit: "개",
-  currentQty: 2,
-  thresholdQty: 5,   // 이 값 이하면 "부족"
-  updatedAt: "2026-08-10T18:00:00+09:00"
+  name: "콜라시럽",
+  checkedToday: true,      // 오늘 직원이 확인했는지
+  isLow: true,             // 직원이 "부족해요"로 표시했는지
+  checkedAt: "2026-08-10T18:00:00+09:00"
 }
 ```
-`currentQty <= thresholdQty`인 품목 수가 `low_stock_alert_count`로 org에 전송된다 (선택 필드, 00_PRODUCT_GUIDE에서 Out에 가까움).
+`isLow: true`인 품목 수가 `low_stock_alert_count`로 org에 전송된다 (선택 필드, 04_DATA_CONTRACT §3-4 — 계산 방식만 바뀌고 필드 자체는 그대로).
 
-## 5. Staff / ManualProgress
+### 5. Staff / ManualProgress
 
 ```javascript
 // Staff
@@ -102,7 +107,7 @@
 
 ---
 
-## 데이터 관계도
+## 🤖 데이터 관계도
 
 ```mermaid
 erDiagram
@@ -131,8 +136,8 @@ erDiagram
     INVENTORY_ITEM {
         string id
         string store_id
-        int currentQty
-        int thresholdQty
+        boolean checkedToday
+        boolean isLow
     }
     STAFF {
         string id
@@ -143,20 +148,20 @@ erDiagram
 
 ---
 
-## TongssApp → TongssOrg로 나가는 필드 (요약, 상세는 shared 04_DATA_CONTRACT.md)
+## 👤 TongssApp → TongssOrg로 나가는 필드 (요약)
 
 | TongssApp 데이터 | org로 나가는 파생 필드 |
 |---|---|
 | Manual 전체 | `manual_count`, `last_manual_updated_at` |
 | ManualProgress 전체 | `manual_completion_rate` |
 | ChecklistCompletion (당일) | `checklist_completion_rate` |
-| InventoryItem (기준 이하) | `low_stock_alert_count` (선택) |
+| InventoryItem (`isLow: true`인 것) | `low_stock_alert_count` (선택) |
 
-**계약과 다른 필드를 여기서 임의로 추가/변경하지 말 것.** 변경이 필요하면 shared 04_DATA_CONTRACT.md를 먼저 고치고 07_DECISIONS.md에 기록.
+상세는 shared `../../docs/04_DATA_CONTRACT.md`. **계약과 다른 필드를 여기서 임의로 추가/변경하지 마세요.** 변경이 필요하면 shared `04_DATA_CONTRACT.md`를 먼저 고치고 `../../docs/07_DECISIONS.md`에 기록.
 
 ---
 
-## 코딩할 때
+## 🤖 코딩할 때 (참고용, 아론님은 안 읽어도 됩니다)
 
 ```javascript
 // assets/js/features/staff/manual-viewer.js
