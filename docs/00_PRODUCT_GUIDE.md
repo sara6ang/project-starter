@@ -9,10 +9,13 @@
 
 ## 문서 지도 (docs/ 전체 안내)
 
+> 👋 처음 합류했다면 이 문서보다 **`00_01_START_HERE.md`**를 먼저 읽으세요 — 이번 주 뭘 읽고 뭘 생각해봐야 하는지 안내하는 온보딩 문서입니다. 아래는 그다음에 참고하는 전체 지도입니다.
+
 `docs/`는 두 스택(TongssApp, TongssOrg) 모두에 공통으로 적용되는 문서입니다. 각 트랙 전용 문서는 `TongssApp/docs/`, `TongssOrg/docs/`, `integration-lead/docs/`, `platform-lead/docs/`에 따로 있고, 각 폴더의 `00_OVERVIEW.md`(또는 이 문서)에서 안내합니다.
 
 | 문서 | 한 줄 요약 |
 |---|---|
+| `00_01_START_HERE.md` | 처음 합류한 사람을 위한 이번 주 온보딩 안내 |
 | **00_PRODUCT_GUIDE.md** | 왜 만드는지, 뭘 만드는지, 스코프 (이 문서) |
 | `01_PERSONAS.md` | 이 서비스를 쓰는 4명 (이대표·김스태프·박세일즈·박오너) |
 | `02_USER_FLOW.md` | 두 스택을 가로지르는 전체 여정, Entry Code 흐름 |
@@ -22,7 +25,7 @@
 | `06_VOICE_AND_TONE.md` | 화면 문구 작성 원칙 |
 | `07_DECISIONS.md` | 트랙을 넘는 결정 기록 |
 
-**추천 읽는 순서:** `00_PRODUCT_GUIDE.md`(이 문서) → `01_PERSONAS.md` → `02_USER_FLOW.md` → (이후는 필요할 때 찾아보는 참고서) `03`~`07`.
+**추천 읽는 순서:** `00_01_START_HERE.md` → `00_PRODUCT_GUIDE.md`(이 문서) → `01_PERSONAS.md` → `02_USER_FLOW.md` → (이후는 필요할 때 찾아보는 참고서) `03`~`07`.
 
 ---
 

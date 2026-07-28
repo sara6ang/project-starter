@@ -12,6 +12,7 @@ Tongss/
 ├── CLAUDE.md                      # 팀 공통 규칙
 │
 ├── docs/                          # 🔵 shared — PM(Sara) 오너 — "무엇을, 왜"
+│   ├── 00_01_START_HERE.md        # 온보딩 — 새로 합류하면 여기부터
 │   ├── 00_PRODUCT_GUIDE.md
 │   ├── 01_PERSONAS.md
 │   ├── 02_USER_FLOW.md
