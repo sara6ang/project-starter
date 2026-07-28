@@ -305,21 +305,23 @@ Tongss는 **재고 수량을 계산·관리하지 않습니다.** 이번 MVP가 
 ]
 ```
 
-### 9-6. Org 반영값 (Account — `04_DATA_CONTRACT.md` §3 필드 기준)
+### 9-6. Org 반영값 (Account — `04_DATA_CONTRACT.md` §3 Sales Summary Contract 기준)
 
 | 필드 | 값 |
 |---|---|
 | `store_id` | store_001 |
-| `manual_count` | 7 |
-| `last_manual_updated_at` | 2026-08-12T21:00:00+09:00 |
 | `staff_count` | 3 (아르바이트 기준 — 점주 제외) |
+| `manual_count` | 7 |
 | `manual_completion_rate` | 0.67 (직원 3명 중 2명이 최신 매뉴얼까지 확인) |
-| `checklist_date` | 2026-08-12 |
 | `checklist_completion_rate` | 0.83 (오픈+마감 12개 중 10개 완료) |
-| `low_stock_alert_count` | 3 (Beef Patty, Burger Bun, Coke Syrup) |
+| `last_manual_updated_at` | 2026-08-12T21:00:00+09:00 |
+| `last_activity_at` | 2026-08-12T21:00:00+09:00 (당일 마감 체크리스트 완료 시각) |
+| `weekly_active_staff` | 3 (최근 7일 내 3명 전원 활동 기록 있음) |
 | `is_active` | true |
 
 이 값이 그대로 TongssOrg의 Account 레코드(`Manual_Count__c` 등)에 채워지면 됩니다 — 필드 매핑은 `04_DATA_CONTRACT.md` §5 참조.
+
+> 참고: §3 재고표의 "부족해요" 3건(Beef Patty, Burger Bun, Coke Syrup)은 **org로 가지 않습니다.** 사장 홈 대시보드(TongssApp 안)에서만 보입니다 — `04_DATA_CONTRACT.md` "이 계약에서 뺀 것" 참조.
 
 ---
 

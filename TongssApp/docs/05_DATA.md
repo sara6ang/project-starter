@@ -71,7 +71,7 @@ if (store) {
   updatedAt: "2026-08-10T09:00:00+09:00"
 }
 ```
-`store_id` 참조로 매장 소속을 표시 (엑셀 VLOOKUP과 같은 개념). `manual_count`, `last_manual_updated_at`은 이 데이터에서 파생되어 org로 전송된다 (04_DATA_CONTRACT §3-1).
+`store_id` 참조로 매장 소속을 표시 (엑셀 VLOOKUP과 같은 개념). `manual_count`, `last_manual_updated_at`은 이 데이터에서 파생되어 org로 전송된다 (04_DATA_CONTRACT §3 — Manual Count, Last Content Update).
 
 ### 3. ChecklistItem / ChecklistCompletion
 
@@ -91,10 +91,10 @@ if (store) {
   checklist_item_id: "check_001",
   date: "2026-08-10",
   completed: true,
-  completed_by: "staff_001"  // [확인필요] 개인 식별 필요 여부
+  completed_by: "staff_001"  // Entry Code로 이미 식별된 직원 (staff.entryCode 참조)
 }
 ```
-`checklist_completion_rate`(해당 날짜의 완료 항목 수 / 전체 항목 수)가 org로 전송된다 (04_DATA_CONTRACT §3-3).
+`checklist_completion_rate`(해당 날짜의 완료 항목 수 / 전체 항목 수)가 org로 전송된다 (04_DATA_CONTRACT §3 — Checklist Completion Rate). `completed_by`는 `weekly_active_staff` 계산에도 쓰인다.
 
 ### 4. InventoryItem (재고 확인 항목)
 
@@ -110,7 +110,7 @@ if (store) {
   checkedAt: "2026-08-10T18:00:00+09:00"
 }
 ```
-`isLow: true`인 품목 수가 `low_stock_alert_count`로 org에 전송된다 (선택 필드, 04_DATA_CONTRACT §3-4 — 계산 방식만 바뀌고 필드 자체는 그대로).
+⚠️ `isLow: true` 여부는 org로 전송되지 않는다 — 사장 홈 대시보드(TongssApp 안)에서만 보인다. 박세일즈가 이 숫자로 할 수 있는 일이 없어서 Sales Summary Contract에서 제외됐다 (`../../docs/04_DATA_CONTRACT.md` "이 계약에서 뺀 것" 참조).
 
 ### 5. Staff / ManualProgress
 
@@ -130,7 +130,7 @@ if (store) {
   completedAt: "2026-08-10T15:00:00+09:00"
 }
 ```
-`manual_completion_rate`(전체 직원 × 전체 매뉴얼 대비 완료 비율)가 org로 전송된다 (04_DATA_CONTRACT §3-2).
+`manual_completion_rate`(전체 직원 × 전체 매뉴얼 대비 완료 비율)가 org로 전송된다 (04_DATA_CONTRACT §3 — Manual Completion Rate). `completedAt`은 `last_activity_at`, `weekly_active_staff` 계산에도 쓰인다.
 
 ---
 
@@ -181,10 +181,12 @@ erDiagram
 
 | TongssApp 데이터 | org로 나가는 파생 필드 |
 |---|---|
+| Staff 전체 | `staff_count` |
 | Manual 전체 | `manual_count`, `last_manual_updated_at` |
 | ManualProgress 전체 | `manual_completion_rate` |
 | ChecklistCompletion (당일) | `checklist_completion_rate` |
-| InventoryItem (`isLow: true`인 것) | `low_stock_alert_count` (선택) |
+| ManualProgress + ChecklistCompletion + InventoryItem 중 가장 최근 시각 | `last_activity_at` |
+| 위 세 활동 중 최근 7일 내 기록이 있는 고유 `staff_id` 수 | `weekly_active_staff` (선택) |
 
 상세는 shared `../../docs/04_DATA_CONTRACT.md`. **계약과 다른 필드를 여기서 임의로 추가/변경하지 마세요.** 변경이 필요하면 shared `04_DATA_CONTRACT.md`를 먼저 고치고 `../../docs/07_DECISIONS.md`에 기록.
 

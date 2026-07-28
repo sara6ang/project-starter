@@ -17,7 +17,7 @@
 | 하는 일 | `Last_Manual_Updated__c` 또는 `Checklist_Completion_Rate__c`가 N일 이상 갱신되지 않았으면 `Is_Active__c = false`로 갱신 |
 | 왜 Flow인가 | 단순 날짜 비교 로직이라 Apex 트리거보다 Flow가 유지보수하기 쉽다 |
 
-`[확인필요]` **대안도 검토 중:** TongssApp이 `is_active` 값을 직접 계산해서 보내는 방식 (`../../docs/04_DATA_CONTRACT.md` §3-5) — Flow보다 단순하지만 판별 로직이 TongssApp 쪽에 종속된다. **Org PO·Integration Lead·Platform Lead가 함께 결정** (`../../docs/03_PROJECT_GUIDE.md` Week 1). 결정되면 이 문서와 `06_AUTOMATION.md`, `../../docs/07_DECISIONS.md`에 기록.
+`[확인필요]` **대안도 검토 중:** TongssApp이 `is_active` 값을 직접 계산해서 보내는 방식 (`../../docs/04_DATA_CONTRACT.md` §3 — Is Active) — Flow보다 단순하지만 판별 로직이 TongssApp 쪽에 종속된다. **Org PO·Integration Lead·Platform Lead가 함께 결정** (`../../docs/03_PROJECT_GUIDE.md` Week 1). 결정되면 이 문서와 `06_AUTOMATION.md`, `../../docs/07_DECISIONS.md`에 기록.
 
 ---
 

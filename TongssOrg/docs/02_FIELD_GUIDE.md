@@ -13,10 +13,13 @@
 |---|---|---|---|---|
 | Account Name | `Name` | Text | 리스트뷰, 레코드 페이지 | 매장명 (표준 필드) |
 | Store ID | `Store_Id__c` | Text (External ID) | 숨김 (연결용) | TongssApp의 `store_id`와 매핑되는 키 — **`04_DATA_CONTRACT.md` §2 참조, 유일한 연결고리** |
+| Staff Count | `Staff_Count__c` | Number(18,0) | 레코드 페이지 | 등록된 직원 수 |
 | Manual Count | `Manual_Count__c` | Number(18,0) | 레코드 페이지 | 등록된 매뉴얼 총 개수 |
-| Last Manual Updated | `Last_Manual_Updated__c` | DateTime | 레코드 페이지, 리스트뷰 정렬 기준 | 마지막 매뉴얼 등록/수정 시각 — 방치 매장 판별 근거 |
 | Manual Completion Rate | `Manual_Completion_Rate__c` | Percent(3,0) | 레코드 페이지 | 직원 전체 매뉴얼 학습 완료율 |
 | Checklist Completion Rate | `Checklist_Completion_Rate__c` | Percent(3,0) | 레코드 페이지 | 오늘 체크리스트 완료율 (재고 확인 포함) |
+| Last Manual Updated | `Last_Manual_Updated__c` | DateTime | 레코드 페이지, 리스트뷰 정렬 기준 | 마지막 매뉴얼 **콘텐츠** 등록/수정 시각 |
+| Last Activity | `Last_Activity__c` | DateTime | 레코드 페이지 | 학습·체크리스트·재고 확인 중 가장 최근 **활동** 시각 — Last Manual Updated와 다른 질문(콘텐츠 vs 사용)에 답함 |
+| Weekly Active Staff | `Weekly_Active_Staff__c` | Number(18,0) | 레코드 페이지 | 최근 7일 내 활동한 고유 직원 수 (Nice-to-have) |
 | Is Active | `Is_Active__c` | Checkbox | 리스트뷰 필터, 상태 배지 | 방치 매장 판별용 — 계산 방식은 `04_FLOW.md` 참조 |
 
 **Related List**: 없음. 원본 데이터(매뉴얼 내용, 체크리스트 항목 등)는 org에 저장하지 않으므로 자식 레코드가 없습니다 (`01_OBJECT_MODEL.md` 참조).
