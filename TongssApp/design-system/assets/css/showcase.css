@@ -59,7 +59,7 @@ aside{
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: var(--tracking-wide);
   color: var(--gray-500);
   margin: 0 0 var(--space-8);
   padding: 0 var(--space-12);
@@ -76,6 +76,7 @@ aside{
   transition: background-color var(--transition-fast), color var(--transition-fast);
 }
 .ds-nav a:hover { background: var(--gray-100); }
+.ds-nav a:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
 .ds-nav a.is-active {
   background: var(--surface-soft);
   color: var(--color-primary);

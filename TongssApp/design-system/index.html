@@ -59,6 +59,7 @@
     font-size: var(--fs-28);
     font-weight: var(--fw-700);
     line-height: var(--line-height-tight);
+    letter-spacing: var(--tracking-tight);
     color: var(--color-black);
     margin: 0 0 var(--space-12);
   }
@@ -85,7 +86,7 @@
   .section-label {
     font-size: var(--fs-12);
     font-weight: var(--fw-600);
-    letter-spacing: 0.04em;
+    letter-spacing: var(--tracking-wide);
     text-transform: uppercase;
     color: var(--color-accent);
     margin-bottom: var(--space-8);
@@ -94,6 +95,7 @@
     font-size: var(--fs-20);
     font-weight: var(--fw-600);
     line-height: var(--line-height-tight);
+    letter-spacing: var(--tracking-tight);
     color: var(--color-black);
     margin: 0 0 var(--space-8);
   }
@@ -107,7 +109,7 @@
     font-size: var(--fs-12);
     font-weight: var(--fw-600);
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: var(--tracking-wide);
     color: var(--gray-500);
     margin: var(--space-32) 0 var(--space-12);
   }
@@ -155,7 +157,7 @@
     border-bottom: var(--border-thin);
   }
   .type-row:last-child { border-bottom: none; }
-  .type-sample { color: var(--gray-700); }
+  .type-sample { color: var(--color-black); }
 
   /* 글자 굵기 / 줄 높이 */
   .fw-row, .lh-row {
@@ -211,7 +213,7 @@
     font-size: var(--fs-14);
     font-weight: var(--fw-500);
     padding: var(--space-8) var(--space-16);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     border: none;
     cursor: pointer;
     transition: background-color var(--transition-fast);
@@ -228,7 +230,7 @@
     font-size: var(--fs-16);
     padding: var(--space-8) var(--space-12);
     border: var(--border-normal);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     transition: border-color var(--transition-fast);
     width: 100%;
   }
@@ -236,13 +238,12 @@
   .input.is-focus { border: var(--border-focus); box-shadow: var(--shadow-focus); }
   .input.is-disabled { background: var(--gray-100); color: var(--gray-500); }
 
-  /* 실제 카드 */
+  /* 실제 카드 — 평면이 기본, 헤어라인 보더로만 구분 (그림자는 뜨는 표면에만) */
   .card {
     background: var(--color-white);
     border: var(--border-normal);
     border-radius: var(--radius-md);
     padding: var(--space-24);
-    box-shadow: var(--shadow-md);
     width: 100%;
   }
   .card h3 { font-size: var(--fs-16); font-weight: var(--fw-600); margin: 0 0 var(--space-8); color: var(--gray-700); }
@@ -265,7 +266,7 @@
   /* 실제 테이블 */
   .table { width: 100%; border-collapse: collapse; font-size: var(--fs-14); }
   .table th, .table td { text-align: left; padding: var(--space-12) var(--space-16); border-bottom: var(--border-thin); }
-  .table th { font-size: var(--fs-12); font-weight: var(--fw-600); text-transform: uppercase; letter-spacing: 0.04em; color: var(--gray-500); }
+  .table th { font-size: var(--fs-12); font-weight: var(--fw-600); text-transform: uppercase; letter-spacing: var(--tracking-wide); color: var(--gray-500); }
   .table td { color: var(--gray-700); }
 
   footer { text-align: center; font-size: var(--fs-12); color: var(--gray-500); padding-top: var(--space-32); border-top: var(--border-thin); }
@@ -392,9 +393,11 @@
 
     <div class="group-label">모서리 둥글기 (Border Radius)</div>
     <div class="box-grid">
+      <div class="box-cell"><div class="box" style="border-radius: var(--radius-xs)"></div><span class="code-chip" data-copy="var(--radius-xs)">--radius-xs</span></div>
       <div class="box-cell"><div class="box" style="border-radius: var(--radius-sm)"></div><span class="code-chip" data-copy="var(--radius-sm)">--radius-sm</span></div>
       <div class="box-cell"><div class="box" style="border-radius: var(--radius-md)"></div><span class="code-chip" data-copy="var(--radius-md)">--radius-md</span></div>
       <div class="box-cell"><div class="box" style="border-radius: var(--radius-lg)"></div><span class="code-chip" data-copy="var(--radius-lg)">--radius-lg</span></div>
+      <div class="box-cell"><div class="box" style="border-radius: var(--radius-xl)"></div><span class="code-chip" data-copy="var(--radius-xl)">--radius-xl</span></div>
       <div class="box-cell"><div class="box" style="border-radius: var(--radius-full)"></div><span class="code-chip" data-copy="var(--radius-full)">--radius-full</span></div>
     </div>
 
@@ -403,6 +406,7 @@
       <div class="box-cell"><div class="box" style="border: var(--border-thin)"></div><span class="code-chip" data-copy="var(--border-thin)">--border-thin</span></div>
       <div class="box-cell"><div class="box" style="border: var(--border-normal)"></div><span class="code-chip" data-copy="var(--border-normal)">--border-normal</span></div>
       <div class="box-cell"><div class="box" style="border: var(--border-focus)"></div><span class="code-chip" data-copy="var(--border-focus)">--border-focus</span></div>
+      <div class="box-cell"><div class="box" style="border: var(--border-error)"></div><span class="code-chip" data-copy="var(--border-error)">--border-error</span></div>
     </div>
 
     <div class="group-label">그림자 (Shadow)</div>
@@ -441,7 +445,7 @@
   font-size: var(--fs-14);
   font-weight: var(--fw-500);
   padding: var(--space-8) var(--space-16);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   border: none;
   background-color: var(--color-primary);
   color: var(--color-white);
@@ -451,7 +455,7 @@
   font-size: var(--fs-14);
   font-weight: var(--fw-500);
   padding: var(--space-8) var(--space-16);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   background-color: var(--color-primary);
   color: var(--color-white);
 }</div>
@@ -469,7 +473,7 @@
   font-size: var(--fs-16);
   padding: var(--space-8) var(--space-12);
   border: var(--border-normal);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   transition: border-color var(--transition-fast);
 }
 
@@ -481,7 +485,7 @@
   font-size: var(--fs-16);
   padding: var(--space-8) var(--space-12);
   border: var(--border-normal);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 .input:focus {
   border: var(--border-focus);
@@ -494,7 +498,7 @@
         <div class="demo-preview">
           <div class="card">
             <h3>카드 제목</h3>
-            <p>카드 안 여백은 --space-24, 모서리는 --radius-md 입니다.</p>
+            <p>카드 안 여백은 --space-24, 모서리는 --radius-md 입니다. 그림자 없이 헤어라인 보더로만 구분합니다.</p>
           </div>
         </div>
         <div class="demo-code" data-copy=".card {
@@ -502,13 +506,11 @@
   border: var(--border-normal);
   border-radius: var(--radius-md);
   padding: var(--space-24);
-  box-shadow: var(--shadow-md);
 }">.card {
   background-color: var(--color-white);
   border: var(--border-normal);
   border-radius: var(--radius-md);
   padding: var(--space-24);
-  box-shadow: var(--shadow-md);
 }</div>
       </div>
 
